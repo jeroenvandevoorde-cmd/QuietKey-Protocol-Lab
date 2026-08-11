@@ -1,0 +1,337 @@
+CloakVault — Build Plan Amendments Before Implementation
+
+The build plan is approved in principle, but make the following amendments before beginning implementation.
+
+These are protocol-integrity requirements, not optional improvements.
+
+⸻
+
+1. HARD STOP ON MISSING OR UNCERTAIN KATs
+
+For every external known-answer test:
+
+* BIP39
+* BIP32
+* HKDF-SHA256
+* XChaCha20-Poly1305
+
+the expected values must come from an authoritative published source.
+
+If you cannot locate and verify an authoritative test vector:
+
+STOP the milestone and report the missing/uncertain vector.
+
+Do NOT:
+
+* generate a replacement vector using the implementation;
+* generate a vector using another library and treat it as authoritative;
+* alter an expected value to match the implementation;
+* infer an expected value.
+
+The purpose of the KATs is to protect against exactly that circularity.
+
+⸻
+
+2. PIN THE COMPLETE REED-SOLOMON CONSTRUCTION BEFORE CODING
+
+“Reed-Solomon over GF(2^8)” is not sufficiently specific for an independent implementation.
+
+Before implementing rs.ts, create a short protocol specification that pins:
+
+* GF(2^8) primitive polynomial;
+* field multiplication convention;
+* generator polynomial;
+* generator roots;
+* symbol ordering;
+* coefficient ordering;
+* parity ordering;
+* error representation;
+* erasure representation;
+* decoding convention;
+* shortening, if used;
+* exact (n,k) construction;
+* exact 30%-parity calculation;
+* interleaving algorithm.
+
+These become CloakVault protocol constants.
+
+Do not allow the RS implementation to make undocumented choices.
+
+Add independent test vectors containing at minimum:
+
+input data symbols
+→ encoded codeword
+→ corrupted codeword
+→ erasure locations
+→ expected recovered data
+
+The test vectors must be generated once from the specified mathematical construction and then treated as fixed expected values.
+
+The eventual goal is that a future Python implementation can reproduce the exact same RS output without reading the TypeScript source.
+
+⸻
+
+3. TEST GRAMMAR MUST NOT BECOME PROTOCOL V1
+
+The experimental grammar must NOT be named or treated as:
+
+grammar-v1.json
+
+Use an explicitly experimental identifier, for example:
+
+grammar-test-0001.json
+
+or equivalent.
+
+It must be clearly labelled:
+
+EXPERIMENTAL / NON-PRODUCTION GRAMMAR
+
+The production CloakVault protocol must not accidentally become dependent on the first grammar created for testing.
+
+The cloak engine itself must be versioned independently from the experimental recipe grammar.
+
+⸻
+
+4. ADD AUTOMATED CLOAK SANITY CHECKS
+
+Every rendered document should automatically be checked for obvious signs that it is not an ordinary human document.
+
+The test suite should reject or flag documents containing prohibited technical vocabulary or obvious machine identifiers.
+
+At minimum check for terms/patterns related to:
+
+* Bitcoin;
+* cryptocurrency;
+* wallet;
+* seed;
+* mnemonic;
+* key;
+* vault;
+* crypto;
+* encryption;
+* cryptography;
+* CloakVault;
+* CVK;
+* CVSA;
+* CVSB;
+* hexadecimal strings;
+* long machine-looking Base32 strings;
+* technical identifiers;
+* QR/barcode representations.
+
+This is not intended to prove that the document is successfully disguised.
+
+It is a regression test preventing obvious violations of the cloak specification.
+
+⸻
+
+5. ADD A HUMAN-PLAUSIBILITY CHECKPOINT
+
+The cloak milestone must not be considered complete merely because:
+
+encode → decode
+
+works.
+
+The rendered documents must also be qualitatively plausible.
+
+Generate at least 20 different documents using the experimental recipe grammar.
+
+Review them specifically for:
+
+* grammatical awkwardness;
+* repetitive sentence structures;
+* implausible ingredient combinations;
+* strange quantities;
+* unnatural cooking instructions;
+* suspicious formatting;
+* obvious machine-generated patterns;
+* documents that would look unusual to a non-Bitcoin user.
+
+Do not use semantic AI decoding to evaluate or recover the documents.
+
+The purpose is simply to establish whether the current grammar is producing genuinely ordinary-looking text.
+
+Record the observations in the milestone report.
+
+The production grammar will later require substantially more rigorous human testing.
+
+⸻
+
+6. EXPAND THE 1,000-PAYLOAD TEST DISTRIBUTION
+
+Keep the requirement for at least 1,000 deterministic payloads.
+
+However, do not make all 1,000 simply random byte strings.
+
+Include deliberate edge cases such as:
+
+* all-zero payload;
+* all-FF payload;
+* alternating 00/FF;
+* highly repetitive data;
+* sequential byte values;
+* random data;
+* maximum-capacity payload;
+* minimum-capacity payload;
+* slot-boundary cases;
+* payloads designed to exercise every slot width;
+* malformed payloads.
+
+All valid payloads must round-trip exactly.
+
+No mutation may silently produce another valid payload.
+
+⸻
+
+7. CREATE AN INDEPENDENT-IMPLEMENTATION TEST PACKAGE
+
+After the crypto/capsule/share milestones pass, produce a machine-readable interoperability package.
+
+For example:
+
+protocol-test-vectors/
+    README.md
+    vault-key-vector.json
+    capsule-vector.json
+    share-a-vector.txt
+    share-b-vector.txt
+    rs-vector.json
+    capsule-binary.bin
+
+The package must contain sufficient information for a future independent implementation to reproduce the expected outputs.
+
+Include:
+
+* input entropy;
+* mnemonic;
+* Vault Key;
+* Capsule ID;
+* generation;
+* nonce;
+* derived capsule key;
+* ciphertext;
+* tag;
+* complete capsule;
+* share inputs/outputs;
+* RS input/output;
+* expected fingerprints.
+
+These are test artifacts.
+
+Clearly label them as containing test secrets.
+
+The package must not contain any real user data.
+
+⸻
+
+8. KEEP THE MILESTONE GATES
+
+Keep the proposed milestone-gated workflow.
+
+Do not build the entire application ahead of the gates.
+
+The sequence should remain:
+
+1. Crypto core
+        ↓
+2. Shares + Reed-Solomon
+        ↓
+3. Cloak engine
+        ↓
+4. OCR
+        ↓
+5. Self-Test + vectors
+        ↓
+6. UI
+        ↓
+7. Audits
+
+At each milestone:
+
+1. run the complete relevant test suite;
+2. report pass/fail results;
+3. report any unresolved issues;
+4. show the important generated test artifacts;
+5. stop for explicit approval before proceeding.
+
+Do not proceed past a failed acceptance gate.
+
+⸻
+
+9. DO NOT OPTIMIZE AWAY TESTS
+
+The 1,000-payload test suite must remain.
+
+If it makes page load slow, expose:
+
+Run Full Suite
+
+as a separate action.
+
+Do NOT:
+
+* reduce the number of tests;
+* sample only a subset;
+* remove edge cases;
+* make the test probabilistic;
+* silently skip failures.
+
+The fast Self-Test may run a smaller smoke suite automatically, while the full suite remains available explicitly.
+
+⸻
+
+10. PRESERVE THE CORE DESIGN PHILOSOPHY
+
+Do not add features simply because they appear useful.
+
+CloakVault is intentionally:
+
+* air-gapped;
+* client-side;
+* deterministic;
+* simple;
+* open;
+* auditable;
+* minimally featured.
+
+The cloak is not cryptographic security.
+
+The AEAD is the cryptographic security boundary.
+
+The Vault Key is the second factor.
+
+The Recovery Document may be copied freely.
+
+The decoder must never guess.
+
+The LLM must never participate in security-critical processing.
+
+The reference implementation should therefore prefer:
+
+boring, explicit, deterministic behavior
+
+over cleverness.
+
+⸻
+
+Final instruction
+
+Before writing implementation code, revise the build plan to incorporate these amendments.
+
+Then begin with Milestone 1: Crypto Core.
+
+Do not proceed to Milestone 2 until:
+
+* all authoritative KATs pass;
+* capsule round-trip passes;
+* failure tests pass;
+* no KAT has been invented or modified;
+* the complete capsule binary layout is independently inspectable.
+
+If any requirement is ambiguous, stop and surface the ambiguity rather than silently choosing a cryptographic design.
+
+The goal is not merely to build an application that works.
+
+The goal is to establish a small, independently reproducible reference implementation of the CloakVault protocol.
