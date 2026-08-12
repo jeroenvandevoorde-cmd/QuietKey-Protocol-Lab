@@ -1,0 +1,53 @@
+# CloakVault Measurement Milestone: Replit Agent Prompt
+
+## Context (read this first)
+
+The grammar-test-0002 human gate failed. The documents read as machine-generated because the 968-bit codeword forces about 28 ingredients, 14 clone-skeleton steps, and filler slots, and the run-in ingredient prose removed the visual signature of the recipe genre. The accepted diagnosis: a genuinely plausible one-page recipe carries far fewer bits than the current codeword demands. Before anything is rebuilt, two numbers must exist. This milestone produces reports only.
+
+The owner's principle is minimal as possible while still responsible. The working capsule v2 target: 49 bytes, consisting of one version byte (derivation profile implied by version), 32 bytes of seed ciphertext, and a 16-byte tag via an RFC-standardized SIV mode, with no stored nonce, no KDF salt, no stored fingerprint, and no key hint. Parity stays at 30 percent, giving RS(64,49) and a 512-bit codeword. Whether that fits a plausible single-sided page, or requires the back of the same sheet, is decided by these measurements, not assumed.
+
+## Scope and non-negotiable rules
+
+- REPORT-ONLY. Zero changes to the crypto core, capsule format, RS, protocol test vectors, grammar-test-0001, grammar-test-0002, the engine, the UI, or dependencies. No refactors, no cleanups, no fixes along the way. The only files you may add live in a new reports/measurement-0001/ directory: the two reports, the target-artifact texts, and any throwaway analysis scripts, clearly marked as such and not wired into the build or test pipeline.
+- If you find yourself editing any existing file, stop: you have misread the task.
+- All existing suites remain green and untouched. Standing rules hold: client-side only, no storage APIs, no network requests, never log seeds or keys.
+
+## Task 1: Capsule byte-map audit
+
+Produce a field-by-field map of the current 93-byte capsule: field name, offset, size, purpose, and where it is produced and consumed in code, with file and function references.
+
+For each field, a keep-or-drop verdict against the v2 target with a one-sentence justification. Expected verdicts to confirm or refute: version byte keeps, with the derivation profile implied by the version; 32-byte seed ciphertext keeps; 16-byte tag keeps at full length; stored nonce drops under an RFC-standardized SIV construction; KDF salt drops because the Vault Key is already a full-entropy 256-bit secret; stored fingerprint drops because it derives from the seed after decryption; key hint drops. Anything in the 93 bytes not on that list gets flagged with an explanation of what breaks if it is removed.
+
+Name which RFC-standardized SIV constructions have audited implementations available in the current dependency stack, and say plainly if none do; that absence is itself a decision input.
+
+State the confirmed v2 byte count, the resulting RS(n,k) at 30 percent parity, and the codeword bit count. If the confirmed count differs from 49, show the delta and the reason.
+
+Confirm that in the proposed v2 layout the archetype selector bits can be pinned to positions inside the ciphertext region, and state the exact positions you would write into the spec, so the constant-archetype bug cannot recur.
+
+Do not implement v2. Audit and report only.
+
+## Task 2: Target artifact and honest capacity count
+
+Author ONE ideal cloak document by hand: a fully plausible traybake recipe on a single A4 side at the fixed typography (A4, single column, 11pt serif, 20mm margins), in real recipe layout: short title, a one-line description, a serves-and-time line, an ingredient list with one item per line and grouped sub-headers allowed, about 14 ingredient lines, about 6 numbered steps written as short paragraphs, and a brief notes block. No encoding, no slots: write the best possible camouflage document, as a competent human food writer would. The bar: nothing snags on a careful read, nothing is physically absurd, and it looks like a recipe at arm's length. It does not need to be delicious.
+
+Then annotate it: mark every position where a slot could carry bits at class-plausible lexicon sizes (quantities, preps, ingredients via without-replacement pools, verbs, times, sensory tags, swap pairs in the notes), state the honest lexicon size for each at the hygiene floors (pairwise Levenshtein 3 inside without-replacement pools, 2 elsewhere), respect the standing conditioning rules (candidate sets depend only on grammar and archetype, step ingredient mentions are zero-bit echoes), and sum the capacity. Do not inflate: if only eight quantity phrasings are plausible for a spice, that slot is 3 bits, not 5.
+
+Also author a back-side sketch in the same register, a second short recipe or a notes-and-variations page; it need not be as polished. Count its honest capacity the same way.
+
+Report: total honest bits for the single side; total for the duplex sheet; measured word count per side confirming the front fits one A4 side at the fixed typography; bits per rendered word achieved.
+
+## Task 3: Verdict table
+
+One small table: rows for codeword bits required (current 968, and v2 as confirmed by Task 1); columns for honest capacity available (single-sided, duplex). Each cell states fits or does not fit, with the margin in bits. No recommendation and no decision: the product owner decides from the table.
+
+## Acceptance criteria
+
+1. Zero diffs outside reports/measurement-0001/; all suites green and untouched.
+2. Task 1 report complete: full byte map with code references, keep-or-drop verdicts, confirmed v2 size, RS(n,k), codeword bits, the SIV availability statement, and the archetype bit-position proposal.
+3. Task 2 deliverables present: the target document text, the annotated version with per-section capacity sums, the back-side sketch and its count, and the measured word counts.
+4. Task 3 table present.
+5. No implementation of v2, no grammar changes, no UI changes, no dependency changes.
+
+## What not to do
+
+No code changes, no protocol changes, no new grammars, no UI, no dependency updates, no improvements along the way. If a finding tempts you to fix something, write it in the report instead. Measure, report, stop.

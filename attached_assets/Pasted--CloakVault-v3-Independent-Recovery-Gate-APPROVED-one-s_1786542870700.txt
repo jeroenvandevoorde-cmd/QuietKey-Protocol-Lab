@@ -1,0 +1,30 @@
+# CloakVault v3 — Independent Recovery Gate: APPROVED + one spec note
+
+## Gate decision
+
+The independent cross-language recovery milestone **passes**. This is accepted as complete:
+
+- Python, built from the spec alone and given only the published vector's footer + Vault Key, reproduced the exact entropy, the exact 49-byte capsule, and fingerprint 3E1F-3AE0 via its own BIP39/BIP32/secp256k1 stack.
+- Encode direction reproduced the exact 142-char token byte-for-byte.
+- RFC 8452 KATs pass in a second, unrelated library (pyca cryptography).
+- Cross-implementation round trips pass both directions on fresh values; both emit identical tokens.
+- CI now guards against spec/TS/Python drift.
+- Spec-gap report: no byte-determining gaps; criteria passed on first correct assumption.
+
+The cryptographic and error-correction **foundation is now considered complete and independently verified**.
+
+## The one follow-up (docs only)
+
+The spec-gap report correctly identified a single point that required inference rather than reading: the **Forney magnitude formula**, which had to be derived from §3.2's conventions. Accept the proposed fix:
+
+- Add the Forney error-magnitude formula to spec §3.2 as an **explicitly non-normative note** (a convenience derivation, marked as such), so a future independent implementer does not have to re-derive it. This is the only place someone had to think rather than read, and closing it strengthens the reimplement-from-scratch guarantee.
+
+Constraints:
+- **Documentation only.** Do not change any normative constant, ordering, bit convention, the code under `src/lib`, the test vector, or any behavior.
+- The note is a derivation aid; it must not alter what the spec requires.
+- The full validation run (94 vitest + 12 pytest + interop-cross) stays green.
+- Regenerate nothing that would change the vector; the vector is frozen.
+
+## After this
+
+The foundation phase is done. **Stop and await direction on the next phase** — do NOT begin device-capture or multi-genre work yet. The two candidate next phases (a hardware capture spike on a real camera reader; the multi-genre template system) are larger efforts to be scoped separately.

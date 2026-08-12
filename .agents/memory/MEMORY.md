@@ -1,0 +1,1 @@
+- [CloakVault process rules](cloakvault-process.md) — milestone gates, frozen-vector authority, KAT hard stop, grammar-0002 spec pointer.

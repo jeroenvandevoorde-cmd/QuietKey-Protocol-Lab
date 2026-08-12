@@ -1,0 +1,65 @@
+# CloakVault v3 — Gate Approval + Frozen Protocol Specification: Replit Agent Prompt
+
+## Part 1 — v3 footer-codec gate: APPROVED, with three bindings
+
+The v3 footer-codec milestone passes the gate. Three decisions to lock before proceeding:
+
+1. **Parity stays 34** (RS(83,49), 133 data chars). Do not trim it. The damage harness shows silent errors (scuff/fade) collapse fast — 95% survival at 12 chars, ~0% by 26 — because each error costs two parity bytes. The payload is the only copy of the key; keep every byte of margin. Confirmed as shipped.
+
+2. **AAD stays the 1-byte version prefix.** Binding the version into the authenticated data is correct — it prevents an attacker flipping the version byte to reach a different parse path without failing authentication. Follows v1 precedent. Confirmed as-is.
+
+3. **The reader-behavior rule is now a protocol-level requirement, not a device detail.** The harness proves that marking a degraded character as an erasure (cost 1) instead of guessing it (cost 2) is what moves scuff/fade from catastrophic to safe. Any conformant reader — this app, the future device, any independent implementation — MUST mark uncertain/degraded characters as erasures and MUST NOT emit a confident guess. This rule belongs in the spec (Part 2), because it governs correctness, not just UX.
+
+## Part 2 — the milestone: write the frozen protocol specification
+
+This is a **documentation milestone**. No destructive changes, no new crypto, no new design decisions — transcribe the *existing, frozen* v3 protocol into a precise standalone specification. It exists because the project's founding requirement is decades-scale recovery via an **independent recovery implementation**, and that is impossible without a spec that stands alone from this codebase.
+
+### The one acceptance test that matters
+**A competent engineer, given only this spec document and no access to the source code, could reimplement a working encoder and decoder that interoperate byte-for-byte with this implementation.** Write to that bar. Every constant, encoding, and ordering that a reimplementer would otherwise have to guess must be stated explicitly.
+
+### Scope and rules
+- Add a single standalone document (e.g. `SPEC.md` or `docs/cloakvault-protocol-v3.md`) plus a machine-readable test-vector file (JSON). No code changes beyond, if needed, a small script that regenerates the test vector from the real implementation so the spec and code cannot silently diverge.
+- Do not modify the crypto core, the codec, the capsule format, the RS primitive, or their tests. All 94 tests stay green.
+- The spec describes what exists; if writing it surfaces any ambiguity or discrepancy between intended and actual behavior, STOP and report it rather than "fixing" code under cover of a docs task.
+
+### Required contents (each stated precisely enough to reimplement)
+
+**1. Capsule.**
+- Byte layout: `0x02 ‖ ciphertext(32) ‖ tag(16)` = 49 bytes; define each field.
+- Cipher: AES-256-GCM-SIV per RFC 8452. State endianness and any byte-order conventions.
+- Nonce: fixed all-zero 12 bytes. State the **deterministic-equality property** (identical seed + identical Vault Key → byte-identical capsule) as an **intended** property for equivalent-card redundancy, with the explicit note that it must not be "fixed" by adding randomness.
+- Key derivation: `HKDF-SHA256(ikm = 256-bit Vault Key, salt = empty, info = UTF-8 bytes of "CLOAKVAULT-V3-CAPSULE-KEY", L = 32)`. Give the info string's exact bytes (hex), state salt is empty (and what "empty" means for this HKDF), and the output length.
+- AAD: the 1-byte version prefix `0x02`. State it explicitly.
+
+**2. Reed–Solomon layer.**
+- RS(83, 49) over GF(2^8). State the field's **primitive polynomial**, the **generator polynomial** (or the convention that fixes it), the symbol/byte mapping, and whether data is systematic.
+- Parity = 34 bytes. Budget rule: `2·errors + erasures ≤ 34`.
+- **Erasure interface:** define how erasure positions are represented and passed to the decoder, and state the conformance rule from Part 2/#3 (readers mark degraded chars as erasures, never guess).
+
+**3. Bech32 footer encoding.**
+- Alphabet: `qpzry9x8gf2tvdw0s3jn54khce6mua7l` (exact order — it defines the value of each char).
+- Byte-to-Bech32 packing: state exactly how the 83 codeword bytes (664 bits) map to 133 5-bit Bech32 data characters, including bit order and any padding.
+- Sentinel: `cv0` prefix; define its role and the length-run fallback used when the sentinel itself is destroyed.
+- Checksum: the 6-character Bech32 (BCH) checksum — state the exact algorithm/constants (or cite the Bech32 spec section) so it can be recomputed.
+- Full token = sentinel + 133 data + 6 checksum = 142 chars. Line-wrap convention (48 chars) — state it as presentation-only and NOT part of the payload (the decoder must strip wrapping/whitespace and any surrounding URL text).
+- **Genre-independence:** state that extraction is purely structural (locate sentinel, else length-run fallback) and MUST NOT depend on surrounding URL, domain, or parameter text.
+
+**4. End-to-end conformance test vector (self-verifying).**
+Provide at least one complete worked example in the JSON file and narrated in the spec:
+- a fixed 24-word seed (or its entropy) and a fixed 256-bit Vault Key (both as hex),
+- the derived AES key (hex),
+- the resulting 49-byte capsule (hex),
+- the 83-byte RS codeword (hex),
+- the final 142-char Bech32 token,
+- and an example rendered footer line.
+Any reimplementation can run this vector and check every intermediate value against the published answer. Include the RFC 8452 Appendix C.2 KAT references already used, so the capsule crypto is independently anchored.
+
+**5. Versioning note.** State that these constants are frozen for version `0x02`; future changes take a new version byte and a new spec, and v1/v2 capsules remain decodable by their own rules.
+
+### Deliverables
+- The standalone spec document.
+- The machine-readable test-vector JSON (and any regeneration script).
+- Confirmation that the 94-test suite is still green and no protocol code changed.
+- If any ambiguity/discrepancy was found while writing, a list of it (else state "none found").
+
+Then stop for review. Do not begin the self-test/independent-recovery milestone or any device/multi-genre work until this spec is approved.
