@@ -21,3 +21,6 @@ description: Durable process rules and frozen protocol decisions for CloakVault 
 ## Backlog (owner-sequenced, not yet tasks)
 - Multi-genre cover templates: content-only workstream; the footer codec is genre-independent, no protocol change allowed.
 - Signing capability: strictly AFTER a hardware-validated recovery device exists.
+
+## Self-Test page port rule
+The in-browser Self-Test suites (src/lib/selftest/suites.ts) must stay a faithful, assertion-complete port of the vitest files — audit each `it` mechanically when either side changes; counts never reduced, expected values never altered. The frozen-vector export only downloads on byte-match with docs/cloakvault-v3-test-vector.json.
