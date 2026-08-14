@@ -189,8 +189,12 @@ ${tokens.slice(0, 5).map(tokenBlock).join('\n')}
 mkdirSync('spike', { recursive: true });
 writeFileSync('spike/sheet.html', html);
 writeFileSync('spike/tokens.json', JSON.stringify(tokensJson, null, 2) + '\n');
+// Also publish the sheet through the dev server so it opens in a browser tab
+// for printing (same bytes as spike/sheet.html).
+mkdirSync('public/spike', { recursive: true });
+writeFileSync('public/spike/sheet.html', html);
 
-console.log('Wrote spike/sheet.html and spike/tokens.json');
+console.log('Wrote spike/sheet.html, public/spike/sheet.html and spike/tokens.json');
 for (const t of tokens) {
   console.log(`${t.id}: ${t.token.slice(0, 8)} … ${t.token.slice(-8)}`);
 }
