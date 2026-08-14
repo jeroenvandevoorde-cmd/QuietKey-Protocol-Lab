@@ -1,0 +1,9 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "h05vOgW6V9aAVaHrYUotA"
+uri = "file://artifacts/cloakvault/spike/sheet.html"
+type = "text"
+title = "Capture-spike measurement sheet v1"
+description = "Two-page A4 printable: T0–T4 measurement blocks + 50 mm scale bar, and a realistic full recipe page with T5 in the footer. TEST TOKENS ONLY."
