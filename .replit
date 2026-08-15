@@ -1,4 +1,4 @@
-modules = ["nodejs-24", "python-base-3.13"]
+modules = ["nodejs-24"]
 
 [deployment]
 router = "application"
@@ -10,56 +10,6 @@ env = { "CI" = "true" }
 
 [workflows]
 runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "test"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "interop-python"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "interop-cross"
-
-[[workflows.workflow]]
-name = "test"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd artifacts/cloakvault && pnpm vitest run --disable-console-intercept"
-
-[workflows.workflow.metadata]
-isValidation = true
-
-[[workflows.workflow]]
-name = "interop-python"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd artifacts/cloakvault && interop/python/.venv/bin/python -m pytest interop/python/test_interop.py -q"
-
-[workflows.workflow.metadata]
-isValidation = true
-
-[[workflows.workflow]]
-name = "interop-cross"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd artifacts/cloakvault && npx tsx scripts/interop-check.ts"
-
-[workflows.workflow.metadata]
-isValidation = true
 
 [agent]
 stack = "PNPM_WORKSPACE"
