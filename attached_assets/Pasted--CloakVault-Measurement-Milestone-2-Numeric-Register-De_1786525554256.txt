@@ -1,0 +1,66 @@
+# CloakVault Measurement Milestone 2: Numeric-Register Density — Replit Agent Prompt
+
+## Context (read this first)
+
+Measurement-0001 established the wall: a fully plausible A4 side of prose-register recipe carries ~110 honest bits, against a 256-bit seed. The product owner has since fixed several parameters and this milestone measures one open number before any build.
+
+Fixed decisions (not open for this milestone):
+- Seed stays 256-bit (24-word). Not negotiable.
+- Authentication tag stays 128-bit via AES-256-GCM-SIV (RFC 8452, already in @noble/ciphers). Not truncated: truncating leaves the standard construction.
+- Parity is being trimmed from 30 percent toward a responsible floor of ~15 percent (survives losing ~1/7 of the page), not lower.
+- Register switches to metric-numeric: real weights, temperatures, and times ("450 g swede, 190°C, 35 min"), because that is both denser and MORE plausible than prose quantities, not less. The camouflage bar is unchanged: the page must read as an ordinary printed recipe to any stranger, never as anything cryptic.
+- One physical A4 sheet is the target. Using the back of the same sheet (duplex) is allowed and is not a second document. An A5 booklet and multiple loose sheets are rejected.
+
+Resulting codeword target to measure against: 256-bit seed + 128-bit tag + 8-bit version = 392 payload bits, at ~15 percent parity ≈ **440-bit codeword** (state the exact RS(n,k) and codeword bits you derive at 15 percent; if the nearest clean RS block differs, report it).
+
+This milestone is REPORT-ONLY. The single question: does a genuinely plausible metric-numeric recipe, one A4 side and then duplex, carry ~440 honest bits at the hygiene floors, or not.
+
+## Scope and non-negotiable rules
+
+- REPORT-ONLY. Zero changes to any existing file: crypto, capsule, RS, protocol vectors, grammar-test-0001, grammar-test-0002, engine, UI, dependencies. No refactors, no fixes. The only new files live in a new reports/measurement-0002/ directory: the report, the artifact texts, and any clearly-marked throwaway counting script not wired into the build.
+- If you find yourself editing an existing file, stop: you have misread the task.
+- All 138 existing tests remain green and untouched. Standing rules hold: client-side only, no storage APIs, no network requests, never log seeds or keys.
+
+## Task 1: Author the densest plausible metric-numeric recipe (one A4 side)
+
+Write ONE recipe by hand, no encoding and no slots, as the best real food writer would, optimized for honest information density while staying fully plausible. Constraints:
+
+- Fits one A4 side at fixed typography: A4, single column, 11pt serif, 20mm margins. (Typography is back to 11pt/20mm for this measurement; the earlier 10.5pt/16mm squeeze is not assumed here.) Report measured word count and confirm one side.
+- Real recipe layout: title, one-line description, a serves/yield and prep/cook/oven line, an ingredient list with one item per line (grouped sub-headers allowed), numbered method steps as short paragraphs, a brief notes block. NOT a semicolon run-in wall: that layout failed the plausibility gate and is prohibited here.
+- Metric-numeric throughout: every ingredient carries a numeric weight or volume; steps carry numeric temperatures and times. Quantities must be plausible for their ingredient and for the stated yield (no industrial amounts for a 2–4 serving dish).
+- The camouflage bar governs: nothing snags on a careful read, nothing physically absurd, no ingredient cooked that is not listed, header time consistent with the sum of step times, correct spelling (no deliberate misspellings — they collide with edit-distance recovery and are prohibited as a density device).
+- A baking archetype is permitted if it is denser, since precise weights and temperatures are native to baking; choose whichever genuinely plausible archetype maximizes honest numeric entropy.
+
+## Task 2: Honest capacity count
+
+Annotate the artifact: mark every position that could carry payload bits at class-plausible lexicon sizes, and sum. Count honestly, no inflation.
+
+Bit sources to enumerate separately, with the assumptions shown:
+- Numeric quantities: for each, state the plausible range and the plausible granularity (e.g. flour 100–500 g in 25 g steps → log2(17) ≈ 4.1 bits), and justify that granularity as something a real recipe would show. Do NOT claim finer granularity than a real recipe plausibly prints.
+- Temperatures and times: same treatment (e.g. oven 150–220°C in 10°C steps; a time 10–90 min in 5 min steps).
+- Ingredient identities: without-replacement pools per class at pairwise Levenshtein ≥ 3; state pool size and k per group.
+- Any method/technique or ordering choices: only where genuinely free within plausibility, at ordinary-slot floor ≥ 2.
+- Zero-bit echoes and derived fields carry nothing, per the standing conditioning rules; mark them as 0.
+
+Report: honest bits for the single side, broken down by the sources above; bits per rendered word; and how the numeric register's bits-per-word compares to measurement-0001's prose 0.42.
+
+## Task 3: Duplex
+
+Author a plausible back side in the same register (a second short recipe, or a variations/nutrition/notes page that is genuinely plausible on the back of a recipe card) and count its honest bits the same way. Report duplex total.
+
+## Task 4: Verdict table
+
+One table. Rows: 440-bit responsible-floor codeword (and, for reference, the 512-bit full-parity codeword). Columns: single-side honest bits, duplex honest bits. Each cell: closes or does not close, with the margin in bits. No recommendation, no decision, no build proposal. The product owner decides from the table.
+
+## Acceptance criteria
+
+1. Zero diffs outside reports/measurement-0002/; all 138 tests green and untouched.
+2. The recipe artifact text present, confirmed to fit one A4 side at 11pt/20mm with measured word count, in real recipe layout (not a run-in wall).
+3. The annotated capacity breakdown present, with per-slot range and granularity assumptions stated and justified, not just totals.
+4. The duplex back-side artifact and its count present.
+5. The verdict table present, against both the 440-bit and 512-bit codewords.
+6. No code, no grammar, no UI, no dependency changes.
+
+## What not to do
+
+No code changes. No new grammar or engine work. No deliberate-misspelling density device. No semicolon run-in layout. No granularity or lexicon-size inflation to make the number look better: an honest short number that fails the fit is the correct result if that is the truth. Measure, report, stop.

@@ -1,0 +1,56 @@
+# CloakVault v3 — Independent Cross-Language Recovery Implementation: Replit Agent Prompt
+
+## Why this milestone exists
+
+The founding requirement of CloakVault is decades-scale recovery that does NOT depend on this one codebase surviving. The v3 spec (`docs/cloakvault-protocol-v3.md`) claims to be reimplementable from the document alone. This milestone **proves that claim** by building a second, fully independent implementation in a **different language (Python)** and showing it interoperates byte-for-byte with the TypeScript original — and, critically, with the *published test vector*, i.e. values it was not handed by the original code.
+
+The value is entirely in the independence. A second TypeScript implementation, or one that imports the same libraries or reads `src/lib`, proves nothing — it would test whether the same code agrees with itself. Only a from-scratch, different-language, different-library implementation tests whether the **spec** is complete and unambiguous.
+
+## The discipline (this is what makes the test meaningful)
+
+- Write the Python implementation **from `docs/cloakvault-protocol-v3.md` and `docs/cloakvault-v3-test-vector.json` only.** Do NOT read, port, or translate `src/lib`. The TypeScript source is off-limits as a reference; the spec is the sole source of truth.
+- Where the spec is unambiguous, follow it exactly. Where you find yourself **guessing** — any point where the document did not fully determine a byte, a bit order, a constant, or an ordering — that is a **spec gap**. Record every such point. Those gaps are the primary finding of this milestone, more important than a green checkmark.
+- The proof is **behavioral, not trust-based**: the Python code will be judged by whether it reproduces values it was never given, so it does not matter whether it "really" avoided the source — matching independently-sourced published values is the proof.
+
+## What to build
+
+A standalone Python implementation under `interop/python/` (separate directory; it must not import from or be imported by the app):
+
+1. **Capsule layer.**
+   - Source AES-256-GCM-SIV from a real, third-party Python library (e.g. `cryptography`), NOT a hand-rolled cipher. State which library and version.
+   - Independently pass the **RFC 8452 Appendix C.2 KAT vectors** in this Python code, so the capsule cipher is validated against the standard by a second, unrelated library. Include these as tests.
+   - Implement the key schedule from the spec: HKDF-SHA256, empty salt, the exact info string (hex `434c4f414b5641554c542d56332d43415053554c452d4b4559` = "CLOAKVAULT-V3-CAPSULE-KEY", 25 bytes), 32-byte output. All-zero 12-byte nonce. AAD = the 1-byte version prefix `0x02`. 49-byte capsule layout `0x02 ‖ ct(32) ‖ tag(16)`.
+
+2. **Reed–Solomon layer (hand-built from the spec).**
+   - RS(83,49) over GF(2⁸) with primitive polynomial `0x11D`, generator roots α⁰…α³³, systematic layout and parity ordering exactly as §3 specifies. Do NOT use an RS library that might make different convention choices — implement it from the spec so the spec's RS description is what gets tested. (A generic GF library for field arithmetic is fine; the RS construction itself must follow the spec.)
+   - Implement the erasure interface and the §3.4 conformance rule (mark-as-erasure, never guess).
+
+3. **Bech32 footer layer (hand-built from the spec).**
+   - Alphabet, MSB-first bit packing with the defined final pad bit, `cv0` sentinel + length-run fallback, BIP-173 checksum with HRP "cv" (checksum input only, never printed), structural genre-independent extraction. All from §4.
+
+4. **Full pipeline both directions.**
+   - Encode: entropy + Vault Key → capsule → RS codeword → 142-char token → footer line.
+   - Decode: footer line(s) → extract → RS decode (with erasures) → capsule → open → entropy.
+
+## Acceptance criteria (behavioral, byte-exact)
+
+1. **Decode the published vector:** given ONLY the footer line(s) and Vault Key from `docs/cloakvault-v3-test-vector.json`, the Python decoder reproduces the exact entropy, the exact 49-byte capsule (hex), and fingerprint **3E1F-3AE0**. These are values the Python code was not handed as answers — matching them proves correct spec implementation.
+2. **Encode to the published vector:** given the entropy and Vault Key, the Python encoder reproduces the **exact 142-character token, byte-for-byte**, and the same rendered footer line.
+3. **RFC 8452 KATs pass** in the Python capsule layer, via the third-party library.
+4. **Erasure behavior matches spec:** a burst-erasure case within budget decodes; one beyond budget fails cleanly. (Reproduce a couple of the harness cases at parity 34: coffee/erasure survives, and demonstrate the mark-as-erasure path.)
+5. **Cross-implementation round trips:** tokens produced by the TypeScript implementation decode correctly in Python, and tokens produced by Python decode correctly in TypeScript. (You may run the TS side via its existing code to generate/consume tokens for this check — this is comparing *outputs*, not sharing *source*.)
+6. **Wired into CI** so the interop check runs on every change and catches any future drift between spec, TypeScript, and Python.
+
+## Primary deliverable: the spec-gap report
+
+A written list of **every point where the spec did not fully determine the implementation** — every place the Python author had to infer, guess, or choose. For each: what was ambiguous, what was assumed, and whether the assumption turned out correct (i.e. produced matching bytes) or had to be corrected. If the list is empty, state that explicitly and note that acceptance criteria 1–2 passing on first correct assumption is the evidence.
+
+If any spec gap is found, do **not** silently patch the spec to match code — report the gap and propose the spec clarification for review. The spec is the authority; if it is wrong or incomplete, that is exactly what this milestone is meant to surface.
+
+## Rules
+
+- Do not modify `src/lib`, the crypto core, the codec, or their tests. Do not modify the spec or the test vector in this milestone (propose changes in the report instead). The 94-test suite stays green.
+- Python code lives only under `interop/python/`, isolated from the app.
+- Standing rules still apply to anything runtime in the app (none should change here).
+
+Then stop for review. Report: pass/fail on each acceptance criterion with the actual reproduced values (entropy, capsule hex, fingerprint, token), the library used for AES-GCM-SIV, and the spec-gap report.

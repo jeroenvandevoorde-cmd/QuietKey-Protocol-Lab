@@ -1,0 +1,88 @@
+# CloakVault v3 — Footer Codec (replaces the semantic-slot cloak): Replit Agent Prompt
+
+## Context (read this fully before touching anything)
+
+CloakVault's architecture has changed based on two months of testing. The old approach hid the seed *inside* plausible recipe text via error-corrected semantic-slot encoding (grammar-test-0001, grammar-test-0002). That approach is retired: a plausible one-page recipe cannot carry a 256-bit seed, and the generated recipes failed human plausibility review.
+
+New architecture, already validated on the math and with a physical damage test: the entire payload lives in the **print-artifact footer string** — the opaque `?id=…` token on a sloppy web-page printout. The document body is a **real, ordinary recipe that carries zero payload**, so it is trivially plausible. Recovery scans **one page**; the whole encrypted seed plus error-correction is in that page's footer string.
+
+This milestone rips out the slot cloak and rebuilds the payload path as a **footer codec**. It is destructive. Read the "What to delete / keep" section exactly.
+
+## What to DELETE (the semantic-slot cloak, entirely)
+
+- The cloak engine and both grammars: grammar-test-0001, grammar-test-0002, the archetype layer, without-replacement group encoder, echoes, derived fields, the slot tokenizer, the grammar JSON files and their generator scripts, the grammar auto-detect/registry, and all tests that exclusively cover them.
+- The document-body encoding path end to end: anything that maps codeword bits into recipe words, and anything that parses recipe words back into bits.
+- Any UI that renders or reads slot-encoded recipe bodies as the data carrier.
+
+Delete cleanly. Do not leave dead exports, dead imports, or grammar files behind. History preserves them in git; the working tree should not reference them.
+
+## What to KEEP (unchanged, do not modify)
+
+- The crypto core: AES-256-GCM-SIV capsule (RFC 8452, @noble/ciphers), the v2 capsule format (49 bytes: 1 version + 32 seed ciphertext + 16 tag), its KATs, and its tests. Payload is unchanged. This codec is a new *container and error-correction layer around the same 49-byte capsule*.
+- The Reed–Solomon primitive over GF(2^8) with erasure decoding (from M2) — reuse it; do not rewrite the field math. If its current parameters are hardcoded to the old RS(121,93), parameterize n and k rather than forking the algorithm.
+- Standing rules: client-side only, no storage APIs (localStorage/sessionStorage/cookies/IndexedDB), no runtime network requests, never log seeds or keys, TEST USE ONLY banner on every page.
+
+## The footer codec — specification
+
+### Input / output
+- Encode: 49-byte capsule → an opaque payload string over a fixed alphabet.
+- Decode: a (possibly damaged) payload string → the 49-byte capsule, or a clean typed failure with counts.
+
+### Alphabet and integrity
+- Use the **Bech32 character set** `qpzry9x8gf2tvdw0s3jn54khce6mua7l` (deliberately excludes the confusable `1 b i o`). Do NOT invent a charset.
+- Include Bech32's checksum (BCH) so the string is **self-validating and error-locating before RS runs**. The checksum both detects corruption and helps mark suspect positions.
+- The payload string must be **self-delimiting and genre-independent**: the decoder locates and extracts the payload by its own structure (a fixed prefix/sentinel in the Bech32 alphabet + the checksum), NOT by any surrounding URL text, domain, or parameter name. A guitar-tab footer, a travel-blog footer, and a recipe footer must all decode identically. This is a hard requirement — do not couple extraction to recipe-specific text.
+
+### Error correction (the core of this milestone)
+- Wrap the 49 capsule bytes in erasure-aware RS over GF(2^8). Make parity **configurable** (a single constant `RS_PARITY_BYTES`), because the exact ratio is being set empirically. Ship the default at the **robust end: parity sized so the codeword is ~133 Bech32 characters** (≈34 parity bytes, n≈83), which the damage test indicated as the safe choice against the one unresolved damage mode (scuff/fade). Document the resulting: n, k, parity bytes, Bech32 char count, theoretical max erasure fraction, theoretical max error fraction (recall 2·errors + erasures ≤ parity).
+- The decoder must distinguish and **report** the two damage classes on every attempt: number of **erasures** (positions the capture marked unreadable) and number of **errors** (positions RS had to both locate and correct). This instrumentation is required — it is how the scuff/fade question gets answered for real.
+- **Erasure interface:** the decode API must accept an explicit list of erasure positions (characters the reader flagged as unreadable/destroyed), because physical damage that the reader can see as missing is twice as cheap to correct. The reader marking damage as erasures rather than guessing is the whole robustness argument — the API must support it.
+
+### Layout defense
+- When rendering the payload into a footer, **split it across multiple lines** (as a long real URL wraps when printed), so a contiguous stain/scratch damages part of one line rather than a contiguous slice of the whole codeword. Document the wrap width used.
+
+## Rendering (the printable page)
+
+- Render a **plausible printed-recipe page** whose body is a **real recipe carrying no payload**. For this milestone, use a **small curated set of genuinely good, human-quality recipes** (3–5 is enough) as fixed templates — NOT procedurally generated bodies. Uniformity/blandness is a detectable signature; these must read like real recipes a person would print.
+- Place the payload in a **footer that looks like a sloppy browser print**: a plausible fake domain (e.g. `arecipeforamaster.com`) + `/print?id=` + the wrapped payload string + a trailing `&v=1` and a date. The footer must look like machine exhaust, not content.
+- The body recipe and the footer payload are **independent**: changing the recipe must not change the payload, and vice versa. Prove this in a test.
+- Print CSS: the payload footer must render identically and completely on paper (no clipping). Keep the existing A4 print setup.
+
+## Recover page (rebuilt)
+
+- Input is the scanned/typed **footer payload string** (plus the Vault Key). The old recipe-body textarea as data carrier is gone; the recovery contract is now the payload string.
+- On every attempt, show the instrumented result: extracted? checksum valid? RS decoded? erasures used, errors corrected, parity budget (2t + e ≤ parity), and on success the capsule fingerprint; on failure a clean typed error. No partial/garbage output on failure.
+- Genre-agnostic extraction: pasting the whole footer line (URL and all) must work — the decoder finds the payload inside it.
+
+## Damage harness (so the scuff question gets a real answer)
+
+Add a test/dev harness (not a runtime feature) that:
+- Encodes a known capsule, renders the footer string.
+- Programmatically applies the six physical-damage models as **character-level corruption**: clean erasures (coffee/scratch/crumple → known-missing runs) and silent errors (scuff/fade/crease → wrong-but-valid characters at unknown positions), at configurable sizes and both contiguous-burst and scattered patterns.
+- Reports decode success and the erasure/error counts, across many seeds, for each parity setting.
+- This lets the real RS + Bech32 pipeline be measured against the exact damage types from the paper test, and lets `RS_PARITY_BYTES` be tuned from evidence.
+
+## Acceptance criteria
+
+1. The slot cloak (both grammars, engine, generator, registry, exclusive tests) is fully removed; no references remain in the working tree; the build is clean.
+2. Crypto core and RS primitive unchanged (no diffs to their algorithm code or KATs); their tests still green.
+3. Round trip: 49-byte capsule → Bech32 payload → capsule is identity over ≥1000 random capsules, zero loss on clean input.
+4. Checksum: corrupting any single character is detected by the Bech32 checksum before RS; report a test demonstrating it.
+5. Erasure-aware RS at the shipped default parity decodes correctly up to its theoretical erasure limit and fails cleanly (with counts) beyond it; a burst-erasure test and a scattered-error test both pass.
+6. Genre-independence: the same payload string extracts and decodes identically when wrapped in ≥2 different fake footers (e.g. a recipe domain and a guitar-tab domain), proving extraction is not coupled to recipe text.
+7. Body/footer independence: a test shows changing the recipe body leaves the payload byte-identical and vice versa.
+8. The damage harness runs and reports erasure/error counts per parity setting across the six damage models.
+9. Recover shows the full instrumented result (extracted / checksum / decoded / erasures / errors / budget / fingerprint) on success and a clean typed failure otherwise, for a paste-only flow.
+10. Standing rules hold: storage-API grep zero, no runtime network requests, TEST USE ONLY banner present.
+
+## What NOT to do
+
+- Do not modify the crypto core, the capsule format, or the RS field math.
+- Do not invent a character set or a checksum — use Bech32's.
+- Do not couple payload extraction to recipe/domain-specific text (kills multi-genre later).
+- Do not procedurally generate recipe bodies for this milestone — use a few curated real ones.
+- Do not add storage or network. Do not build the multi-genre template system yet (recipes only for now; the codec must merely be *ready* for other genres).
+- Do not guess through damaged characters in the decoder — support marking them as erasures.
+- If you find yourself re-implementing the slot cloak in any form, stop: it is deleted on purpose.
+
+Report at the end: the chosen n/k/parity and the resulting Bech32 length; the damage-harness table (erasures/errors survived per parity setting for each of the six models); and confirmation of each acceptance criterion. Then stop for review before any device/hardware or multi-genre work.

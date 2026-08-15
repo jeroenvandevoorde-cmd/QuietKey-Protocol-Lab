@@ -1,0 +1,1892 @@
+CloakVault Reference Implementation — Replit Agent Build Prompt
+
+Context — Read This First
+
+You are building the reference software implementation for CloakVault, a long-term Bitcoin cold-storage protocol.
+
+CloakVault’s core concept is:
+
+Hide your Bitcoin in plain sight.
+
+A 24-word BIP39 seed is converted to its 32-byte entropy, encrypted under a random 256-bit Vault Key into an authenticated Recovery Capsule, and represented as an ordinary-looking human document — the Recovery Document.
+
+Recovery requires two separate things:
+
+1. the Recovery Document;
+2. the corresponding Vault Key.
+
+Neither is sufficient by itself.
+
+The Recovery Document contains authenticated ciphertext, not the seed.
+
+The Vault Key contains no Bitcoin seed.
+
+The document may therefore be copied freely without exposing the seed, provided the corresponding Vault Key is not compromised.
+
+This build is the protocol correctness reference implementation, covering the equivalent of Phases 2 and 3 of the CloakVault development plan:
+
+* complete cryptographic pipeline;
+* capsule creation and recovery;
+* deterministic cloak encoding/decoding;
+* OCR recovery path;
+* Independent Recovery share format;
+* self-tests;
+* deterministic test-vector generation.
+
+This is not a wallet product.
+
+It is not a production signing device.
+
+It is not connected to Bitcoin.
+
+It does not contain smart-card functionality.
+
+It does not contain KMAC/key-management functionality.
+
+It does not communicate with a backend.
+
+If a larger CloakVault blueprint is attached to the project, treat this prompt as the authoritative scope for this implementation. Do not expand the scope beyond what is specified here.
+
+⸻
+
+1. Non-Negotiable Rules
+
+1.1 Client-side only
+
+Everything must run locally in the browser.
+
+There must be:
+
+* no backend;
+* no Express;
+* no server;
+* no database;
+* no API routes;
+* no cloud services;
+* no analytics;
+* no telemetry;
+* no user accounts.
+
+The only permitted runtime network activity is loading the explicitly required tesseract.js worker/assets.
+
+If you find yourself adding a server, stop. You have misunderstood the task.
+
+⸻
+
+1.2 Secrets never persist
+
+Never write secrets to:
+
+* localStorage;
+* sessionStorage;
+* IndexedDB;
+* cookies;
+* URL parameters;
+* browser history;
+* service-worker caches;
+* analytics;
+* telemetry;
+* server logs.
+
+Never log:
+
+* seed entropy;
+* mnemonic;
+* Vault Key;
+* capsule key;
+* share data;
+* KMAC;
+* decrypted secrets
+
+to the console.
+
+All application state remains in memory only.
+
+The application must make a best-effort attempt to zero mutable secret buffers before releasing them, using mechanisms such as Uint8Array.fill(0) where practical.
+
+Important: browser JavaScript cannot guarantee physical RAM sanitization. Do not claim that it can.
+
+⸻
+
+1.3 Permanent safety banner
+
+Display this banner prominently on every page:
+
+TEST USE ONLY. Never enter a seed that controls real funds.
+
+The default Create flow uses the fixed test mnemonic.
+
+Entering a custom mnemonic requires explicitly ticking a warning checkbox first.
+
+The application must never suggest that it is suitable for protecting real funds.
+
+⸻
+
+1.4 Cryptography libraries
+
+Use cryptographic primitives only from:
+
+* @scure/bip39
+* @scure/bip32
+* @noble/hashes
+* @noble/ciphers
+
+Do not hand-roll cryptographic primitives.
+
+The sole exception is the Reed-Solomon implementation described below.
+
+Do not add another cryptography library to “make something easier.”
+
+If a required primitive is unavailable in the specified libraries, stop and expose the issue rather than silently substituting another implementation.
+
+⸻
+
+1.5 Known-answer tests
+
+Known-answer tests must come from authoritative published sources.
+
+Never generate a KAT by running this implementation and then declaring its output correct.
+
+If a KAT fails:
+
+Fix the implementation. Never change the expected value to match the implementation.
+
+⸻
+
+1.6 Deterministic randomness
+
+Every random value must pass through one injectable RNG interface.
+
+Production:
+
+SystemRNG
+  └── crypto.getRandomValues()
+
+Testing:
+
+DeterministicTestRNG
+  └── deterministic seeded test generator
+
+The deterministic test RNG must never be reachable from normal production Create flows.
+
+Random values include:
+
+* Vault Key;
+* Capsule ID;
+* AEAD nonce;
+* Independent Recovery share randomness.
+
+Tests and vector export must be completely deterministic when supplied with the same test RNG stream.
+
+⸻
+
+2. Stack
+
+Use:
+
+* Vite;
+* React;
+* TypeScript;
+* tesseract.js.
+
+Use plain CSS or Tailwind.
+
+No component library is necessary.
+
+The interface should be:
+
+* clean;
+* quiet;
+* boring;
+* technical but approachable;
+* deliberately free of unnecessary features.
+
+Do not build a “crypto dashboard.”
+
+⸻
+
+3. File Layout
+
+Use approximately:
+
+src/
+  lib/
+    crypto/
+      wallet.ts
+      vaultkey.ts
+      kdf.ts
+      aead.ts
+      capsule.ts
+      fingerprint.ts
+      shares.ts
+      rng.ts
+    cloak/
+      rs.ts
+      grammar.ts
+      encoder.ts
+      tokenizer.ts
+      decoder.ts
+  data/
+    grammar-test-v1.json
+    grammar-v1.json   ← only if explicitly supplied
+  lib/
+    vectors/
+      external-kats.ts
+      exported-vectors.ts
+  pages/
+    Create.tsx
+    Recover.tsx
+    Shares.tsx
+    SelfTest.tsx
+
+Keep cryptographic code, cloak code, UI code, and test/vector code clearly separated.
+
+⸻
+
+4. IMPORTANT — Do Not Invent the Production Grammar
+
+The production CloakVault grammar is protocol material.
+
+Do not invent a production grammar-v1.json and silently treat it as final.
+
+If a reviewed production grammar file is supplied with the project, use it exactly.
+
+If no production grammar is supplied:
+
+1. create a clearly labelled grammar-test-v1.json;
+2. use it to exercise the complete cloak engine;
+3. make the application explicitly state that it is a test grammar;
+4. do not claim that the resulting document meets the final CloakVault naturalness/capacity requirement.
+
+The test grammar should be deliberately simple and designed to stress:
+
+* encoding;
+* decoding;
+* capacity;
+* OCR;
+* erasure handling;
+* collision handling;
+* Reed-Solomon correction.
+
+The production human-quality recipe grammar will be designed separately.
+
+This separation is intentional.
+
+⸻
+
+5. Cloak Philosophy
+
+The Recovery Document is a real ordinary-looking human document.
+
+For example, it may be a recipe.
+
+If it is a recipe:
+
+* the recipe must actually make sense;
+* ingredients must be plausible;
+* quantities must be plausible;
+* cooking methods must make sense;
+* prose must be natural;
+* connective language must be natural;
+* the document should not feel machine-generated.
+
+The visible document must not merely be grammatically correct.
+
+It must be plausibly ordinary.
+
+⸻
+
+6. Absolute Cloak Rule
+
+The visible Recovery Document must contain no overt technological or cryptographic information.
+
+It must not contain terms or obvious references such as:
+
+* CloakVault;
+* Bitcoin;
+* wallet;
+* seed;
+* mnemonic;
+* key;
+* encryption;
+* cryptography;
+* computer;
+* software;
+* capsule;
+* QR;
+* code;
+* generation;
+* fingerprint;
+* recovery;
+* vault;
+* technical identifiers;
+* hexadecimal strings;
+* unusual machine-readable markers.
+
+Do not add technical headers.
+
+Do not print a Vault ID.
+
+Do not print a generation number.
+
+Do not print a wallet fingerprint.
+
+Do not print a creation date for cryptographic purposes.
+
+Do not print instructions for the device.
+
+The Recovery Document should simply look like an ordinary document.
+
+⸻
+
+7. Important Separation of Responsibilities
+
+The Recovery Document does NOT need to explain itself.
+
+The Estate/Recovery documentation of the eventual product will identify the relevant physical objects.
+
+The device will verify the cryptographic identity after successful recovery.
+
+The Recovery Document itself should contain only the ordinary-looking document.
+
+Therefore:
+
+Do not embed human-readable technical metadata into the visible document.
+
+The metadata required for the cryptographic protocol remains inside the encrypted capsule/header.
+
+⸻
+
+8. LLM Rule
+
+There must be no LLM anywhere in this implementation.
+
+The LLM is conceptually the:
+
+interior designer, not the architect.
+
+An LLM may eventually be used externally during CloakVault development to:
+
+* generate candidate recipe templates;
+* improve natural prose;
+* create stylistic variations;
+* help evaluate plausibility.
+
+But the LLM must never:
+
+* encrypt data;
+* encode cryptographic information;
+* decode cryptographic information;
+* interpret recovery data;
+* correct corrupted cryptographic data;
+* make probabilistic recovery decisions;
+* participate in the protocol;
+* be required for recovery.
+
+The released protocol must work without an LLM.
+
+⸻
+
+9. Cryptographic Specification — Exact
+
+Do not improvise these constructions.
+
+Seed
+
+The wallet seed is:
+
+32 bytes of entropy
+
+mapped to and from a:
+
+24-word BIP39 English mnemonic
+
+using @scure/bip39.
+
+The implementation must:
+
+* reject invalid word counts;
+* reject words outside the English BIP39 list;
+* reject invalid BIP39 checksums;
+* never silently alter a user-supplied mnemonic;
+* never “correct” a mnemonic.
+
+⸻
+
+10. Vault Key
+
+Vault Key:
+
+K = 32 random bytes
+
+Generated from the injected RNG.
+
+The Vault Key must never be rendered as a BIP39-style word phrase.
+
+⸻
+
+11. Capsule ID
+
+Capsule ID:
+
+16 random bytes
+
+It must be unpredictable.
+
+It must:
+
+* never be sequential;
+* never be derived from a counter;
+* never be based on a timestamp;
+* never be predictable from previous IDs.
+
+Human-readable aliases may exist in the UI, but they are not protocol identifiers.
+
+⸻
+
+12. Generation
+
+Generation:
+
+uint32 big-endian
+
+Initial generation:
+
+1
+
+⸻
+
+13. Capsule Key Derivation
+
+Capsule key:
+
+HKDF-SHA256(
+    ikm = K,
+    salt = capsuleID,
+    info =
+        UTF8("CLOAKVAULT-V1-CAPSULE-KEY")
+        || generation as 4 bytes BE,
+    length = 32
+)
+
+Use the specified library implementation.
+
+Do not alter:
+
+* the salt;
+* info string;
+* byte ordering;
+* length;
+* domain separation string.
+
+⸻
+
+14. AEAD
+
+Use:
+
+XChaCha20-Poly1305
+
+from @noble/ciphers.
+
+Nonce:
+
+24 random bytes
+
+Plaintext:
+
+32-byte seed entropy
+
+AAD:
+
+first 21 bytes of capsule
+
+specifically:
+
+version (1)
+||
+generation (4 BE)
+||
+capsuleID (16)
+
+⸻
+
+15. Capsule Binary Layout
+
+Exactly 93 bytes:
+
+version        1 byte
+generation     4 bytes BE
+capsuleID      16 bytes
+nonce          24 bytes
+ciphertext     32 bytes
+tag            16 bytes
+--------------------------------
+TOTAL          93 bytes
+
+Do not add fields.
+
+Do not reorder fields.
+
+Do not silently serialize values differently.
+
+⸻
+
+16. Capsule Failure Behavior
+
+These conditions must all result in the same high-level state:
+
+RECOVERY FAILED
+
+Examples:
+
+* wrong Vault Key;
+* altered generation;
+* altered capsule ID;
+* modified ciphertext;
+* modified tag;
+* malformed length;
+* invalid version;
+* invalid capsule structure.
+
+Never reveal partial plaintext.
+
+Never reveal a partial mnemonic.
+
+Never attempt a “best guess.”
+
+The cryptographic recovery result is binary:
+
+valid exact recovery
+
+or:
+
+failure
+
+⸻
+
+17. Vault Key Text Representation
+
+For test/development display, the Vault Key has this canonical representation:
+
+payload = 0x01 || K
+checksum = first 4 bytes of SHA-256(payload)
+encoded = Crockford Base32(payload || checksum)
+
+Group into blocks of four characters.
+
+Prefix:
+
+CVK1.
+
+Reject checksum mismatches.
+
+Never render the Vault Key as:
+
+* BIP39 words;
+* a natural-language phrase;
+* a password-like sentence.
+
+The UI must label this clearly as:
+
+Vault Key — TEST SECRET
+
+and warn that it is sensitive.
+
+⸻
+
+18. Wallet Fingerprint
+
+After successful wallet creation and successful recovery, display:
+
+the BIP32 master fingerprint
+
+defined as:
+
+first 4 bytes of HASH160(compressed master public key)
+
+Display as:
+
+XXXX-XXXX
+
+uppercase hexadecimal.
+
+The fingerprint shown after recovery must exactly match the fingerprint generated during creation.
+
+⸻
+
+19. Independent Recovery Shares
+
+Include the Independent Recovery share format in this build.
+
+Generate:
+
+R = 32 random bytes
+
+Then:
+
+Share A = R
+Share B = K XOR R
+
+Neither share alone reveals K.
+
+Together:
+
+Share A XOR Share B = K
+
+⸻
+
+20. Share Text Format
+
+Share A:
+
+payload =
+0x01
+||
+0x0A
+||
+generation (4 BE)
+||
+shareBytes (32)
+
+Checksum:
+
+first 4 bytes of SHA-256(payload)
+
+Encode using Crockford Base32.
+
+Prefix:
+
+CVSA1.
+
+Share B:
+
+payload =
+0x01
+||
+0x0B
+||
+generation (4 BE)
+||
+shareBytes (32)
+
+Prefix:
+
+CVSB1.
+
+⸻
+
+21. Share Rejoin
+
+When rejoining:
+
+1. validate both checksums;
+2. validate both versions;
+3. validate share indices;
+4. ensure indices are distinct;
+5. ensure generations match;
+6. XOR the share bytes;
+7. construct the corresponding CVK1. representation;
+8. verify that it round-trips correctly.
+
+If metadata differs, show the exact mismatched field.
+
+Examples:
+
+Generation mismatch.
+
+Invalid Share A checksum.
+
+Both inputs are Share A.
+
+Share versions differ.
+
+Never silently combine mismatched shares.
+
+⸻
+
+22. Reed-Solomon
+
+Implement Reed-Solomon manually in:
+
+src/lib/cloak/rs.ts
+
+This is the only cryptographic/error-correction primitive permitted to be implemented manually.
+
+Use:
+
+GF(2^8)
+
+with a clearly specified and tested field construction.
+
+The implementation must support:
+
+* encoding;
+* errors;
+* erasures;
+* decoding;
+* detection of uncorrectable input.
+
+It must satisfy:
+
+correct t errors + e erasures whenever 2t + e ≤ parity symbols.
+
+⸻
+
+23. Reed-Solomon Parity
+
+Parity budget:
+
+30% of data symbols, rounded up.
+
+The exact deployed (n, k) values must be calculated from the actual capsule size and grammar capacity.
+
+Do not hardcode assumptions about capacity.
+
+The application should expose the actual deployed parameters.
+
+⸻
+
+24. Reed-Solomon Interleaving
+
+Interleave the RS codeword across the document.
+
+The purpose is to prevent localized physical damage from destroying a contiguous block of encoded symbols.
+
+For example:
+
+* stains;
+* tears;
+* OCR failures;
+* folds;
+* missing words.
+
+The interleaving algorithm must be deterministic and versioned.
+
+⸻
+
+25. Cloak Encoding
+
+The cloak engine operates conceptually as:
+
+93-byte capsule
+      ↓
+RS encoding
+      ↓
+protected binary stream
+      ↓
+controlled vocabulary
+      ↓
+token sequence
+      ↓
+deterministic document grammar
+      ↓
+ordinary-looking document
+
+The cloak is not cryptographic security.
+
+The encrypted capsule remains the cryptographic security boundary.
+
+⸻
+
+26. Grammar Data Must Be Pure Data
+
+The grammar must be represented as JSON.
+
+Do not hardcode lexicon words in TypeScript.
+
+The JSON must define:
+
+* vocabulary;
+* templates;
+* slot definitions;
+* slot widths;
+* token ordering;
+* connective prose;
+* protocol version;
+* any required normalization rules.
+
+A future implementation in Python must be able to load the same grammar JSON.
+
+⸻
+
+27. Grammar Slot Model
+
+The test grammar uses slots.
+
+Each slot has:
+
+2^k
+
+possible tokens.
+
+For the initial test grammar:
+
+2 ≤ k ≤ 6
+
+possible bits per slot.
+
+Possible categories include:
+
+* ingredient nouns;
+* quantity expressions;
+* cooking methods;
+* time expressions;
+* temperature expressions.
+
+However, the final production grammar must be designed for human plausibility, not merely capacity.
+
+⸻
+
+28. Capacity Calculation
+
+The build must calculate capacity dynamically from the grammar.
+
+Do not assume the grammar has sufficient capacity.
+
+Calculate:
+
+required protected bits
+available slot bits
+
+At build time and at runtime in the Inspector.
+
+If capacity is insufficient:
+
+FAIL CLEARLY
+
+with a message such as:
+
+Required capacity: 968 bits
+Available capacity: 912 bits
+Additional capacity required: 56 bits
+
+Do not silently truncate.
+
+⸻
+
+29. Bits-per-Word Metric
+
+The Inspector must prominently display:
+
+Achieved bits per rendered word
+
+Define a rendered word as a whitespace-delimited visible token after rendering, excluding punctuation-only tokens.
+
+Display at least:
+
+* rendered word count;
+* data bits;
+* parity bits;
+* total protected bits;
+* bits per rendered word.
+
+This metric is informational and does not itself determine cryptographic validity.
+
+⸻
+
+30. Decoder
+
+The decoder must be deterministic.
+
+It may:
+
+* lowercase;
+* normalize whitespace;
+* strip punctuation;
+* normalize line breaks;
+* normalize page breaks.
+
+It must not:
+
+* use semantic understanding;
+* use an LLM;
+* infer missing words from context;
+* “guess” likely recipes;
+* choose between multiple possible tokens probabilistically.
+
+⸻
+
+31. Token Matching
+
+For each expected slot:
+
+Exact match
+
+If the token exactly matches one lexicon entry:
+
+decode it directly.
+
+Unique edit-distance-1 match
+
+If it differs by exactly one edit from exactly one candidate in that slot’s own lexicon:
+
+accept it as that candidate and count it as a correction.
+
+Anything else
+
+Treat it as:
+
+erasure.
+
+Do not guess.
+
+Do not use semantic context.
+
+Do not choose a candidate simply because it makes the recipe sound better.
+
+⸻
+
+32. OCR Error Scope
+
+The first implementation should explicitly support:
+
+* capitalization errors;
+* punctuation loss;
+* whitespace variation;
+* common single-character substitutions;
+* unique edit-distance-1 token corruption;
+* missing/uncertain tokens.
+
+Do not silently invent complex word-merging or word-splitting heuristics.
+
+If a photographed document produces ambiguous tokenization, the correct behavior is:
+
+erasure or failure.
+
+Not guessing.
+
+⸻
+
+33. Fixed Connective Prose
+
+The grammar may contain fixed connective prose.
+
+This prose provides positional anchors.
+
+The decoder should use the expected document structure to determine slot positions.
+
+Do not perform broad semantic parsing.
+
+⸻
+
+34. Recovery Diagnostics
+
+For development and the Inspector, expose:
+
+* slots expected;
+* slots read;
+* exact matches;
+* corrections;
+* erasures;
+* RS corrections;
+* final decoding status.
+
+However, the primary Recover UI should remain simple.
+
+A normal failure should primarily say:
+
+RECOVERY FAILED
+
+with optional expandable technical diagnostics.
+
+⸻
+
+35. OCR Path — Mandatory
+
+The OCR path is a central purpose of this build.
+
+On Recover:
+
+Users may either:
+
+1. paste document text;
+2. upload one or more photographs.
+
+Photos must be processed through tesseract.js using English OCR.
+
+The OCR result must be inserted into an:
+
+editable textarea
+
+The user may correct obvious OCR mistakes.
+
+The decoder always operates on the textarea content.
+
+Do not decode directly from the raw OCR engine output.
+
+⸻
+
+36. Multiple Photos
+
+Multiple uploaded photos are concatenated in upload order.
+
+Internally preserve page/photo boundaries so diagnostics can identify which input produced errors.
+
+The decoder must tolerate:
+
+* page breaks;
+* line breaks;
+* multiple spaces;
+* punctuation differences.
+
+⸻
+
+37. OCR Confidence
+
+Display a confidence summary for each photograph.
+
+Example:
+
+Photo 1 — 94%
+Photo 2 — 91%
+Photo 3 — 87%
+
+Do not treat OCR confidence as cryptographic evidence.
+
+It is purely diagnostic.
+
+A low-confidence OCR result may still recover successfully.
+
+A high-confidence OCR result may still be wrong.
+
+⸻
+
+38. Create Page
+
+Create must provide:
+
+Step 1 — Test Seed
+
+Default to the fixed test mnemonic.
+
+Custom mnemonic requires:
+
+explicit warning checkbox.
+
+Validate the mnemonic with BIP39.
+
+Reject invalid checksum.
+
+Step 2 — Vault Key
+
+Generate Vault Key.
+
+Display canonical CVK1. test representation.
+
+Provide copy button.
+
+Clearly label it:
+
+TEST SECRET.
+
+Step 3 — Capsule
+
+Generate:
+
+* random Capsule ID;
+* generation;
+* random nonce;
+* ciphertext;
+* tag.
+
+Step 4 — Cloak
+
+Encode the capsule into the configured grammar.
+
+Render the document in a clean printable card.
+
+Buttons:
+
+* Copy Text;
+* Print.
+
+Step 5 — Independent Recovery
+
+Optional in this reference implementation.
+
+Create Share A and Share B.
+
+Display:
+
+* CVSA1.;
+* CVSB1..
+
+Provide copy buttons.
+
+Final
+
+Display wallet fingerprint.
+
+⸻
+
+39. Printable Document
+
+The print stylesheet must produce a document that looks like an ordinary piece of printed material.
+
+Use:
+
+* normal typography;
+* serif body text where appropriate;
+* natural spacing;
+* normal headings;
+* no technical labels.
+
+Print CSS must suppress browser-generated headers and footers where possible.
+
+Do not add:
+
+* QR codes;
+* barcodes;
+* technical identifiers;
+* decorative “crypto” branding.
+
+⸻
+
+40. Recover Page
+
+Inputs:
+
+Document
+
+* textarea;
+* photo upload.
+
+Vault Key
+
+Accept canonical:
+
+CVK1.
+
+representation.
+
+After successful decoding:
+
+Display:
+
+* wallet fingerprint;
+* recovery success;
+* mnemonic behind an explicit warning.
+
+Example:
+
+Recovered successfully. This screen contains your Bitcoin seed. Make sure nobody else can see it.
+
+Never display partial words.
+
+Never display a partially decrypted seed.
+
+⸻
+
+41. Shares Page
+
+Accept:
+
+CVSA1....
+CVSB1....
+
+Rejoin into:
+
+CVK1....
+
+Then allow the resulting Vault Key to be used on Recover.
+
+Display exact validation errors.
+
+⸻
+
+42. Self-Test Page
+
+Self-Test must run automatically on load.
+
+Display one clear pass/fail status for each test.
+
+The page must clearly indicate:
+
+Reference implementation test status
+
+Everything below must pass before the application is considered correct.
+
+⸻
+
+43. External Known-Answer Tests
+
+Include authoritative external KATs.
+
+BIP39
+
+Include:
+
+* 256-bit all-zero entropy;
+* at least two additional vectors from the official Trezor BIP39 vector set.
+
+The all-zero vector must produce:
+
+23 repetitions of abandon followed by art
+
+Do not generate these expected outputs dynamically.
+
+⸻
+
+44. BIP32
+
+Include BIP32 specification test vector 1.
+
+Verify:
+
+* master key;
+* chain code;
+* relevant derived keys;
+* master fingerprint.
+
+Expected values must be embedded independently.
+
+⸻
+
+45. HKDF
+
+Include:
+
+RFC 5869 SHA-256 test cases 1 and 2.
+
+Expected values must be hardcoded from the RFC.
+
+⸻
+
+46. XChaCha20-Poly1305
+
+Include an authoritative published XChaCha20-Poly1305 known-answer test.
+
+Use a vector from the relevant IETF/standard publication.
+
+Do not fabricate a test vector by running the library.
+
+⸻
+
+47. Round-Trip Test
+
+Using:
+
+* fixed test seed;
+* deterministic RNG;
+
+perform:
+
+seed
+ ↓
+Vault Key
+ ↓
+Capsule
+ ↓
+cloak
+ ↓
+decode
+ ↓
+capsule
+ ↓
+decrypt
+ ↓
+seed
+
+The recovered entropy must be byte-for-byte identical.
+
+The fingerprint must match.
+
+⸻
+
+48. Failure Tests
+
+Test at minimum:
+
+Modified ciphertext
+
+Flip one ciphertext bit.
+
+Expected:
+
+RECOVERY FAILED
+
+Wrong Vault Key
+
+Expected:
+
+RECOVERY FAILED
+
+Altered generation
+
+Modify generation in authenticated header.
+
+Expected:
+
+RECOVERY FAILED
+
+Truncated capsule/document
+
+Expected:
+
+RECOVERY FAILED
+
+Modified capsule ID
+
+Expected:
+
+RECOVERY FAILED
+
+Never display partial plaintext.
+
+⸻
+
+49. Reed-Solomon Tests
+
+For the actual deployed (n,k) configuration:
+
+Test:
+
+* pure erasures;
+* pure errors;
+* mixed errors and erasures;
+* several combinations near the correction boundary;
+* exact maximum correction;
+* one beyond the correction boundary.
+
+For valid cases:
+
+exact original codeword MUST be recovered.
+
+For invalid cases:
+
+decoding MUST fail.
+
+⸻
+
+50. Cloak Integrity Tests
+
+At least:
+
+1,000 deterministic random payloads
+
+must each:
+
+1. encode successfully;
+2. produce a document;
+3. decode successfully;
+4. reproduce the exact original capsule.
+
+Each mutation must either:
+
+* be corrected and explicitly reported as such;
+* or fail.
+
+Never silently produce a different valid capsule.
+
+⸻
+
+51. Collision Tests
+
+The implementation must test for:
+
+Document uniqueness
+
+Different payloads must not decode to the same valid capsule.
+
+Parser ambiguity
+
+The same document must not decode differently depending on incidental formatting.
+
+Grammar-version ambiguity
+
+A document produced under one grammar version must not silently decode under another grammar version.
+
+Mutation ambiguity
+
+A damaged document must not silently become another valid capsule.
+
+Use fuzzing extensively.
+
+⸻
+
+52. OCR Tests
+
+Do not limit OCR testing to copied text.
+
+Include real photographs of printed documents.
+
+Test:
+
+* straight photographs;
+* angled photographs;
+* uneven lighting;
+* mild blur;
+* mild shadows;
+* different phones;
+* photocopies;
+* low-quality scans;
+* small stains;
+* partial token damage.
+
+The exact target tolerance must be measured empirically.
+
+Do not claim that the cloak is production-ready merely because clean screenshots work.
+
+⸻
+
+53. Human Plausibility Tests
+
+The final production grammar must eventually undergo blind human testing.
+
+Testers should not know which documents are CloakVault documents.
+
+Ask whether a document looks:
+
+* ordinary;
+* machine-generated;
+* suspicious;
+* technically significant.
+
+A recipe must be evaluated as a recipe, not merely as an encoded carrier.
+
+This human-testing requirement is part of the eventual production acceptance criteria, even though the reference implementation may initially use a test grammar.
+
+⸻
+
+54. Vector Export
+
+Provide a button to export the complete deterministic test vector.
+
+The exported JSON may contain:
+
+* entropy;
+* mnemonic;
+* Vault Key;
+* Capsule ID;
+* generation;
+* nonce;
+* HKDF output;
+* ciphertext;
+* tag;
+* capsule hex;
+* RS parameters;
+* RS symbols;
+* slot indices;
+* rendered document;
+* decoded token sequence;
+* recovered entropy.
+
+This file is intended as the seed corpus for future independent implementations.
+
+⸻
+
+55. Vector Export Warning
+
+Because the exported file contains the complete wallet secret, downloading it requires an explicit confirmation.
+
+Display:
+
+WARNING: This test-vector file contains the complete test wallet secret and Vault Key. Never use it with a real wallet.
+
+Do not automatically save the file anywhere.
+
+Do not upload it anywhere.
+
+Do not send it to a backend.
+
+⸻
+
+56. Inspector
+
+Create and Recover should have a collapsible Inspector.
+
+It should show:
+
+* capsule version;
+* generation;
+* capsule ID;
+* capsule length;
+* protected bits;
+* slots used;
+* parity symbols;
+* rendered word count;
+* achieved data bits/word;
+* achieved protected bits/word;
+* exact matches;
+* corrections;
+* erasures;
+* RS corrections.
+
+The headline metric:
+
+Achieved bits per rendered word
+
+must be visually prominent.
+
+The Inspector exists for protocol development and debugging.
+
+The normal user should not need it.
+
+⸻
+
+57. Security Review Aids
+
+Include a visible build/version identifier.
+
+Do not include this identifier in the Recovery Document itself.
+
+The application should make it easy to reproduce deterministic test runs.
+
+⸻
+
+58. No Secret Persistence Audit
+
+Before completion, inspect the entire source tree for use of:
+
+localStorage
+sessionStorage
+indexedDB
+cookies
+document.cookie
+service workers
+analytics
+telemetry
+fetch
+XMLHttpRequest
+WebSocket
+
+Only explicitly permitted tesseract.js asset loading may perform network requests.
+
+Any other network dependency is a failure.
+
+⸻
+
+59. No Secret Logging Audit
+
+Search the source for:
+
+console.log
+console.debug
+console.info
+console.warn
+console.error
+
+Ensure no secret values can reach logging calls.
+
+Errors may contain safe diagnostics such as:
+
+* malformed length;
+* number of erasures;
+* version mismatch.
+
+Never log:
+
+* seed;
+* Vault Key;
+* decrypted plaintext;
+* capsule key.
+
+⸻
+
+60. Secret Memory Handling
+
+Where practical:
+
+Uint8Array.fill(0)
+
+must be used on mutable secret buffers when they are no longer required.
+
+Do not create unnecessary copies of secrets.
+
+Do not convert secrets into strings unless required for an explicit test/display operation.
+
+After a sensitive display is dismissed, clear the associated UI state.
+
+Again:
+
+browser JavaScript cannot guarantee physical RAM erasure.
+
+Do not claim otherwise.
+
+⸻
+
+61. Error Handling Philosophy
+
+Never silently recover.
+
+Never silently normalize a secret.
+
+Never silently substitute.
+
+Never silently continue after cryptographic failure.
+
+Prefer:
+
+explicit failure
+
+over:
+
+plausible but potentially incorrect success.
+
+⸻
+
+62. Definition of Done
+
+The implementation is complete only when all of the following are true.
+
+Cryptographic correctness
+
+* all external KATs pass;
+* BIP39 validation is correct;
+* BIP32 fingerprint is correct;
+* HKDF is correct;
+* XChaCha20-Poly1305 is correct;
+* capsule serialization is exact;
+* AEAD failure behavior is correct;
+* Independent Recovery shares are correct.
+
+Deterministic correctness
+
+Same:
+
+* inputs;
+* RNG stream;
+* grammar;
+* protocol version
+
+must produce byte-identical output.
+
+⸻
+
+Cloak correctness
+
+* encoding is deterministic;
+* decoding is deterministic;
+* no semantic guessing occurs;
+* malformed input cannot silently decode to a different valid capsule;
+* capacity is calculated dynamically;
+* Reed-Solomon tests pass.
+
+⸻
+
+OCR
+
+At least one real photograph of a printed test document must successfully recover the original capsule with OCR-induced erasures/corrections within the configured correction budget.
+
+⸻
+
+Human plausibility
+
+The printed test grammar must produce readable, coherent text.
+
+If the grammar is explicitly marked as a prototype/test grammar, do not claim production-level human camouflage.
+
+⸻
+
+Security
+
+* no secret persistence;
+* no secret logging;
+* no unintended network calls;
+* no backend;
+* no telemetry;
+* no accounts.
+
+⸻
+
+UI
+
+Create, Recover, Shares, and Self-Test all function end-to-end.
+
+The UI should remain deliberately simple.
+
+⸻
+
+63. Explicitly Out of Scope
+
+Do NOT build:
+
+* smart cards;
+* KMAC;
+* authorization counters;
+* key provisioning;
+* key cloning;
+* key rotation;
+* PSBT signing;
+* anti-exfiltration;
+* Bitcoin network connectivity;
+* blockchain APIs;
+* wallet balances;
+* transaction history;
+* xpub management;
+* LLM integration;
+* cloud storage;
+* user accounts;
+* themes;
+* analytics;
+* telemetry;
+* databases;
+* servers;
+* subscriptions;
+* multisig;
+* additional grammar variants.
+
+Do not add features merely because they seem useful.
+
+⸻
+
+64. Final Architectural Principle
+
+This implementation is intended to establish the boring, testable core of CloakVault.
+
+The architecture must remain:
+
+              BIP39 SEED
+                   │
+                   ▼
+              VAULT KEY
+                   │
+                   ▼
+              HKDF / AEAD
+                   │
+                   ▼
+        ENCRYPTED RECOVERY CAPSULE
+                   │
+                   ▼
+             CLOAK ENGINE
+                   │
+                   ▼
+       ORDINARY HUMAN DOCUMENT
+
+Recovery is:
+
+ORDINARY DOCUMENT
+       +
+   VAULT KEY
+       │
+       ▼
+   CLOAK DECODER
+       │
+       ▼
+  AUTHENTICATED CAPSULE
+       │
+       ▼
+      SEED
+
+The cryptography must be boring.
+
+The implementation must be deterministic.
+
+The decoder must never guess.
+
+The cloak must never be responsible for confidentiality.
+
+And the visible Recovery Document must remain exactly what CloakVault promises it to be:
+
+an ordinary piece of information that does not look like Bitcoin, does not look like cryptography, and does not look interesting.
+
+The LLM may eventually help design that ordinary document.
+
+It is the interior designer.
+
+It is not the architect.
+
+⸻
+
+65. First Development Order
+
+Do not attempt to build the entire system simultaneously.
+
+Implement and test in this order:
+
+Phase A
+
+Project skeleton and test harness.
+
+Phase B
+
+BIP39 + BIP32 fingerprint.
+
+Phase C
+
+Vault Key + RNG abstraction.
+
+Phase D
+
+HKDF.
+
+Phase E
+
+XChaCha20-Poly1305.
+
+Phase F
+
+Capsule serialization.
+
+Phase G
+
+Crockford Base32 Vault Key representation.
+
+Phase H
+
+Independent Recovery shares.
+
+Phase I
+
+Reed-Solomon.
+
+Phase J
+
+Abstract token-based cloak engine using grammar-test-v1.json.
+
+Phase K
+
+Deterministic document renderer/parser.
+
+Phase L
+
+OCR pipeline.
+
+Phase M
+
+Mutation/fuzz testing.
+
+Phase N
+
+Vector export.
+
+Phase O
+
+Human-facing Create/Recover/Share UI.
+
+Phase P
+
+Production-cloak experimentation only after all of the above is green.
+
+At every phase, maintain the Self-Test suite.
+
+Do not move forward while earlier cryptographic tests are failing.
+
+⸻
+
+66. Most Important Instruction
+
+When there is a choice between:
+
+a clever implementation that appears to work
+
+and:
+
+a boring implementation whose behavior is completely specified and testable,
+
+choose the boring implementation.
+
+When a requirement is ambiguous:
+
+do not invent cryptographic behavior.
+
+Expose the ambiguity clearly so it can be resolved in the protocol specification.
+
+CloakVault’s goal is not to produce an impressive demo.
+
+The goal of this project is to produce a small, deterministic, independently reproducible reference implementation that future CloakVault hardware can be tested against.
+
+Build the boring foundation first.
+
+The interesting part comes later.
