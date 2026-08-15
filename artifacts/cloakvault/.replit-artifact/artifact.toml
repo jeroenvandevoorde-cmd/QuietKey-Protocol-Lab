@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "CloakVault Reference Implementation"
+description = "A fully client-side reference implementation of the CloakVault protocol: converts a 24-word BIP39 test seed into an encrypted 93-byte Recovery Capsule under a random Vault Key, cloaks it into an ordinary-looking document via a test grammar, and recovers the seed from text or photos plus the Vault Key. Includes XOR recovery shares, Reed-Solomon error correction, and a self-test suite with external known-answer tests. TEST USE ONLY."
+version = "1.0.0"
+id = "artifacts/cloakvault"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20140
+
+[services.development]
+run = "pnpm --filter @workspace/cloakvault run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cloakvault", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cloakvault/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20140"
+BASE_PATH = "/"

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CloakVault capture-spike sheet v1</title>
+<style>
+  /* Print geometry copied from the product print stylesheet (src/index.css):
+     A4, 16mm margins, 10.5pt Georgia serif, line-height 1.3. */
+  @page { size: A4; margin: 16mm; }
+  html, body { margin: 0; padding: 0; background: #fff; color: #000; }
+  body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt; line-height: 1.3; }
+
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  .sheet-header { font-size: 12pt; font-weight: bold; margin: 0 0 2mm 0; }
+  .sheet-sub { font-size: 9pt; color: #333; margin: 0 0 8mm 0; }
+
+  /* Product footer typography (src/pages/create.tsx footer block +
+     --app-font-mono in src/index.css). Do not restyle. */
+  .token-lines {
+    font-family: Menlo, monospace;   /* --app-font-mono */
+    font-size: 10px;                 /* text-[10px] */
+    color: #6b7280;                  /* text-gray-500 */
+    word-break: break-all;           /* break-all */
+  }
+  .footer-rule { border-top: 1px solid #e5e7eb; /* border-t border-gray-200 */
+                 margin-top: 8mm; padding-top: 2mm; }
+
+  .token-block { margin-bottom: 30mm; /* ≥30 mm damage-isolation gap */ }
+  .token-block:last-child { margin-bottom: 0; }
+  .token-label { font-family: Menlo, monospace; font-size: 9pt; font-weight: bold;
+                 color: #000; margin-bottom: 1mm; }
+
+  /* 50 mm print-fidelity scale bar */
+  .scale-wrap { margin: 0 0 10mm 0; }
+  .scale-bar { position: relative; width: 50mm; height: 4mm;
+               border: 0.4mm solid #000; box-sizing: border-box; }
+  .scale-bar .tick { position: absolute; top: 0; width: 0.3mm; height: 2mm; background: #000; }
+  .scale-label { font-size: 8pt; margin-top: 1mm; font-family: Menlo, monospace; }
+
+  .recipe-title { font-size: 13pt; font-weight: bold; margin: 0 0 3mm 0; }
+  .recipe-body { white-space: pre-wrap; }
+
+  /* On-screen-only usage instructions (hidden in print). */
+  .screen-note { border: 2px dashed #b45309; background: #fffbeb; color: #78350f;
+                 font-family: Inter, sans-serif; font-size: 13px; line-height: 1.5;
+                 padding: 14px 16px; margin: 0 0 24px 0; }
+  .screen-note h2 { font-size: 14px; margin: 0 0 6px 0; }
+  .screen-note ul { margin: 6px 0 0 18px; padding: 0; }
+  @media print { .screen-note { display: none !important; } }
+  @media screen { body { padding: 24px; max-width: 210mm; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="screen-note">
+  <h2>Usage (screen only — not printed)</h2>
+  <ul>
+    <li>Print at <strong>100% scale</strong> (no “fit to page”). Before ANY session, verify the printed scale bar is exactly 50&nbsp;mm with a ruler; if not, the batch is invalid — reprint.</li>
+    <li>Print ~15–20 identical copies of page&nbsp;1; page&nbsp;2 needs only 2–3 copies.</li>
+    <li>One damage condition per copy, applied across T1–T4 (four replicates per condition). <strong>T0 is never touched</strong> — if T0 fails to read cleanly in a session, the session (lighting/focus) is at fault, not the damage: discard and reshoot.</li>
+    <li>Photo filenames: <code>{damage}-{severity}-{lighting}-{copyNN}.jpg</code> (token identity comes from the printed T-labels, not the filename).</li>
+  </ul>
+</div>
+
+<div class="page">
+  <div class="sheet-header">CloakVault capture-spike sheet v1 · TEST TOKENS ONLY</div>
+  <div class="sheet-sub">Sheet generated deterministically from the frozen v3 codec · date line: ______________ (fill in per session)</div>
+
+  <div class="scale-wrap">
+    <div class="scale-bar">
+      <div class="tick" style="left: 10mm"></div>
+      <div class="tick" style="left: 20mm"></div>
+      <div class="tick" style="left: 30mm"></div>
+      <div class="tick" style="left: 40mm"></div>
+    </div>
+    <div class="scale-label">50 mm — verify with a ruler before every session</div>
+  </div>
+
+    <div class="token-block">
+      <div class="token-label">T0</div>
+      <div class="token-lines"><div>cv0qgla7hhw2hpxzgf3xxga3lvqqxyd3wguu674avfcr2x5m</div><div>r77w2afnfw8lfkws8sjtzdmyrrrstwcaj98tkmyxcd2y78yj</div><div>8hnvdg4s4fwpf24vxj6k62hjzdvs08nqncfreen6pma0z3</div></div>
+    </div>
+
+    <div class="token-block">
+      <div class="token-label">T1</div>
+      <div class="token-lines"><div>cv0qta7ln5csp28naqyj382lzzaf2mvw528u0f72n7gf3x7c</div><div>7lclt0nzvyzkdczd4h2zq0str93gk2n6huvvshm8tp35ln9f</div><div>5nrlq507kdxlrg8vxgjjqw6gnxjzgkcpksynz6k2efy04d</div></div>
+    </div>
+
+    <div class="token-block">
+      <div class="token-label">T2</div>
+      <div class="token-lines"><div>cv0qgqsfchz9tzt5678f8ayxkfrumcxdc99evdvgws9xr8uw</div><div>uvk66df8sp6u82gwnaa33ghslux4xuzpwq7d3aej68n7t5re</div><div>3qle95mdlygv8v3cxy77qrvztxqluknlafgcgvcxl4l5am</div></div>
+    </div>
+
+    <div class="token-block">
+      <div class="token-label">T3</div>
+      <div class="token-lines"><div>cv0qt6mat2yzxvtcp754cmrshpa4tan8msdjkr00ey0j84yg</div><div>v97erhcp4mwhdw9lprvdd5hqnhc96s0wgupxlsgyekkys0fq</div><div>lpgea3e76vnnh282zk4vxqwdqdf4kt84gw9vch3knlm86g</div></div>
+    </div>
+
+    <div class="token-block">
+      <div class="token-label">T4</div>
+      <div class="token-lines"><div>cv0q27s3730u30nsmkkej9lgwlqsqrg82uxs7f0wmu3s2a0z</div><div>nmahnqmp37vf7wzq09epulx3zegyr2tjx7cskvqg25glua6x</div><div>l863va0vm9qnyvsadqd97fl6gyn7klnrp639n3y6eurnmp</div></div>
+    </div>
+</div>
+
+<div class="page">
+  <div class="recipe-title">Harissa Roast Vegetable Traybake</div>
+  <div class="recipe-body">A hands-off supper of caramelised roots under a smoky-sweet glaze, finished with lemon, feta and herbs.
+
+Serves 4. About 55 minutes, most of it in the oven.
+
+For the tray
+700g carrots, scrubbed and halved lengthways
+500g parsnips, peeled and quartered
+400g baby potatoes, left whole
+2 red onions, cut into thick wedges
+1 small cauliflower, broken into florets
+3 tablespoons olive oil
+2 tablespoons harissa paste
+1 tablespoon honey
+1 teaspoon cumin seeds
+half a teaspoon of flaky salt
+
+To finish
+1 lemon, halved
+100g feta, crumbled
+a small handful of parsley, roughly chopped
+2 tablespoons toasted flaked almonds
+
+1. Heat the oven to 200C (fan 180C). Line your largest roasting tray with baking paper.
+2. Tumble the carrots, parsnips and potatoes onto the tray. Whisk the oil with the harissa and honey, pour it over, and turn everything until glossy.
+3. Roast for 25 minutes, then add the onions and cauliflower, scatter over the cumin seeds and salt, and toss once.
+4. Roast for a further 20 minutes, until the edges are scorched in places and a knife slips easily through the thickest piece of carrot.
+5. Squeeze the lemon over the hot tray, then scatter with the feta, parsley and almonds.
+6. Rest for five minutes so the juices settle, then serve straight from the tray.
+
+Notes
+Swap the parsnips for beetroot if you like it earthier, or add a drained tin of chickpeas along with the onions to make it more of a meal. Leftovers keep for two days and are very good stuffed into warm flatbreads.</div>
+  <div class="token-lines footer-rule"><div>https://arecipeforamaster.com/print?id=cv0q26u8663fm8c4ql3hsl3t5nuzy3vz6hruwycc9dclpymt</div><div>6jvn4z5m08a7wdunlfkqt6sh7f78605rgm5vfn3etrh58ena</div><div>6htxkyda9fw4pk7kpuc7fac5ug8vcfdn64v4a4rygyzhsw&amp;v=1</div><div>Printed 12/08/2026 · page 1 of 1</div></div>
+</div>
+
+</body>
+</html>
