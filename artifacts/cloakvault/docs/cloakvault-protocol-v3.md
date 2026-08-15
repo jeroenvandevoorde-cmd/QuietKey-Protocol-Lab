@@ -94,6 +94,10 @@ capsuleKey = HKDF-SHA256(
 )
 ```
 
+The salt is empty by design: the IKM is already a uniformly random 256-bit
+key, so a salt adds no extraction benefit; the label-based domain separation
+is carried entirely by `info`.
+
 The Vault Key is a uniformly random 256-bit key. Its human transcription
 format (`CVK1.` + Crockford Base32 with checksum) is unchanged from v1 and out
 of scope here; the capsule layer consumes the raw 32 bytes.
@@ -155,6 +159,14 @@ value = field element).
 - The decoder MUST fail cleanly (no output) when the budget is exceeded, and
   SHOULD report the number of erasures used and errors corrected on every
   attempt.
+
+*Ordering (binding).* Error correction precedes checksum enforcement. The
+Bech32 checksum may be consulted before RS decode only as a clean-capture
+fast path when no erasure marks are present; when any character is marked
+unreadable, the checksum is unverifiable and the decoder proceeds directly to
+erasure-aware RS. A failed or unverifiable checksum MUST NOT cause a token to
+be discarded before RS correction has been attempted; after successful RS
+decode, integrity is established by the AEAD tag.
 
 ### 3.4 Reader conformance rule (protocol-level, binding)
 
@@ -281,3 +293,9 @@ Any change — however small — takes a **new version byte and a new spec
 document**. Decoders select rules by the version byte; v1 (93-byte
 XChaCha20-Poly1305) capsules and v2 (`0x02`) capsules each remain decodable
 by their own frozen rules indefinitely.
+
+*Naming note (non-normative).* The "v3" design label and the
+`CLOAKVAULT-V3-CAPSULE-KEY` info string are frozen historical identifiers.
+They deliberately do not track the wire version byte (`0x02`) or the product
+name (QuietKey), and they never change: the info string is a load-bearing
+cryptographic constant, not branding.
