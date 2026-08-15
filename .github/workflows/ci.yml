@@ -1,0 +1,66 @@
+# QuietKey / CloakVault reference-implementation CI.
+# Runs the three validations that gate every change. All three must pass;
+# no continue-on-error, no reduced or sampled suites.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  typescript:
+    name: TypeScript typecheck + full vitest suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1 # matches pnpm-lock.yaml (lockfileVersion 9.0)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install (frozen lockfile, pnpm-only preinstall guard applies)
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck
+        run: pnpm --filter @workspace/cloakvault run typecheck
+      - name: Full test suite (97 tests, never a subset)
+        run: pnpm --filter @workspace/cloakvault run test
+
+  python-interop:
+    name: Python interop suite (12 tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: pip install cryptography pytest
+      - name: Run interop suite
+        run: pytest artifacts/cloakvault/interop/python
+
+  cross-implementation:
+    name: TS ⇄ Python cross-implementation check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Create the interop virtualenv the cross-check script invokes
+        # scripts/interop-check.ts runs interop/python/.venv/bin/python by path.
+        run: |
+          python -m venv artifacts/cloakvault/interop/python/.venv
+          artifacts/cloakvault/interop/python/.venv/bin/pip install cryptography
+      - name: Install (frozen lockfile)
+        run: pnpm install --frozen-lockfile
+      - name: Cross-implementation check
+        run: pnpm --filter @workspace/cloakvault run interop:cross
