@@ -24,3 +24,6 @@ description: Durable process rules and frozen protocol decisions for CloakVault 
 
 ## Self-Test page port rule
 The in-browser Self-Test suites (src/lib/selftest/suites.ts) must stay a faithful, assertion-complete port of the vitest files — audit each `it` mechanically when either side changes; counts never reduced, expected values never altered. The frozen-vector export only downloads on byte-match with docs/cloakvault-v3-test-vector.json.
+
+## Gate A spike data provenance
+- `spike/results/sweep_records.json` replaced the original `sweep_records.pkl` (deleted after verified conversion). Owner confirmed the 6-decimal float rounding changes zero threshold classifications across all 19,170 cells — the JSON reproduces the published token outcomes exactly. Treat the JSON as the authoritative sweep record.
