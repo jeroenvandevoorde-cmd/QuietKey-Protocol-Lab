@@ -33,9 +33,22 @@ Produced 16 August 2026 in an offline analysis container.
 Run all from a directory containing the captures:
 
 1. `sweep_harness2.py`
-2. `t0free_harness.py`
-3. `locate_reader.py`
-4. `ocr_baseline.py`
+2. `verdict_analysis.py`
+3. `t0free_harness.py`
+4. `locate_reader.py`
+5. `ocr_baseline.py`
+
+The committed `t0free_harness.py`, `locate_reader.py` and `ocr_baseline.py`
+hardcode the reference decoder path
+`/tmp/qkcheck/artifacts/cloakvault/interop/python` as run; clone or symlink
+the repository there to rerun them, while `verdict_analysis.py` takes
+`--decoder-path` explicitly. These files are frozen as-run and must not be
+edited.
+
+Rounding note: the 6-decimal float rounding in sweep_records.json was
+verified against the original full-precision records; it changes zero
+threshold classifications across all 19,170 cells, so the JSON reproduces
+the published token outcomes exactly.
 
 ## Headline results
 
