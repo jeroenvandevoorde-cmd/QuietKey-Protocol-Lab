@@ -1,0 +1,153 @@
+name: spike-integrity
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  manifest:
+    name: Spike manifest integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify MANIFEST.sha256 against spike directory
+        run: |
+          set -euo pipefail
+          cd artifacts/cloakvault/spike
+
+          fail=0
+
+          # 1) Every manifest entry: file must exist and hash must match.
+          while IFS= read -r line; do
+            [ -z "$line" ] && continue
+            hash="${line%%  *}"
+            path="${line#*  }"
+            if [ ! -f "$path" ]; then
+              echo "MISSING: $path listed in manifest but not present"
+              fail=1
+              continue
+            fi
+            actual=$(sha256sum "$path" | awk '{print $1}')
+            if [ "$actual" != "$hash" ]; then
+              echo "MISMATCH: $path"
+              echo "  manifest: $hash"
+              echo "  actual:   $actual"
+              fail=1
+            fi
+          done < MANIFEST.sha256
+
+          # 2) Every file under spike/ (except the manifest itself) must be listed.
+          while IFS= read -r f; do
+            rel="${f#./}"
+            [ "$rel" = "MANIFEST.sha256" ] && continue
+            if ! grep -qF "  $rel" MANIFEST.sha256; then
+              echo "UNLISTED: $rel present under spike/ but absent from manifest"
+              fail=1
+            fi
+          done < <(find . -type f | sort)
+
+          if [ "$fail" -ne 0 ]; then
+            echo "Spike manifest integrity check FAILED"
+            exit 1
+          fi
+          echo "Spike manifest integrity check passed"
+
+  headline-numbers:
+    name: Frozen headline numbers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert frozen Gate A headline numbers
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+
+          base = "artifacts/cloakvault/spike/results"
+          drift = []
+
+          def check(label, actual, expected):
+              if actual != expected:
+                  drift.append(f"{label}: expected {expected}, got {actual}")
+
+          verdict = json.load(open(f"{base}/verdict_tokens.json"))
+          check("verdict_tokens.json entry count", len(verdict), 135)
+          check("verdict_tokens.json ok==true count",
+                sum(1 for e in verdict if e.get("ok") is True), 118)
+
+          t0free = json.load(open(f"{base}/t0free_tokens.json"))
+          check("t0free_tokens.json entry count", len(t0free), 135)
+          check("t0free_tokens.json ok==true count",
+                sum(1 for e in t0free if e.get("ok") is True), 116)
+
+          ocr = json.load(open(f"{base}/ocr_results.json"))
+          totals = ocr["totals"]
+          check("ocr_results.json totals A dec", totals["A"]["dec"], 0)
+          check("ocr_results.json totals B dec", totals["B"]["dec"], 2)
+
+          locate = json.load(open(f"{base}/locate_results.json"))
+          check("locate_results.json entry count", len(locate), 2)
+          for page, entry in sorted(locate.items()):
+              check(f"locate_results.json {page} ok", entry.get("ok"), True)
+
+          if drift:
+              print("Frozen headline numbers DRIFTED:")
+              for d in drift:
+                  print(f"  {d}")
+              sys.exit(1)
+          print("All frozen headline numbers hold: 135/118, 135/116, A dec 0, B dec 2, locate 2/2")
+          EOF
+
+  verdict-regeneration:
+    name: Verdict regeneration byte-identity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install decoder dependency
+        run: pip install cryptography
+      - name: Regenerate verdict_tokens.json and byte-compare
+        run: |
+          set -euo pipefail
+          python artifacts/cloakvault/spike/reader/verdict_analysis.py \
+            --records artifacts/cloakvault/spike/results/sweep_records.json \
+            --tokens artifacts/cloakvault/spike/tokens.json \
+            --decoder-path artifacts/cloakvault/interop/python \
+            --out /tmp/vr.json
+          if cmp artifacts/cloakvault/spike/results/verdict_tokens.json /tmp/vr.json; then
+            echo "Regenerated verdict output is byte-identical to the committed verdict_tokens.json"
+          else
+            echo "FAIL: regenerated verdict output differs from committed verdict_tokens.json"
+            exit 1
+          fi
+
+  report-hashes:
+    name: Frozen report PDF hashes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify report PDF hashes (independent of MANIFEST.sha256)
+        run: |
+          set -euo pipefail
+          # Hardcoded frozen hashes — reports are immutable dated records.
+          VERDICT_SHA=0df86918b4852d9848c56236a497d010f30292beb6b4c6f2bf714e34a840e210
+          ADDENDUM_SHA=8713c410df8ceeb5244d800e057f238061d9399322f13cabda643384985a04d7
+          fail=0
+          check() {
+            actual=$(sha256sum "$1" | awk '{print $1}')
+            if [ "$actual" != "$2" ]; then
+              echo "MISMATCH: $1"
+              echo "  frozen: $2"
+              echo "  actual: $actual"
+              fail=1
+            else
+              echo "ok: $1"
+            fi
+          }
+          check artifacts/cloakvault/spike/reports/QuietKey_GateA_Spike_Verdict.pdf "$VERDICT_SHA"
+          check artifacts/cloakvault/spike/reports/QuietKey_GateA_Spike_Addendum01.pdf "$ADDENDUM_SHA"
+          [ "$fail" -eq 0 ] || exit 1
