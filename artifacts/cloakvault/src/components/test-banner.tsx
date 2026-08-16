@@ -4,7 +4,7 @@ export function TestBanner() {
       className="bg-amber-500 text-black text-center text-sm font-bold tracking-widest py-2 print:hidden"
       data-testid="banner-test-only"
     >
-      TEST USE ONLY — EXPERIMENTAL REFERENCE IMPLEMENTATION — DO NOT USE WITH REAL FUNDS
+      EXPERIMENTAL — TEST USE ONLY — BROWSER PROTOCOL LABORATORY — NOT A MODEL OF PRODUCTION SECRET HANDLING — DO NOT USE WITH REAL FUNDS
     </div>
   );
 }

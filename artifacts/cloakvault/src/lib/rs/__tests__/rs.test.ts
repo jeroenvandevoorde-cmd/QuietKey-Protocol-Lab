@@ -1,7 +1,7 @@
 /**
  * Reed-Solomon boundary test suite (Milestone 2).
  *
- * Tests the exact deployed (n=121, k=93, parity=28) configuration plus a
+ * Tests the legacy v1 RS(121,93) profile — superseded (28 parity) — plus a
  * smaller (n=6, k=4, parity=2) configuration for structural checks. Covers:
  *   - pure erasures
  *   - pure errors
@@ -19,7 +19,7 @@ import {
   rsDecode,
   rsEncodeInterleaved,
   rsDecodeInterleaved,
-  calcParity,
+  legacyV1Parity30Pct,
   interleaveParams,
   interleave,
   deinterleave,
@@ -93,11 +93,11 @@ describe('GF(2^8) field arithmetic (primitive poly 0x11D)', () => {
 
 // ── Parity calculation ────────────────────────────────────────────────────────
 
-describe('Parity calculation', () => {
-  it('ceil(30% of 93) = 28', () => expect(calcParity(93)).toBe(28));
-  it('ceil(30% of 4) = 2',  () => expect(calcParity(4)).toBe(2));
-  it('ceil(30% of 10) = 3', () => expect(calcParity(10)).toBe(3));
-  it('ceil(30% of 1) = 1',  () => expect(calcParity(1)).toBe(1));
+describe('legacy v1 parity rule (superseded, ceil 30% of k)', () => {
+  it('ceil(30% of 93) = 28', () => expect(legacyV1Parity30Pct(93)).toBe(28));
+  it('ceil(30% of 4) = 2',  () => expect(legacyV1Parity30Pct(4)).toBe(2));
+  it('ceil(30% of 10) = 3', () => expect(legacyV1Parity30Pct(10)).toBe(3));
+  it('ceil(30% of 1) = 1',  () => expect(legacyV1Parity30Pct(1)).toBe(1));
 });
 
 // ── Independent RS test vectors (k=4, parity=2) ───────────────────────────────
@@ -160,7 +160,7 @@ describe('Independent RS test vectors (k=4, parity=2, n=6)', () => {
 
 // ── Capsule RS configuration (k=93, parity=28, n=121) ────────────────────────
 
-describe('Capsule RS configuration (k=93, parity=28, n=121)', () => {
+describe('legacy v1 RS(121,93) profile — superseded (k=93, parity=28, n=121)', () => {
   const rng = DeterministicTestRNG.fromSeedNumber(100);
   let DATA: Uint8Array;
   let CODEWORD: Uint8Array;

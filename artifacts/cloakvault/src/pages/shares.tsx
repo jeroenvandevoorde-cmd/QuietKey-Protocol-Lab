@@ -53,6 +53,22 @@ export default function SharesPage() {
       <h1 className="text-xl font-semibold" data-testid="text-shares-title">
         Independent Recovery Shares
       </h1>
+      <div
+        className="border-2 border-red-400 bg-red-50 text-red-900 rounded p-4 text-sm space-y-2"
+        data-testid="banner-legacy-shares"
+      >
+        <p className="font-bold">Legacy demonstration — superseded.</p>
+        <p>
+          This page implements the retired v1 Independent Recovery format, which splits the
+          Vault Key only.
+        </p>
+        <p>
+          Current QuietKey architecture requires Independent Recovery of the 64-byte{' '}
+          <code>VaultKey ‖ keyB</code> payload. That design arrives with the smart-card work at
+          Gate B and is intentionally not implemented here.
+        </p>
+        <p className="font-bold">Do not model current QuietKey recovery on this page.</p>
+      </div>
       <p className="text-sm text-gray-600">
         Split a Vault Key into two shares (Share A and Share B). Either share alone reveals
         nothing about the key; both together reconstruct it exactly. Store them in separate

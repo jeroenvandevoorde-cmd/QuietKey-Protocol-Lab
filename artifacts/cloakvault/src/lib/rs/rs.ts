@@ -1,12 +1,18 @@
 /**
- * Reed-Solomon over GF(2^8) — CloakVault protocol implementation.
+ * Generic Reed-Solomon engine over GF(2^8), primitive polynomial 0x11D.
  *
- * Protocol constants are LOCKED in rs-protocol-spec.md.
+ * This module provides field arithmetic and generic encode/decode machinery.
+ * Protocol profiles are pinned by callers.
+ *
+ * The current CloakVault v3 wire protocol profile is RS(83,49) with 34
+ * parity bytes, defined by `artifacts/cloakvault/docs/cloakvault-protocol-v3.md` §3.
+ *
+ * Legacy v1 RS(121,93) behavior may remain for historical regression tests
+ * but is not a current profile (see legacy-rs121-93-spec.md, historical only).
  *
  * Primitive polynomial: 0x11D (x^8 + x^4 + x^3 + x^2 + 1)
  * Generator roots: α^0, α^1, ..., α^(parity-1)
  * Systematic form: codeword = data || parity
- * Parity: ceil(30% of k)
  *
  * ── Polynomial convention ────────────────────────────────────────────────────
  * The ENCODING path uses "MSB-first" (array[0] = highest-degree coefficient)
@@ -142,7 +148,12 @@ function buildGeneratorMSB(parity: number): Uint8Array {
 }
 
 // ── Parity calculation ────────────────────────────────────────────────────────
-export function calcParity(k: number): number {
+/**
+ * LEGACY v1 — not part of the current v3 RS(83,49) profile.
+ * The retired v1 profile derived parity as ceil(30% of k). Retained only so
+ * historical regression tests can pin the v1 numbers explicitly.
+ */
+export function legacyV1Parity30Pct(k: number): number {
   return Math.ceil(0.3 * k);
 }
 
@@ -150,9 +161,11 @@ export function calcParity(k: number): number {
 /**
  * Encode k data bytes into a systematic (n = k + parity) codeword.
  * Layout: data[0..k-1] || parity[0..parity-1] (parity appended MSB-first).
+ * Parity MUST be supplied explicitly by the caller (profiles are pinned by
+ * callers; there is no implicit default).
  */
-export function rsEncode(data: Uint8Array, parity?: number): Uint8Array {
-  return _encode(data, parity ?? calcParity(data.length));
+export function rsEncode(data: Uint8Array, parity: number): Uint8Array {
+  return _encode(data, parity);
 }
 
 function _encode(data: Uint8Array, p: number): Uint8Array {
@@ -321,7 +334,9 @@ export function rsDecode(
   return corrected.slice(0, k);
 }
 
-// ── Interleaving (v1) ─────────────────────────────────────────────────────────
+// ── Interleaving — LEGACY v1, not part of the current v3 RS(83,49) profile ───
+// Retained for historical regression tests and legacy decoding capability
+// only. The v3 wire protocol does not interleave.
 
 function gcd(a: number, b: number): number {
   while (b) { [a, b] = [b, a % b]; }
@@ -361,12 +376,13 @@ export function deinterleave(interleaved: Uint8Array): Uint8Array {
   return out;
 }
 
-export function rsEncodeInterleaved(data: Uint8Array, parity?: number): Uint8Array {
-  const p = parity ?? calcParity(data.length);
-  return interleave(_encode(data, p));
+/** LEGACY v1 — not part of the current v3 RS(83,49) profile. */
+export function rsEncodeInterleaved(data: Uint8Array, parity: number): Uint8Array {
+  return interleave(_encode(data, parity));
 }
 
 /**
+ * LEGACY v1 — not part of the current v3 RS(83,49) profile.
  * Deinterleave and RS-decode.
  * erasurePositionsInterleaved: indices in the interleaved sequence known to be erased.
  * Maps to codeword positions before passing to rsDecode.

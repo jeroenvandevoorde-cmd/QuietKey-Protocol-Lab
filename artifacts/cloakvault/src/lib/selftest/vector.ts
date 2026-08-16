@@ -2,8 +2,8 @@
  * In-browser regeneration of the FROZEN conformance test vector,
  * docs/cloakvault-v3-test-vector.json.
  *
- * This is a browser-safe port of scripts/generate-spec-vector.ts (fs writes
- * removed; construction and serialization identical). The regenerated JSON
+ * This mirrors the recomputation performed by scripts/verify-spec-vector.ts
+ * (the read-only frozen-vector verifier). The regenerated JSON
  * string must byte-match the frozen file, which is imported raw at build
  * time. Export refuses to produce output unless the byte-match holds.
  */
@@ -31,7 +31,7 @@ import frozenVectorRaw from '../../../docs/cloakvault-v3-test-vector.json?raw';
 
 export { frozenVectorRaw };
 
-/** Regenerate the vector object exactly as scripts/generate-spec-vector.ts does. */
+/** Recompute the vector object in memory (same fields scripts/verify-spec-vector.ts checks). */
 export function regenerateVector(): { json: string; selfCheckOk: boolean } {
   // Fixed inputs (test secrets, published on purpose) — identical to the script.
   const SEED_ENTROPY = hexToBytes(

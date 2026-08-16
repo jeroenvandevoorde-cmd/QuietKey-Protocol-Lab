@@ -4,11 +4,15 @@
  * All protocol randomness (Vault Key, Capsule ID, AEAD nonce, share
  * randomness) MUST flow through this interface.
  *
- * - SystemRNG wraps crypto.getRandomValues and is the ONLY RNG used by
- *   production Create flows.
+ * - SystemRNG: Browser-laboratory RNG (`crypto.getRandomValues`).
+ *   The production QuietKey terminal entropy architecture — multiple
+ *   designated independent entropy sources combined through a specified
+ *   conditioner and subject to health testing under QK2-04 — is NOT modeled
+ *   here and must never be derived from this file. `SystemRNG` exists only
+ *   to support the Browser Protocol Laboratory.
  * - DeterministicTestRNG is a seeded deterministic generator used ONLY by
  *   tests and the deterministic test-vector export. It must never be
- *   reachable from a normal production Create flow.
+ *   reachable from a normal laboratory Create flow.
  */
 import { sha256 } from '@noble/hashes/sha2.js';
 

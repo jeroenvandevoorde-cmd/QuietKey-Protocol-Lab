@@ -1,8 +1,21 @@
 # CloakVault Reed-Solomon Protocol Specification
 
 ## Status
-Protocol constants — locked before implementation. Any future change requires
-a new RS version and explicit migration path.
+
+**SUPERSEDED — HISTORICAL ONLY.**
+
+This document specified the retired v1 slot-cloak Reed-Solomon profile:
+
+- RS(121,93)
+- 28 parity bytes
+- legacy interleaving
+
+The current QuietKey/CloakVault v3 wire protocol uses **RS(83,49), 34 parity
+bytes**, defined solely in:
+
+`artifacts/cloakvault/docs/cloakvault-protocol-v3.md`
+
+Nothing in this document is a current protocol constant.
 
 ---
 

@@ -1,10 +1,19 @@
 # QuietKey
 
 QuietKey (protocol/codebase name **CloakVault**, retained as a frozen
-historical label) is an air-gapped Bitcoin seed-backup and recovery system.
-The encrypted seed capsule lives in the footer token of an ordinary-looking
-printed document; recovery requires the printed document **plus** a separate
-256-bit Vault Key. Neither alone reveals anything.
+historical label) is an air-gapped Bitcoin cold-storage system. Under the
+current QK2-04 architecture, normal recovery/spending requires the printed
+Recovery Document **plus an authorized smart card**. The encrypted seed
+capsule lives in the footer token of an ordinary-looking printed document.
+
+This repository currently implements the document-capsule protocol in a
+**Browser Protocol Laboratory**; because the smart-card layer is not yet
+implemented, the laboratory supplies test Vault-Key material directly.
+Laboratory behavior must not be interpreted as the production secret-handling
+model.
+
+**Read [`ARCHITECTURE-AUTHORITY.md`](ARCHITECTURE-AUTHORITY.md) before
+changing anything — it defines what governs what.**
 
 > ## ⚠ EXPERIMENTAL — TEST USE ONLY — NOT FOR REAL FUNDS
 >
@@ -19,8 +28,10 @@ printed document; recovery requires the printed document **plus** a separate
   together with the frozen conformance vector
   [`artifacts/cloakvault/docs/cloakvault-v3-test-vector.json`](artifacts/cloakvault/docs/cloakvault-v3-test-vector.json)
   (capsule version byte `0x02`).
-- **System and device design** is governed by the QK2-03 blueprint,
-  maintained outside this repository.
+- **System and device design** is governed by the QK2-04 blueprint,
+  maintained outside this repository. See
+  [`ARCHITECTURE-AUTHORITY.md`](ARCHITECTURE-AUTHORITY.md) for the full
+  authority hierarchy.
 - **This repository is the reference implementation.** Documents cite the
   spec; they never copy it.
 

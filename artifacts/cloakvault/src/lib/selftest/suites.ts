@@ -72,7 +72,7 @@ import {
   rsDecode,
   rsEncodeInterleaved,
   rsDecodeInterleaved,
-  calcParity,
+  legacyV1Parity30Pct,
   interleaveParams,
   interleave,
   deinterleave,
@@ -614,13 +614,13 @@ const rsGroup: SuiteGroup = {
       },
     },
     {
-      name: 'parity calculation: ceil(30%) of 93/4/10/1 = 28/2/3/1',
+      name: 'legacy v1 parity rule (superseded): ceil(30%) of 93/4/10/1 = 28/2/3/1',
       scope: 'smoke',
       run: () => {
-        assert.eq(calcParity(93), 28);
-        assert.eq(calcParity(4), 2);
-        assert.eq(calcParity(10), 3);
-        assert.eq(calcParity(1), 1);
+        assert.eq(legacyV1Parity30Pct(93), 28);
+        assert.eq(legacyV1Parity30Pct(4), 2);
+        assert.eq(legacyV1Parity30Pct(10), 3);
+        assert.eq(legacyV1Parity30Pct(1), 1);
       },
     },
     {
@@ -640,7 +640,7 @@ const rsGroup: SuiteGroup = {
       },
     },
     {
-      name: 'capsule config (n=121, k=93, parity=28): encode + clean decode',
+      name: 'legacy v1 RS(121,93) profile — superseded: encode + clean decode',
       scope: 'smoke',
       run: () => {
         const cw = rsEncode(RS_DATA_93, 28);
@@ -730,7 +730,7 @@ const rsGroup: SuiteGroup = {
       },
     },
     {
-      name: 'interleaving v1: stride 12/111, identity round-trip, reordering, erasures in interleaved domain',
+      name: 'legacy v1 interleaving (superseded): stride 12/111, identity round-trip, reordering, erasures in interleaved domain',
       scope: 'smoke',
       run: () => {
         const { stride, invStride } = interleaveParams(121);

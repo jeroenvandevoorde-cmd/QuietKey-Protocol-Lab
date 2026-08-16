@@ -1,7 +1,19 @@
 /**
- * Independent Recovery Shares.
+ * LEGACY v1 (SUPERSEDED).
  *
- * Construction (per spec §19-21):
+ * This file implements the retired v1 Independent Recovery construction: a
+ * 32-byte Vault-Key-only XOR split.
+ *
+ * Under the current QK2-04 architecture, Independent Recovery protects the
+ * 64-byte `VaultKey ‖ keyB` payload.
+ *
+ * The current-format serialization and binding rules are a later Gate-B
+ * deliverable and MUST NOT be improvised here.
+ *
+ * This file is retained as historical Browser Protocol Laboratory code only.
+ * It must not be extended into the current architecture.
+ *
+ * Retired v1 construction (historical):
  *
  *   R = 32 random bytes
  *   Share A = R

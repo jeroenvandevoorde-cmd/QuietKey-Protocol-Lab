@@ -1,5 +1,10 @@
 /**
- * Independent Recovery Shares tests.
+ * Legacy v1 shares (superseded) — regression tests.
+ *
+ * Purpose: verify that retained legacy v1 behavior remains internally
+ * stable — NOT to prove current Independent Recovery. The current QK2-04
+ * Independent Recovery format (64-byte VaultKey ‖ keyB) is a later Gate-B
+ * deliverable and is intentionally not implemented here.
  */
 import { describe, it, expect } from 'vitest';
 import { DeterministicTestRNG } from '../rng';
@@ -22,7 +27,7 @@ function fixture(gen = 1) {
   return { k, shareA, shareB };
 }
 
-describe('Share creation', () => {
+describe('legacy v1 shares (superseded) — share creation', () => {
   it('CVSA1./CVSB1. prefixes are present', () => {
     const { shareA, shareB } = fixture();
     expect(shareA.startsWith(SHARE_A_PREFIX)).toBe(true);
@@ -37,7 +42,7 @@ describe('Share creation', () => {
   });
 });
 
-describe('Share rejoin round-trip', () => {
+describe('legacy v1 shares (superseded) — rejoin round-trip', () => {
   it('reconstructs the original Vault Key exactly', () => {
     const { k, shareA, shareB } = fixture();
     const cvk = rejoinShares(shareA, shareB);
@@ -56,7 +61,7 @@ describe('Share rejoin round-trip', () => {
   });
 });
 
-describe('Share validation errors (exact messages)', () => {
+describe('legacy v1 shares (superseded) — validation errors (exact messages)', () => {
   it('detects wrong share A checksum (corrupt a middle character)', () => {
     const { shareA, shareB } = fixture();
     // Flip a character in the middle of the body (not the last char, which could

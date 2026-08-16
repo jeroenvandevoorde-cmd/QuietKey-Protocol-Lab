@@ -1,45 +1,62 @@
-# [Project name]
+# QuietKey — protocol codebase name: CloakVault
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+QuietKey is an air-gapped Bitcoin cold-storage system governed by QK2-04. Normal product recovery requires the printed Recovery Document plus an authorized smart card.
 
-## Run & Operate
+This repository currently contains a **Browser Protocol Laboratory** implementing and testing the document-capsule wire protocol. In this laboratory, test Vault-Key material may be supplied directly because the smart-card layer does not yet exist.
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+The laboratory is **not a model of production QuietKey secret handling**.
 
-## Stack
+**EXPERIMENTAL — TEST USE ONLY — DO NOT USE WITH REAL FUNDS.**
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+## Read this first
 
-## Where things live
+Before making changes, read:
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+`ARCHITECTURE-AUTHORITY.md`
 
-## Architecture decisions
+QK2-04 governs system architecture.
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+The frozen wire protocol is governed by:
 
-## Product
+- `artifacts/cloakvault/docs/cloakvault-protocol-v3.md`
+- `artifacts/cloakvault/docs/cloakvault-v3-test-vector.json`
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Reference implementations never override the specification.
 
-## User preferences
+## Product artifact
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+Current relevant work lives primarily in `artifacts/cloakvault`:
 
-## Gotchas
+- Browser Protocol Laboratory
+- frozen v3 protocol specification
+- frozen v3 conformance vector
+- TypeScript reference implementation
+- independent Python interoperability implementation
+- Gate-A/spike materials
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+There is no product database, product API server, cloud recovery service, telemetry service, or required runtime Internet service.
 
-## Pointers
+Other workspace artifacts and `lib/*` are unrelated scaffolding. Never migrate them into QuietKey merely because they exist in the workspace.
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+## Run and verify
+
+- `pnpm --filter @workspace/cloakvault run dev` — Browser Protocol Laboratory
+- `pnpm --filter @workspace/cloakvault run typecheck`
+- `pnpm --filter @workspace/cloakvault run test` — complete TypeScript suite, never a subset for acceptance
+- `pytest artifacts/cloakvault/interop/python` — independent Python interoperability suite
+- `pnpm --filter @workspace/cloakvault run interop:cross` — TS ⇄ Python cross-implementation check
+
+The Python checks require the documented Python environment/dependencies.
+
+## Standing rules
+
+- client-side protocol laboratory only;
+- no persistent secret storage;
+- no runtime network dependency;
+- never log seeds, Vault Keys, shares, or payload tokens;
+- frozen protocol constants are never edited to make tests pass;
+- frozen expected values are inputs to validation, not outputs chosen by the implementation;
+- test counts are never reduced or sampled;
+- uncertain reader characters become erasures, never guesses;
+- unresolved QK2-04 Gate-B decisions must be surfaced, never silently chosen;
+- no new features are built ahead of an approved milestone.

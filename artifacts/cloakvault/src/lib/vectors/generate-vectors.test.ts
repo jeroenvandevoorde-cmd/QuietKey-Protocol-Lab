@@ -28,7 +28,7 @@ import {
 import { deriveCapsuleKey } from '../crypto/kdf';
 import { bytesToHex } from '../crypto/bytes';
 import { createShares } from '../crypto/shares';
-import { rsEncode, calcParity } from '../rs/rs';
+import { rsEncode, legacyV1Parity30Pct } from '../rs/rs';
 
 describe('Protocol test-vector generation', () => {
   it('writes protocol-test-vectors/cloakvault-vectors-v1.json', () => {
@@ -63,7 +63,7 @@ describe('Protocol test-vector generation', () => {
 
     // ── Reed-Solomon ──
     const sampleData = capsuleBytes; // 93 bytes
-    const parity = calcParity(sampleData.length);
+    const parity = legacyV1Parity30Pct(sampleData.length);
     const rsCodeword = rsEncode(sampleData, parity);
 
     // ── Output ──

@@ -75,9 +75,12 @@ export class ErrorBoundary extends Component<
   }
 
   componentDidCatch(error: unknown, info: ErrorInfo): void {
+    // Generic diagnostic only: never log the error object/message — it could
+    // contain secret material (seeds, keys, tokens). Error type + component
+    // stack cannot.
     console.error(
       'ErrorBoundary caught an error:',
-      toError(error),
+      error instanceof Error ? error.name : typeof error,
       info.componentStack,
     );
   }
