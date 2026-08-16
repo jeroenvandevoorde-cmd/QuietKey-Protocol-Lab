@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gate A Spike Viewer (read-only)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+           margin: 1.5rem; color: #1a1a1a; }
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.05rem; margin-top: 2rem; }
+    p.note { color: #555; font-size: 0.85rem; }
+    table { border-collapse: collapse; font-size: 0.8rem; }
+    th, td { border: 1px solid #ccc; padding: 2px 6px; text-align: center; }
+    th { background: #f3f3f3; }
+    td.sheet, th.sheet { text-align: left; font-family: ui-monospace, Menlo, monospace; }
+    .ok   { background: #d7f0d7; }
+    .bad  { background: #f6d3d3; }
+    .cell-pair { display: flex; gap: 2px; justify-content: center; }
+    .cell-pair span { padding: 0 4px; border-radius: 2px; }
+    .legend span { padding: 1px 6px; border-radius: 2px; margin-right: 6px; }
+    .over { font-weight: bold; color: #a40000; }
+    #error { color: #a40000; font-weight: bold; white-space: pre-wrap; }
+    td.num { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <h1>Gate A Capture Spike — results viewer</h1>
+  <p class="note">Read-only. Data fetched from
+    <code>artifacts/cloakvault/spike/results/</code>. Serve the repository root
+    with any static file server (e.g. <code>python3 -m http.server</code>) and
+    open <code>tools/spike-viewer/</code>.</p>
+  <div id="error"></div>
+
+  <h2>1. Decode grid — sheets × tokens (T0-selected / T0-free)</h2>
+  <p class="note legend">Each cell shows the T0-selected path (verdict) then the
+    T0-free production path: <span class="ok">ok</span>
+    <span class="bad">fail</span>. A “Δ” marks tokens where the T0-free
+    <code>ok</code> differs from its <code>prev_ok</code>.</p>
+  <div id="grid"></div>
+
+  <h2>2. Per family × severity (T0-selected path, tid ≠ T0)</h2>
+  <p class="note">Sums of per-token character counts from
+    <code>verdict_tokens.json</code>: C = correct, e = erasure, w = silent
+    wrong.</p>
+  <div id="famsev"></div>
+
+  <h2>3. Failed tokens vs RS budget (2·Eb + eb ≤ 34)</h2>
+  <p class="note">All tokens with <code>ok: false</code> in either path.
+    Bold red = exceeds the RS(83,49) correction budget of 34.</p>
+  <div id="failures"></div>
+
+  <script src="viewer.js"></script>
+</body>
+</html>
