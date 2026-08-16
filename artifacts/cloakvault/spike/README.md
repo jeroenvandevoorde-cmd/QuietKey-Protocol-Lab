@@ -15,6 +15,9 @@ Produced 16 August 2026 in an offline analysis container.
 - numpy 2.4.4
 - tesseract 5.3.4
 
+Decode verification additionally requires the Python cryptography package;
+use the interop test environment (the same venv as the interop pytest suite).
+
 ## Inputs
 
 29 phone captures, 4032x3024 JPEG, EXIF orientation 6 (27 token sheets,
