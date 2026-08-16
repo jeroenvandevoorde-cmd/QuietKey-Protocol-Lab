@@ -1,0 +1,43 @@
+{
+  "profile_format_version": 1,
+  "reader_version": "0.2-dev",
+  "status": "DEVELOPMENT / NOT GATE-A1 / NOT PRODUCTION",
+  "profile_id": "spike-2026-08",
+  "purpose": "Task 0 diagnosis experiment ONLY: frozen historical spike bank replayed through Reader v0.2. Not a calibration; not a candidate production profile.",
+  "confidence_floor": 0.64,
+  "margin_floor": 0.02,
+  "confidence_floor_note": "Frozen historical spike operating point (verdict_analysis.py CF/MF). Not tuned; not to be tuned.",
+  "capture_quality": {
+    "sharpness_min_laplacian_var": 0.0015,
+    "exposure_max_under_frac": 0.3,
+    "exposure_max_over_frac": 0.15,
+    "exposure_min_footer_range": 0.18,
+    "glare_max_region_frac": 0.06,
+    "page_min_boundary_confidence": 0.35,
+    "footer_min_line_candidates": 1,
+    "footer_min_periodicity": 0.12,
+    "footer_min_extent_frac": 0.35
+  },
+  "capture_quality_note": "Same v0.2 development gate thresholds; Task 0 runs the gate in REPORT-ONLY mode (verdict logged, never blocks).",
+  "classifier_id": "spike-gatea-nn-pooled-bank (baseline-0-std-S01 + baseline-0-std-S02, blur sigmas 0/0.8/1.4/2.0, gray+Sobel z-score features, per-class max NN)",
+  "glyph_bank": {
+    "path": "reader/banks/spike-2026-08-bank.npz",
+    "sha256": "d72a8f92a4f2a79ea666edc19dc958dc89fec0bd48757f3add561eff8ed702a6",
+    "samples": 5680,
+    "feature_dim": 1292,
+    "pitch_ref_rect_px": 18.797554347826086,
+    "training_captures": [
+      "baseline-0-std-S01..jpeg",
+      "baseline-0-std-S02.jpeg"
+    ],
+    "training_note": "Built exclusively from spike baseline captures S01 and S02 via frozen spike code. No Bridge Run 01 image used."
+  },
+  "registration_model_id": "perline-robust-piecewise-phase-v1",
+  "calibration_corpora": [
+    "spike baseline captures S01+S02 (historical, pre-Bridge; harvested by frozen spike pipeline)"
+  ],
+  "validation_corpora_note": "Bridge Run 01 is seen development material; Task 0 results are diagnosis, not validation.",
+  "created": "2026-08-16",
+  "source_commit": null,
+  "warning": "HISTORICAL DIAGNOSIS PROFILE. DEVELOPMENT ONLY. NOT GATE-A1. NOT PRODUCTION."
+}

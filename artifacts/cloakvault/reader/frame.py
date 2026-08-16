@@ -45,18 +45,32 @@ def read_frame(
     image: np.ndarray,
     profile: ReaderProfile,
     decode_payload: Optional[Callable[[str], dict]] = None,
+    classifier: Optional[Callable] = None,
+    quality_gate_blocking: bool = True,
 ) -> FrameResult:
     """Process one frame. `decode_payload` optionally performs the final
     authenticated decode given the canonical token text (development hooks
-    supply a vault-key-aware callable; None stops after RS accounting)."""
+    supply a vault-key-aware callable; None stops after RS accounting).
+
+    `classifier` optionally replaces the default synthetic-template
+    classifier; it must have the classify_cells contract. `quality_gate_
+    blocking=False` runs the capture gate in REPORT-ONLY mode: its verdict
+    is logged in the CAPTURE stage diagnostic but never blocks (diagnosis
+    experiments only — production behavior is blocking)."""
+    if classifier is None:
+        classifier = classify_cells
     stages: list[StageDiagnostic] = []
     try:
         # CAPTURE ────────────────────────────────────────────────────────
         q = assess_quality(image, profile.quality)
+        gate_metrics = dict(q.metrics)
+        if not quality_gate_blocking:
+            gate_metrics["gate_mode"] = "REPORT_ONLY"
+            gate_metrics["gate_verdict"] = q.status
         stages.append(
-            StageDiagnostic(Stage.CAPTURE, q.status == "ACCEPT", ";".join(q.reasons) or None, q.metrics)
+            StageDiagnostic(Stage.CAPTURE, q.status == "ACCEPT", ";".join(q.reasons) or None, gate_metrics)
         )
-        if q.status != "ACCEPT":
+        if q.status != "ACCEPT" and quality_gate_blocking:
             return FrameResult(ResultCategory.CAPTURE_QUALITY_REJECT, stages,
                                notes="capture rejected before deep decode; counts not meaningful")
         # PAGE (global geometry is folded into capture metrics for now) ──
@@ -95,7 +109,7 @@ def read_frame(
                 return FrameResult(ResultCategory.REGISTRATION_FAIL, stages)
             centers = model.centers()
             y_mid = float(np.mean(model.y_at(centers)))
-            text, confs, _ = classify_cells(
+            text, confs, _ = classifier(
                 strip, centers, y_mid, profile.confidence_floor, profile.margin_floor
             )
             lines_text.append(text)

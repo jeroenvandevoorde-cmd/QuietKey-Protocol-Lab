@@ -1,0 +1,1774 @@
+{
+  "experiment": "task0-diagnosis",
+  "development_data": true,
+  "profile": {
+    "path": "reader/profiles/spike-2026-08.json",
+    "sha256": "345d7da84d08aaa9022310610462e49aab9bae826b928a2d718a499bffac1133"
+  },
+  "bank_sha256": "d72a8f92a4f2a79ea666edc19dc958dc89fec0bd48757f3add561eff8ed702a6",
+  "quality_gate_mode": "REPORT_ONLY",
+  "thresholds": {
+    "confidence_floor": 0.64,
+    "margin_floor": 0.02
+  },
+  "category_counts": {
+    "RS_BUDGET_EXCEEDED": 14,
+    "FOOTER_LOCALIZATION_FAIL": 5
+  },
+  "stage_funnel_reached": {
+    "CAPTURE": 19,
+    "PAGE": 19,
+    "FOOTER": 19,
+    "REGISTRATION": 14,
+    "CLASSIFICATION": 14,
+    "TOKEN_EXTRACTION": 14,
+    "RS": 14
+  },
+  "authenticated_decodes": 0,
+  "decision_rule_outcome": "AUTH < 5: bank/feature incompatibility confirmed as a primary defect; Task 3 + Phase B are the fix",
+  "sheets": [
+    {
+      "sheet": "bridge-baseline-0-std-S28.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 2874,
+      "erasures": 2833,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0006726350928001568,
+            "under_frac": 0.0008761674604482316,
+            "over_frac": 1.389444666755591e-06,
+            "footer_tonal_range": 0.43529411764705883,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.679354421507165,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.679354421507165
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 4,
+            "pitches": [
+              5.687,
+              5.397,
+              6.577,
+              7.204
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.511,
+                "cells": 743
+              },
+              {
+                "pitch": 5.195,
+                "cells": 789
+              },
+              {
+                "pitch": 5.701,
+                "cells": 750
+              },
+              {
+                "pitch": 7.224,
+                "cells": 592
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 2874,
+            "erasures": 2833
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "length-run",
+            "run_lengths": [
+              2874
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-baseline-0-std-S46.jpeg",
+      "category": "FOOTER_LOCALIZATION_FAIL",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": null,
+      "erasures": null,
+      "rs_erasure_bytes": null,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0018387238481323985,
+            "under_frac": 4.343663424383307e-05,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.584313725490196,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8473428932247061,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9799285688918414,
+            "footer_pitch_consistency": 0.9945074065735504,
+            "footer_extent_frac": 0.999669093315685,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8473428932247061
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": false,
+          "reason": "glyph pitch inconsistent across lines",
+          "metrics": {
+            "candidates": 0,
+            "pitches": []
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-bodyring-1-std-S43.jpeg",
+      "category": "FOOTER_LOCALIZATION_FAIL",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": null,
+      "erasures": null,
+      "rs_erasure_bytes": null,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.001868937871972205,
+            "under_frac": 0.0004957031397542915,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.5450980392156862,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8517392718082285,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.8579949630598461,
+            "footer_pitch_consistency": 0.997382352108236,
+            "footer_extent_frac": 0.99933818663137,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8517392718082285
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": false,
+          "reason": "glyph pitch inconsistent across lines",
+          "metrics": {
+            "candidates": 0,
+            "pitches": []
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-cliptear-1-std-S44.jpeg",
+      "category": "FOOTER_LOCALIZATION_FAIL",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": null,
+      "erasures": null,
+      "rs_erasure_bytes": null,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0017384594289780253,
+            "under_frac": 7.38997558023625e-06,
+            "over_frac": 8.211083978040277e-08,
+            "footer_tonal_range": 0.5607843137254902,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8646562101249234,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9709955231410512,
+            "footer_pitch_consistency": 0.8565950083003214,
+            "footer_extent_frac": 0.999669093315685,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8646562101249234
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": false,
+          "reason": "glyph pitch inconsistent across lines",
+          "metrics": {
+            "candidates": 0,
+            "pitches": []
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S29.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 624,
+      "erasures": 621,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0007322542156645303,
+            "under_frac": 0.001153892929720908,
+            "over_frac": 0.0003324859355506909,
+            "footer_tonal_range": 0.6039215686274509,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.6979782108922,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9827299869687752,
+            "footer_pitch_consistency": 0.9946417720651608,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.6979782108922
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 1,
+            "pitches": [
+              6.824
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 6.858,
+                "cells": 624
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 624,
+            "erasures": 621
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              624
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S30.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 3118,
+      "erasures": 3041,
+      "rs_erasure_bytes": 82,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0009610554628637117,
+            "under_frac": 0.00038802285620130405,
+            "over_frac": 8.173203922091713e-08,
+            "footer_tonal_range": 0.6196078431372549,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8263156978477666,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8263156978477666
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 4,
+            "pitches": [
+              5.5,
+              5.396,
+              5.266,
+              5.252
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.238,
+                "cells": 786
+              },
+              {
+                "pitch": 5.32,
+                "cells": 774
+              },
+              {
+                "pitch": 5.31,
+                "cells": 775
+              },
+              {
+                "pitch": 5.256,
+                "cells": 783
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 3118,
+            "erasures": 3041
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              3118
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 82
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-1-std-S37.jpeg",
+      "category": "FOOTER_LOCALIZATION_FAIL",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": null,
+      "erasures": null,
+      "rs_erasure_bytes": null,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0010337380980441101,
+            "under_frac": 0.0003456447938652585,
+            "over_frac": 0.0022333279717115604,
+            "footer_tonal_range": 0.7490196078431373,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.9069812974209291,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9069812974209291
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": false,
+          "reason": "glyph pitch inconsistent across lines",
+          "metrics": {
+            "candidates": 0,
+            "pitches": []
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S31.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 1709,
+      "erasures": 1655,
+      "rs_erasure_bytes": 82,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0010087513104102114,
+            "under_frac": 7.923921202467915e-05,
+            "over_frac": 0.0008236546252487924,
+            "footer_tonal_range": 0.6705882352941176,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.854770789034568,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9672172381379551,
+            "footer_pitch_consistency": 0.9825978432409627,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.854770789034568
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 2,
+            "pitches": [
+              19.621,
+              19.907
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.043,
+                "cells": 848
+              },
+              {
+                "pitch": 4.963,
+                "cells": 861
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1709,
+            "erasures": 1655
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              1709
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 82
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S32.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 3304,
+      "erasures": 3182,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0009328224868945762,
+            "under_frac": 0.002354945246072285,
+            "over_frac": 0.0029247810235205193,
+            "footer_tonal_range": 0.8313725490196078,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.8863970016111019,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9842082504936001,
+            "footer_pitch_consistency": 0.9943651368626832,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8863970016111019
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 4,
+            "pitches": [
+              5.245,
+              5.114,
+              5.389,
+              5.543
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.132,
+                "cells": 806
+              },
+              {
+                "pitch": 4.921,
+                "cells": 867
+              },
+              {
+                "pitch": 5.186,
+                "cells": 825
+              },
+              {
+                "pitch": 5.295,
+                "cells": 806
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 3304,
+            "erasures": 3182
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              3304
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-edge-3-std-S42.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 2742,
+      "erasures": 2418,
+      "rs_erasure_bytes": 80,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.002083491712609759,
+            "under_frac": 0.000478398342361636,
+            "over_frac": 8.201583102376753e-08,
+            "footer_tonal_range": 0.596078431372549,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.9145873193027211,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9782196037155343,
+            "footer_pitch_consistency": 0.9917939470944221,
+            "footer_extent_frac": 0.9996693121693122,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9145873193027211
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 10,
+            "pitches": [
+              14.714,
+              14.784,
+              14.021,
+              14.418,
+              11.364,
+              14.335,
+              14.708,
+              14.669,
+              11.243,
+              11.876
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 14.793,
+                "cells": 201
+              },
+              {
+                "pitch": 14.784,
+                "cells": 201
+              },
+              {
+                "pitch": 14.644,
+                "cells": 206
+              },
+              {
+                "pitch": 14.787,
+                "cells": 204
+              },
+              {
+                "pitch": 14.727,
+                "cells": 203
+              },
+              {
+                "pitch": 14.873,
+                "cells": 203
+              },
+              {
+                "pitch": 14.712,
+                "cells": 202
+              },
+              {
+                "pitch": 3.582,
+                "cells": 823
+              },
+              {
+                "pitch": 11.827,
+                "cells": 251
+              },
+              {
+                "pitch": 12.056,
+                "cells": 248
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 2742,
+            "erasures": 2418
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              2742
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 80
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-fade-3-std-S41.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 1199,
+      "erasures": 974,
+      "rs_erasure_bytes": 78,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.00212828284779723,
+            "under_frac": 0.0036971916467204166,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.5960784313725491,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8781675334099689,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8781675334099689
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 6,
+            "pitches": [
+              14.91,
+              14.946,
+              14.809,
+              14.936,
+              14.8,
+              14.845
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 14.907,
+                "cells": 201
+              },
+              {
+                "pitch": 14.905,
+                "cells": 198
+              },
+              {
+                "pitch": 14.864,
+                "cells": 201
+              },
+              {
+                "pitch": 14.808,
+                "cells": 201
+              },
+              {
+                "pitch": 14.889,
+                "cells": 200
+              },
+              {
+                "pitch": 14.872,
+                "cells": 198
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1199,
+            "erasures": 974
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              1199
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 78
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-fold-3-std-S38.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 3497,
+      "erasures": 3372,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.000806200284099111,
+            "under_frac": 8.332581398572501e-05,
+            "over_frac": 0.001832432319332962,
+            "footer_tonal_range": 0.5647058823529412,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.9235188356388307,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9235188356388307
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "pitches": [
+              5.825,
+              5.879,
+              6.017,
+              5.583,
+              5.256
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.586,
+                "cells": 697
+              },
+              {
+                "pitch": 5.69,
+                "cells": 555
+              },
+              {
+                "pitch": 5.771,
+                "cells": 732
+              },
+              {
+                "pitch": 5.524,
+                "cells": 692
+              },
+              {
+                "pitch": 5.056,
+                "cells": 821
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 3497,
+            "erasures": 3372
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              3497
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-scratch-3-std-S39.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 604,
+      "erasures": 501,
+      "rs_erasure_bytes": 81,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0017829725923457348,
+            "under_frac": 0.0009590111121609138,
+            "over_frac": 1.0333994708994708e-05,
+            "footer_tonal_range": 0.6352941176470588,
+            "glare_region_frac": 7.789375292101573e-05,
+            "page_boundary_confidence": 0.9101343517731166,
+            "footer_line_candidates": 2.0,
+            "footer_periodicity": 0.9799464470000223,
+            "footer_pitch_consistency": 0.9917204454729259,
+            "footer_extent_frac": 0.9996693121693122,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9101343517731166
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 3,
+            "pitches": [
+              14.171,
+              13.987,
+              14.41
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 14.18,
+                "cells": 203
+              },
+              {
+                "pitch": 14.197,
+                "cells": 200
+              },
+              {
+                "pitch": 14.346,
+                "cells": 201
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 604,
+            "erasures": 501
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "length-run",
+            "run_lengths": [
+              604
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 81
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-scuff-3-std-S40.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 1281,
+      "erasures": 1154,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0020523821711125544,
+            "under_frac": 0.0009563045897371294,
+            "over_frac": 3.305237990257832e-05,
+            "footer_tonal_range": 0.6392156862745098,
+            "glare_region_frac": 7.789375292101573e-05,
+            "page_boundary_confidence": 0.871887417196817,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9112043707392273,
+            "footer_pitch_consistency": 0.982816889750769,
+            "footer_extent_frac": 0.9907407407407407,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.871887417196817
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 3,
+            "pitches": [
+              14.164,
+              14.097,
+              14.253
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 14.125,
+                "cells": 212
+              },
+              {
+                "pitch": 14.114,
+                "cells": 213
+              },
+              {
+                "pitch": 3.512,
+                "cells": 856
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1281,
+            "erasures": 1154
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              1281
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-spanstain-1-std-S45.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 1616,
+      "erasures": 1431,
+      "rs_erasure_bytes": 81,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0017363624220582484,
+            "under_frac": 0.0006150101899552167,
+            "over_frac": 2.9559902320944995e-06,
+            "footer_tonal_range": 0.5607843137254902,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8818794514339016,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8818794514339016
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "pitches": [
+              14.618,
+              14.802,
+              14.779,
+              14.634,
+              11.712
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 14.655,
+                "cells": 197
+              },
+              {
+                "pitch": 14.699,
+                "cells": 197
+              },
+              {
+                "pitch": 14.736,
+                "cells": 195
+              },
+              {
+                "pitch": 3.884,
+                "cells": 774
+              },
+              {
+                "pitch": 11.841,
+                "cells": 253
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1616,
+            "erasures": 1431
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "length-run",
+            "run_lengths": [
+              1616
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 81
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-2-std-S33.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 2634,
+      "erasures": 2544,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0011995085962566738,
+            "under_frac": 1.879836902081094e-05,
+            "over_frac": 0.0003914147358289721,
+            "footer_tonal_range": 0.6627450980392158,
+            "glare_region_frac": 7.849293563579278e-05,
+            "page_boundary_confidence": 0.8246540854904053,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9491267076922948,
+            "footer_pitch_consistency": 0.9721040552281885,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8246540854904053
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 3,
+            "pitches": [
+              4.978,
+              5.111,
+              4.862
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 4.818,
+                "cells": 884
+              },
+              {
+                "pitch": 4.894,
+                "cells": 858
+              },
+              {
+                "pitch": 4.762,
+                "cells": 892
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 2634,
+            "erasures": 2544
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              2634
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-2-std-S34.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 1458,
+      "erasures": 1453,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0008098880182958577,
+            "under_frac": 6.129902941568785e-07,
+            "over_frac": 0.0006678733584937243,
+            "footer_tonal_range": 0.6196078431372549,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.8752547587662516,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9498415581743276,
+            "footer_pitch_consistency": 0.980042349487939,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8752547587662516
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 1,
+            "pitches": [
+              2.936
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 2.935,
+                "cells": 1458
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1458,
+            "erasures": 1453
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "length-run",
+            "run_lengths": [
+              1458
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-3-std-S35.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 4609,
+      "erasures": 4433,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0012873451617573524,
+            "under_frac": 0.0001630145522261192,
+            "over_frac": 0.0033490929051359104,
+            "footer_tonal_range": 0.7137254901960783,
+            "glare_region_frac": 0.0003139717425431711,
+            "page_boundary_confidence": 0.8987266883877734,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9466344508251326,
+            "footer_pitch_consistency": 0.9438620031203149,
+            "footer_extent_frac": 0.9992997198879552,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8987266883877734
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 6,
+            "pitches": [
+              5.75,
+              5.655,
+              5.816,
+              5.508,
+              5.853,
+              5.547
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "lines": [
+              {
+                "pitch": 5.666,
+                "cells": 753
+              },
+              {
+                "pitch": 5.53,
+                "cells": 773
+              },
+              {
+                "pitch": 5.494,
+                "cells": 772
+              },
+              {
+                "pitch": 5.453,
+                "cells": 777
+              },
+              {
+                "pitch": 5.537,
+                "cells": 767
+              },
+              {
+                "pitch": 5.5,
+                "cells": 767
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 4609,
+            "erasures": 4433
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "method": "sentinel",
+            "run_lengths": [
+              4609
+            ]
+          }
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-3-std-S36.jpeg",
+      "category": "FOOTER_LOCALIZATION_FAIL",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": null,
+      "erasures": null,
+      "rs_erasure_bytes": null,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0010622763631254611,
+            "under_frac": 3.947657494370297e-05,
+            "over_frac": 0.003461065798868567,
+            "footer_tonal_range": 0.7215686274509804,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.909099097155202,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9928809167597975,
+            "footer_pitch_consistency": 0.9935569009615779,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.909099097155202
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": false,
+          "reason": "glyph pitch inconsistent across lines",
+          "metrics": {
+            "candidates": 0,
+            "pitches": []
+          }
+        }
+      ],
+      "notes": null
+    }
+  ]
+}
