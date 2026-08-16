@@ -38,10 +38,10 @@ Run all from a directory containing the captures:
 1. `sweep_harness2.py`
 2. `verdict_analysis.py`
 3. `t0free_harness.py`
-4. `locate_reader.py`
+4. `locate_reader_legacy_wrapper.py`
 5. `ocr_baseline.py`
 
-The committed `t0free_harness.py`, `locate_reader.py` and `ocr_baseline.py`
+The committed `t0free_harness.py`, `locate_reader_legacy_wrapper.py` and `ocr_baseline.py`
 hardcode the reference decoder path
 `/tmp/qkcheck/artifacts/cloakvault/interop/python` as run; clone or symlink
 the repository there to rerun them, while `verdict_analysis.py` takes
@@ -58,7 +58,7 @@ the published token outcomes exactly.
 | Path | Result |
 | --- | --- |
 | T0-selected path | 118/135 tokens decode |
-| T0-free production path | 116/135 |
+| T0-free production-style spike path | 116/135 |
 | Locate pages | 2/2 |
 | Tesseract stock | 0/135 |
 | Tesseract with charset whitelist | 2/135 |
@@ -68,3 +68,14 @@ the published token outcomes exactly.
 Files under `reports/` are immutable dated records. Corrections become new
 addendum reports. A rerun that changes results requires a new report, never
 an edit to an old one.
+
+## Historical locator (Reader v0.2 addendum, 2026-08-17)
+
+`locate_reader.py` was renamed to `locate_reader_legacy_wrapper.py` with a
+prepended HISTORICAL SPIKE LOCATOR header; the code body is byte-identical
+to the as-run original. It is preserved for evidence reproduction only and
+is wrapper-specific. Reader v0.2 development work lives outside this
+evidence directory in `reader/` and uses a structural locator with no
+wrapper assumptions. No historical results, reports, or headline numbers
+were changed. Note: Reader v0.2 is a development reader — it is neither
+the historical spike reader nor a future production terminal reader.

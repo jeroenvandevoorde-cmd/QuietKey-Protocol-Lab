@@ -27,3 +27,10 @@ The in-browser Self-Test suites (src/lib/selftest/suites.ts) must stay a faithfu
 
 ## Gate A spike data provenance
 - `spike/results/sweep_records.json` replaced the original `sweep_records.pkl` (deleted after verified conversion). Owner confirmed the 6-decimal float rounding changes zero threshold classifications across all 19,170 cells — the JSON reproduces the published token outcomes exactly. Treat the JSON as the authoritative sweep record.
+
+## Reader v0.2 hardening (added 2026-08-17)
+- Branch `reader-v02-hardening` exists LOCALLY only (worktree /tmp/reader-v02, single milestone commit; no git remote — GitHub disconnected). Never push/merge without explicit owner instruction.
+- Bridge Run 01 raw captures now live at artifacts/cloakvault/bridge/captures/ (owner-uploaded JPEGs with EXIF/GPS): gitignored, never commit/publish; provenance via CAPTURE-MANIFEST.json.
+- Bridge Run 01 = permanently seen development data; S28→CAPTURE_QUALITY_REJECT / S46→ACCEPT under the frozen 0.64/0.02 dev profile is a regression baseline, not Gate evidence.
+- Reader status integrity rule (architect-reviewed): RS-valid without AEAD attempt must be RS_VALID_UNAUTHENTICATED, never AUTHENTICATED_SUCCESS.
+- Synthetic render lessons: paper must render <1.0 (else glare/exposure false-positives); pitch/phase estimation must use gradient-energy profiles with harmonic suppression, not raw ink mass.

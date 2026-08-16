@@ -1,3 +1,13 @@
+# ============================================================================
+# HISTORICAL SPIKE LOCATOR.
+# Preserved as-run for evidence reproduction (renamed from locate_reader.py;
+# code below is byte-identical to the as-run original).
+# Contains current-wrapper-specific assumptions (domain, PREFIX=39, "&v=1",
+# fixed line lengths [87, 48, 50], fixed TOKEN_SLICE) and MUST NOT be used
+# as the foundation of the formal Gate A reader. The existing 2/2 S26/S27
+# result remains valid evidence for that historical wrapper.
+# The current structural locator is reader/structural_locator.py.
+# ============================================================================
 """Read T5 from the locate pages (S26/S27): full recipe document with the
 token dressed as a browser-print footer. Structural extraction: bottom three
 wide monospace lines are the token lines; line 1 carries a 39-char URL prefix,

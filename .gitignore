@@ -49,3 +49,9 @@ Thumbs.db
 .local/
 attached_assets/
 eng.traineddata
+
+# Reader v0.2 local dev venv (recreate: python3 -m venv artifacts/cloakvault/reader/.venv && pip install numpy pytest)
+artifacts/cloakvault/reader/.venv/
+
+# Bridge Run 01 raw captures: development data, contains EXIF/GPS from capture device — never commit or publish
+artifacts/cloakvault/bridge/captures/*.jpeg

@@ -1,0 +1,28 @@
+{
+  "profile_format_version": 1,
+  "reader_version": "0.2-dev",
+  "status": "DEVELOPMENT / NOT GATE-A1 / NOT PRODUCTION",
+  "confidence_floor": 0.64,
+  "margin_floor": 0.02,
+  "confidence_floor_note": "Frozen historical spike operating point. Not to be lowered against Bridge Run 01.",
+  "capture_quality": {
+    "sharpness_min_laplacian_var": 0.0015,
+    "exposure_max_under_frac": 0.30,
+    "exposure_max_over_frac": 0.15,
+    "exposure_min_footer_range": 0.18,
+    "glare_max_region_frac": 0.06,
+    "page_min_boundary_confidence": 0.35,
+    "footer_min_line_candidates": 1,
+    "footer_min_periodicity": 0.12,
+    "footer_min_extent_frac": 0.35
+  },
+  "classifier_id": "synthetic-template-ncc-v1 (development synthetic glyph bank only; terminal glyph templates require separate calibration)",
+  "registration_model_id": "perline-robust-piecewise-phase-v1",
+  "calibration_corpora": [
+    "synthetic-geometry-suite-v1 (deterministic, generated in-repo; engineering tests only)"
+  ],
+  "validation_corpora_note": "Bridge Run 01 is seen development/regression material and MUST NOT be cited as unseen validation of Reader v0.2.",
+  "created": "2026-08-17",
+  "source_commit": null,
+  "warning": "DEVELOPMENT thresholds calibrated on development material. NOT GATE-A1. NOT PRODUCTION. Terminal optics require separate calibration and a formal Gate A1 calibration corpus before any freeze."
+}
