@@ -1,0 +1,4394 @@
+{
+  "experiment": "phaseb-bridge-run01-dev-replay-v021-calbank",
+  "development_data": true,
+  "status": "DEVELOPMENT REPLAY / NOT GATE-A1 EVIDENCE",
+  "profile": {
+    "path": "reader/profiles/cal-run01-development.json",
+    "sha256": "11fa26a67a3c22aeffce264d71f238a044ca4489854436d71f54ecd823042838"
+  },
+  "bank_sha256": "37fd106b9bed34fc50bdd820344d245ba6bd7dc91590b753fa9c90b5f5ed0f93",
+  "quality_gate_mode": "REPORT_ONLY",
+  "thresholds": {
+    "confidence_floor": 0.64,
+    "margin_floor": 0.02
+  },
+  "category_counts": {
+    "RS_BUDGET_EXCEEDED": 19
+  },
+  "baseline_category_counts": {
+    "RS_BUDGET_EXCEEDED": 14,
+    "FOOTER_LOCALIZATION_FAIL": 5
+  },
+  "sheets": [
+    {
+      "sheet": "bridge-baseline-0-std-S28.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 468,
+      "erasures": 447,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0006726350928001568,
+            "under_frac": 0.0008761674604482316,
+            "over_frac": 1.389444666755591e-06,
+            "footer_tonal_range": 0.43529411764705883,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.679354421507165,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.679354421507165
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.6718,
+                "pitch": 30.811,
+                "gap": 71.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    4065,
+                    4103
+                  ],
+                  [
+                    4139,
+                    4186
+                  ],
+                  [
+                    4208,
+                    4246
+                  ]
+                ]
+              },
+              {
+                "score": 2.4765,
+                "pitch": 20.168,
+                "gap": 93.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2331,
+                    2366
+                  ],
+                  [
+                    2421,
+                    2459
+                  ],
+                  [
+                    2516,
+                    2554
+                  ]
+                ]
+              },
+              {
+                "score": 2.3513,
+                "pitch": 20.445,
+                "gap": 93.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2778,
+                    2822
+                  ],
+                  [
+                    2880,
+                    2917
+                  ],
+                  [
+                    2962,
+                    3010
+                  ]
+                ]
+              },
+              {
+                "score": 1.9,
+                "pitch": 23.726,
+                "gap": 70.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    4208,
+                    4246
+                  ],
+                  [
+                    4281,
+                    4314
+                  ],
+                  [
+                    4352,
+                    4385
+                  ]
+                ]
+              },
+              {
+                "score": 1.8426,
+                "pitch": 23.473,
+                "gap": 135.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    4139,
+                    4186
+                  ],
+                  [
+                    4281,
+                    4314
+                  ],
+                  [
+                    4416,
+                    4449
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 934
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 628
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1618
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 516
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 447
+              }
+            ],
+            "chosen": 4,
+            "lines": [
+              {
+                "pitch": 30.064,
+                "cells": 51,
+                "detected": true
+              },
+              {
+                "pitch": 2.927,
+                "cells": 337,
+                "detected": true
+              },
+              {
+                "pitch": 7.992,
+                "cells": 80,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 468,
+            "erasures": 447
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-baseline-0-std-S46.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 350,
+      "erasures": 312,
+      "rs_erasure_bytes": 81,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0018387238481323985,
+            "under_frac": 4.343663424383307e-05,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.584313725490196,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8473428932247061,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9799285688918414,
+            "footer_pitch_consistency": 0.9945074065735504,
+            "footer_extent_frac": 0.999669093315685,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8473428932247061
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5745,
+                "pitch": 20.878,
+                "gap": 39.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2799,
+                    2812
+                  ],
+                  [
+                    2843,
+                    2865
+                  ],
+                  [
+                    2884,
+                    2886
+                  ]
+                ]
+              },
+              {
+                "score": 2.5296,
+                "pitch": 21.016,
+                "gap": 44.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2751,
+                    2781
+                  ],
+                  [
+                    2814,
+                    2818
+                  ],
+                  [
+                    2843,
+                    2865
+                  ]
+                ]
+              },
+              {
+                "score": 2.5065,
+                "pitch": 14.134,
+                "gap": 59.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2016,
+                    2020
+                  ],
+                  [
+                    2076,
+                    2082
+                  ],
+                  [
+                    2116,
+                    2158
+                  ]
+                ]
+              },
+              {
+                "score": 2.3725,
+                "pitch": 14.129,
+                "gap": 97.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2064,
+                    2069
+                  ],
+                  [
+                    2116,
+                    2158
+                  ],
+                  [
+                    2245,
+                    2279
+                  ]
+                ]
+              },
+              {
+                "score": 2.2608,
+                "pitch": 14.063,
+                "gap": 66.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2436,
+                    2460
+                  ],
+                  [
+                    2498,
+                    2532
+                  ],
+                  [
+                    2563,
+                    2598
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 312
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 842
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1207
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1231
+              }
+            ],
+            "chosen": 1,
+            "lines": [
+              {
+                "pitch": 11.278,
+                "cells": 162,
+                "detected": true
+              },
+              {
+                "pitch": 10.99,
+                "cells": 92,
+                "detected": true
+              },
+              {
+                "pitch": 10.921,
+                "cells": 96,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 350,
+            "erasures": 312
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 81
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-bodyring-1-std-S43.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 351,
+      "erasures": 332,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.001868937871972205,
+            "under_frac": 0.0004957031397542915,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.5450980392156862,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8517392718082285,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.8579949630598461,
+            "footer_pitch_consistency": 0.997382352108236,
+            "footer_extent_frac": 0.99933818663137,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8517392718082285
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5815,
+                "pitch": 14.041,
+                "gap": 53.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    1996,
+                    2000
+                  ],
+                  [
+                    2058,
+                    2064
+                  ],
+                  [
+                    2082,
+                    2127
+                  ]
+                ]
+              },
+              {
+                "score": 2.576,
+                "pitch": 21.136,
+                "gap": 48.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2721,
+                    2751
+                  ],
+                  [
+                    2776,
+                    2797
+                  ],
+                  [
+                    2819,
+                    2846
+                  ]
+                ]
+              },
+              {
+                "score": 2.5027,
+                "pitch": 13.806,
+                "gap": 93.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    1986,
+                    1991
+                  ],
+                  [
+                    2058,
+                    2064
+                  ],
+                  [
+                    2163,
+                    2189
+                  ]
+                ]
+              },
+              {
+                "score": 2.2063,
+                "pitch": 14.113,
+                "gap": 65.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2082,
+                    2127
+                  ],
+                  [
+                    2163,
+                    2189
+                  ],
+                  [
+                    2218,
+                    2251
+                  ]
+                ]
+              },
+              {
+                "score": 1.8146,
+                "pitch": 16.522,
+                "gap": 50.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2819,
+                    2846
+                  ],
+                  [
+                    2875,
+                    2891
+                  ],
+                  [
+                    2926,
+                    2942
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 779
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 332
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 445
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1359
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 462
+              }
+            ],
+            "chosen": 1,
+            "lines": [
+              {
+                "pitch": 11.271,
+                "cells": 163,
+                "detected": true
+              },
+              {
+                "pitch": 11.161,
+                "cells": 91,
+                "detected": true
+              },
+              {
+                "pitch": 10.975,
+                "cells": 97,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 351,
+            "erasures": 332
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-cliptear-1-std-S44.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 286,
+      "erasures": 249,
+      "rs_erasure_bytes": 78,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0017384594289780253,
+            "under_frac": 7.38997558023625e-06,
+            "over_frac": 8.211083978040277e-08,
+            "footer_tonal_range": 0.5607843137254902,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8646562101249234,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9709955231410512,
+            "footer_pitch_consistency": 0.8565950083003214,
+            "footer_extent_frac": 0.999669093315685,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8646562101249234
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5883,
+                "pitch": 20.811,
+                "gap": 52.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2743,
+                    2775
+                  ],
+                  [
+                    2806,
+                    2826
+                  ],
+                  [
+                    2852,
+                    2877
+                  ]
+                ]
+              },
+              {
+                "score": 1.8798,
+                "pitch": 10.749,
+                "gap": 54.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2852,
+                    2877
+                  ],
+                  [
+                    2915,
+                    2922
+                  ],
+                  [
+                    2969,
+                    2976
+                  ]
+                ]
+              },
+              {
+                "score": 1.8266,
+                "pitch": 15.863,
+                "gap": 102.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2806,
+                    2826
+                  ],
+                  [
+                    2915,
+                    2922
+                  ],
+                  [
+                    3018,
+                    3025
+                  ]
+                ]
+              },
+              {
+                "score": 1.6811,
+                "pitch": 14.074,
+                "gap": 61.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2490,
+                    2524
+                  ],
+                  [
+                    2553,
+                    2584
+                  ],
+                  [
+                    2614,
+                    2645
+                  ]
+                ]
+              },
+              {
+                "score": 1.5843,
+                "pitch": 14.276,
+                "gap": 69.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2236,
+                    2275
+                  ],
+                  [
+                    2306,
+                    2343
+                  ],
+                  [
+                    2375,
+                    2412
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 249
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 324
+              },
+              {
+                "candidate": 2,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1357
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1186
+              }
+            ],
+            "chosen": 0,
+            "lines": [
+              {
+                "pitch": 11.449,
+                "cells": 139,
+                "detected": true
+              },
+              {
+                "pitch": 20.772,
+                "cells": 50,
+                "detected": true
+              },
+              {
+                "pitch": 10.889,
+                "cells": 97,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 286,
+            "erasures": 249
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 78
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S29.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 745,
+      "erasures": 689,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0007322542156645303,
+            "under_frac": 0.001153892929720908,
+            "over_frac": 0.0003324859355506909,
+            "footer_tonal_range": 0.6039215686274509,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.6979782108922,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9827299869687752,
+            "footer_pitch_consistency": 0.9946417720651608,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.6979782108922
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.7635,
+                "pitch": 20.133,
+                "gap": 86.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3491,
+                    3501
+                  ],
+                  [
+                    3556,
+                    3603
+                  ],
+                  [
+                    3646,
+                    3693
+                  ]
+                ]
+              },
+              {
+                "score": 2.0415,
+                "pitch": 14.561,
+                "gap": 26.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3468,
+                    3472
+                  ],
+                  [
+                    3491,
+                    3501
+                  ],
+                  [
+                    3517,
+                    3527
+                  ]
+                ]
+              },
+              {
+                "score": 2.0336,
+                "pitch": 19.958,
+                "gap": 89.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3192,
+                    3240
+                  ],
+                  [
+                    3283,
+                    3328
+                  ],
+                  [
+                    3372,
+                    3417
+                  ]
+                ]
+              },
+              {
+                "score": 1.9212,
+                "pitch": 12.28,
+                "gap": 12.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3456,
+                    3460
+                  ],
+                  [
+                    3468,
+                    3472
+                  ],
+                  [
+                    3478,
+                    3486
+                  ]
+                ]
+              },
+              {
+                "score": 1.8455,
+                "pitch": 14.365,
+                "gap": 109.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3358,
+                    3362
+                  ],
+                  [
+                    3468,
+                    3472
+                  ],
+                  [
+                    3556,
+                    3603
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1131
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1098
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1712
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1103
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 689
+              }
+            ],
+            "chosen": 4,
+            "lines": [
+              {
+                "pitch": 10.179,
+                "cells": 362,
+                "detected": false
+              },
+              {
+                "pitch": 18.389,
+                "cells": 199,
+                "detected": true
+              },
+              {
+                "pitch": 20.068,
+                "cells": 184,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 745,
+            "erasures": 689
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S30.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 187,
+      "erasures": 73,
+      "rs_erasure_bytes": 44,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0009610554628637117,
+            "under_frac": 0.00038802285620130405,
+            "over_frac": 8.173203922091713e-08,
+            "footer_tonal_range": 0.6196078431372549,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8263156978477666,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8263156978477666
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 3.2641,
+                "pitch": 16.04,
+                "gap": 68.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3993,
+                    4025
+                  ],
+                  [
+                    4062,
+                    4092
+                  ],
+                  [
+                    4128,
+                    4162
+                  ]
+                ]
+              },
+              {
+                "score": 2.6949,
+                "pitch": 20.498,
+                "gap": 86.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2895,
+                    2936
+                  ],
+                  [
+                    2984,
+                    3019
+                  ],
+                  [
+                    3059,
+                    3118
+                  ]
+                ]
+              },
+              {
+                "score": 2.2981,
+                "pitch": 20.458,
+                "gap": 90.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3540,
+                    3575
+                  ],
+                  [
+                    3625,
+                    3672
+                  ],
+                  [
+                    3717,
+                    3761
+                  ]
+                ]
+              },
+              {
+                "score": 2.1599,
+                "pitch": 20.344,
+                "gap": 94.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3059,
+                    3118
+                  ],
+                  [
+                    3166,
+                    3202
+                  ],
+                  [
+                    3256,
+                    3297
+                  ]
+                ]
+              },
+              {
+                "score": 1.6733,
+                "pitch": 15.547,
+                "gap": 88.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    4128,
+                    4162
+                  ],
+                  [
+                    4216,
+                    4250
+                  ],
+                  [
+                    4304,
+                    4338
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 73
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1483
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1296
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1264
+              },
+              {
+                "candidate": 4,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              }
+            ],
+            "chosen": 0,
+            "lines": [
+              {
+                "pitch": 30.743,
+                "cells": 87,
+                "detected": true
+              },
+              {
+                "pitch": 30.4,
+                "cells": 49,
+                "detected": true
+              },
+              {
+                "pitch": 30.348,
+                "cells": 51,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 187,
+            "erasures": 73
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 44
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-1-std-S37.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 750,
+      "erasures": 731,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0010337380980441101,
+            "under_frac": 0.0003456447938652585,
+            "over_frac": 0.0022333279717115604,
+            "footer_tonal_range": 0.7490196078431373,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.9069812974209291,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9069812974209291
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.0202,
+                "pitch": 19.679,
+                "gap": 89.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3213,
+                    3259
+                  ],
+                  [
+                    3302,
+                    3348
+                  ],
+                  [
+                    3391,
+                    3437
+                  ]
+                ]
+              },
+              {
+                "score": 1.8705,
+                "pitch": 19.654,
+                "gap": 89.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3571,
+                    3619
+                  ],
+                  [
+                    3660,
+                    3709
+                  ],
+                  [
+                    3750,
+                    3799
+                  ]
+                ]
+              },
+              {
+                "score": 1.2947,
+                "pitch": 15.527,
+                "gap": 89.5,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    3925,
+                    3965
+                  ],
+                  [
+                    4014,
+                    4054
+                  ],
+                  [
+                    4104,
+                    4144
+                  ]
+                ]
+              },
+              {
+                "score": 1.2515,
+                "pitch": 15.527,
+                "gap": 89.5,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    3746,
+                    3786
+                  ],
+                  [
+                    3836,
+                    3876
+                  ],
+                  [
+                    3925,
+                    3965
+                  ]
+                ]
+              },
+              {
+                "score": 1.1363,
+                "pitch": 19.616,
+                "gap": 89.5,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    3034,
+                    3080
+                  ],
+                  [
+                    3124,
+                    3170
+                  ],
+                  [
+                    3213,
+                    3259
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1646
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1763
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 731
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1239
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 2072
+              }
+            ],
+            "chosen": 2,
+            "lines": [
+              {
+                "pitch": 16.337,
+                "cells": 244,
+                "detected": true
+              },
+              {
+                "pitch": 15.267,
+                "cells": 261,
+                "detected": false
+              },
+              {
+                "pitch": 16.265,
+                "cells": 245,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 750,
+            "erasures": 731
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S31.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 1337,
+      "erasures": 1328,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0010087513104102114,
+            "under_frac": 7.923921202467915e-05,
+            "over_frac": 0.0008236546252487924,
+            "footer_tonal_range": 0.6705882352941176,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.854770789034568,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9672172381379551,
+            "footer_pitch_consistency": 0.9825978432409627,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.854770789034568
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.7587,
+                "pitch": 19.7,
+                "gap": 91.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3463,
+                    3496
+                  ],
+                  [
+                    3549,
+                    3594
+                  ],
+                  [
+                    3637,
+                    3687
+                  ]
+                ]
+              },
+              {
+                "score": 2.3472,
+                "pitch": 19.614,
+                "gap": 166.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2878,
+                    2884
+                  ],
+                  [
+                    3007,
+                    3062
+                  ],
+                  [
+                    3191,
+                    3236
+                  ]
+                ]
+              },
+              {
+                "score": 1.608,
+                "pitch": 19.749,
+                "gap": 87.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3191,
+                    3236
+                  ],
+                  [
+                    3282,
+                    3319
+                  ],
+                  [
+                    3369,
+                    3406
+                  ]
+                ]
+              },
+              {
+                "score": 1.44,
+                "pitch": 154.45,
+                "gap": 91.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    4980,
+                    5040
+                  ],
+                  [
+                    5071,
+                    5131
+                  ],
+                  [
+                    5162,
+                    5222
+                  ]
+                ]
+              },
+              {
+                "score": 1.3841,
+                "pitch": 154.45,
+                "gap": 91.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    4798,
+                    4858
+                  ],
+                  [
+                    4889,
+                    4949
+                  ],
+                  [
+                    4980,
+                    5040
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1712
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1967
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1328
+              },
+              {
+                "candidate": 3,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              },
+              {
+                "candidate": 4,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              }
+            ],
+            "chosen": 2,
+            "lines": [
+              {
+                "pitch": 4.696,
+                "cells": 553,
+                "detected": true
+              },
+              {
+                "pitch": 4.678,
+                "cells": 488,
+                "detected": true
+              },
+              {
+                "pitch": 7.853,
+                "cells": 296,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1337,
+            "erasures": 1328
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S32.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 689,
+      "erasures": 674,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0009328224868945762,
+            "under_frac": 0.002354945246072285,
+            "over_frac": 0.0029247810235205193,
+            "footer_tonal_range": 0.8313725490196078,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.8863970016111019,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9842082504936001,
+            "footer_pitch_consistency": 0.9943651368626832,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8863970016111019
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.6071,
+                "pitch": 19.825,
+                "gap": 86.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3368,
+                    3374
+                  ],
+                  [
+                    3426,
+                    3472
+                  ],
+                  [
+                    3517,
+                    3569
+                  ]
+                ]
+              },
+              {
+                "score": 1.9773,
+                "pitch": 19.91,
+                "gap": 88.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3070,
+                    3111
+                  ],
+                  [
+                    3158,
+                    3199
+                  ],
+                  [
+                    3246,
+                    3287
+                  ]
+                ]
+              },
+              {
+                "score": 1.9713,
+                "pitch": 12.934,
+                "gap": 13.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3341,
+                    3344
+                  ],
+                  [
+                    3354,
+                    3357
+                  ],
+                  [
+                    3367,
+                    3370
+                  ]
+                ]
+              },
+              {
+                "score": 1.2353,
+                "pitch": 30.097,
+                "gap": 83.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    3785,
+                    3824
+                  ],
+                  [
+                    3868,
+                    3907
+                  ],
+                  [
+                    3951,
+                    3990
+                  ]
+                ]
+              },
+              {
+                "score": 1.2127,
+                "pitch": 13.057,
+                "gap": 83.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    3341,
+                    3344
+                  ],
+                  [
+                    3424,
+                    3427
+                  ],
+                  [
+                    3507,
+                    3510
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1627
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 2118
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1083
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 674
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1670
+              }
+            ],
+            "chosen": 3,
+            "lines": [
+              {
+                "pitch": 16.425,
+                "cells": 226,
+                "detected": true
+              },
+              {
+                "pitch": 15.361,
+                "cells": 242,
+                "detected": false
+              },
+              {
+                "pitch": 16.869,
+                "cells": 221,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 689,
+            "erasures": 674
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-edge-3-std-S42.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 698,
+      "erasures": 685,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.002083491712609759,
+            "under_frac": 0.000478398342361636,
+            "over_frac": 8.201583102376753e-08,
+            "footer_tonal_range": 0.596078431372549,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.9145873193027211,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9782196037155343,
+            "footer_pitch_consistency": 0.9917939470944221,
+            "footer_extent_frac": 0.9996693121693122,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9145873193027211
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.6064,
+                "pitch": 14.368,
+                "gap": 70.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2452,
+                    2458
+                  ],
+                  [
+                    2517,
+                    2544
+                  ],
+                  [
+                    2582,
+                    2609
+                  ]
+                ]
+              },
+              {
+                "score": 2.5201,
+                "pitch": 14.705,
+                "gap": 156.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2017,
+                    2021
+                  ],
+                  [
+                    2114,
+                    2155
+                  ],
+                  [
+                    2317,
+                    2345
+                  ]
+                ]
+              },
+              {
+                "score": 1.9439,
+                "pitch": 14.586,
+                "gap": 64.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2251,
+                    2282
+                  ],
+                  [
+                    2317,
+                    2345
+                  ],
+                  [
+                    2382,
+                    2410
+                  ]
+                ]
+              },
+              {
+                "score": 1.2488,
+                "pitch": 21.836,
+                "gap": 70.5,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    2769,
+                    2798
+                  ],
+                  [
+                    2839,
+                    2868
+                  ],
+                  [
+                    2910,
+                    2939
+                  ]
+                ]
+              },
+              {
+                "score": 1.2006,
+                "pitch": 21.836,
+                "gap": 70.5,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    2628,
+                    2657
+                  ],
+                  [
+                    2699,
+                    2728
+                  ],
+                  [
+                    2769,
+                    2798
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1110
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1067
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 878
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 685
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 731
+              }
+            ],
+            "chosen": 3,
+            "lines": [
+              {
+                "pitch": 11.83,
+                "cells": 228,
+                "detected": true
+              },
+              {
+                "pitch": 11.191,
+                "cells": 242,
+                "detected": false
+              },
+              {
+                "pitch": 11.887,
+                "cells": 228,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 698,
+            "erasures": 685
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-fade-3-std-S41.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 550,
+      "erasures": 524,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.00212828284779723,
+            "under_frac": 0.0036971916467204166,
+            "over_frac": 0.0,
+            "footer_tonal_range": 0.5960784313725491,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8781675334099689,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8781675334099689
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.6164,
+                "pitch": 14.694,
+                "gap": 65.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2078,
+                    2121
+                  ],
+                  [
+                    2169,
+                    2171
+                  ],
+                  [
+                    2207,
+                    2252
+                  ]
+                ]
+              },
+              {
+                "score": 2.034,
+                "pitch": 14.423,
+                "gap": 16.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2169,
+                    2171
+                  ],
+                  [
+                    2184,
+                    2189
+                  ],
+                  [
+                    2200,
+                    2205
+                  ]
+                ]
+              },
+              {
+                "score": 1.9945,
+                "pitch": 14.825,
+                "gap": 68.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2342,
+                    2378
+                  ],
+                  [
+                    2410,
+                    2447
+                  ],
+                  [
+                    2478,
+                    2515
+                  ]
+                ]
+              },
+              {
+                "score": 1.9147,
+                "pitch": 14.691,
+                "gap": 87.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2078,
+                    2121
+                  ],
+                  [
+                    2184,
+                    2189
+                  ],
+                  [
+                    2271,
+                    2276
+                  ]
+                ]
+              },
+              {
+                "score": 1.8731,
+                "pitch": 14.666,
+                "gap": 43.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2141,
+                    2146
+                  ],
+                  [
+                    2184,
+                    2189
+                  ],
+                  [
+                    2207,
+                    2252
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 524
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1101
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 562
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 3185
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 724
+              }
+            ],
+            "chosen": 0,
+            "lines": [
+              {
+                "pitch": 14.867,
+                "cells": 182,
+                "detected": true
+              },
+              {
+                "pitch": 14.666,
+                "cells": 187,
+                "detected": true
+              },
+              {
+                "pitch": 14.935,
+                "cells": 181,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 550,
+            "erasures": 524
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-fold-3-std-S38.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 350,
+      "erasures": 316,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS;FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.000806200284099111,
+            "under_frac": 8.332581398572501e-05,
+            "over_frac": 0.001832432319332962,
+            "footer_tonal_range": 0.5647058823529412,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.9235188356388307,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9235188356388307
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5412,
+                "pitch": 30.016,
+                "gap": 67.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    4007,
+                    4049
+                  ],
+                  [
+                    4078,
+                    4107
+                  ],
+                  [
+                    4144,
+                    4182
+                  ]
+                ]
+              },
+              {
+                "score": 2.528,
+                "pitch": 20.268,
+                "gap": 95.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3063,
+                    3129
+                  ],
+                  [
+                    3210,
+                    3219
+                  ],
+                  [
+                    3263,
+                    3310
+                  ]
+                ]
+              },
+              {
+                "score": 1.7673,
+                "pitch": 18.681,
+                "gap": 25.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3184,
+                    3194
+                  ],
+                  [
+                    3210,
+                    3219
+                  ],
+                  [
+                    3236,
+                    3245
+                  ]
+                ]
+              },
+              {
+                "score": 1.734,
+                "pitch": 20.368,
+                "gap": 92.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3636,
+                    3684
+                  ],
+                  [
+                    3729,
+                    3775
+                  ],
+                  [
+                    3821,
+                    3867
+                  ]
+                ]
+              },
+              {
+                "score": 1.6431,
+                "pitch": 20.27,
+                "gap": 91.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3263,
+                    3310
+                  ],
+                  [
+                    3355,
+                    3401
+                  ],
+                  [
+                    3446,
+                    3492
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 316
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1162
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 633
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1645
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1090
+              }
+            ],
+            "chosen": 0,
+            "lines": [
+              {
+                "pitch": 16.351,
+                "cells": 162,
+                "detected": true
+              },
+              {
+                "pitch": 15.877,
+                "cells": 92,
+                "detected": true
+              },
+              {
+                "pitch": 15.848,
+                "cells": 96,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 350,
+            "erasures": 316
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-scratch-3-std-S39.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 255,
+      "erasures": 221,
+      "rs_erasure_bytes": 81,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0017829725923457348,
+            "under_frac": 0.0009590111121609138,
+            "over_frac": 1.0333994708994708e-05,
+            "footer_tonal_range": 0.6352941176470588,
+            "glare_region_frac": 7.789375292101573e-05,
+            "page_boundary_confidence": 0.9101343517731166,
+            "footer_line_candidates": 2.0,
+            "footer_periodicity": 0.9799464470000223,
+            "footer_pitch_consistency": 0.9917204454729259,
+            "footer_extent_frac": 0.9996693121693122,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.9101343517731166
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.585,
+                "pitch": 21.039,
+                "gap": 44.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2772,
+                    2800
+                  ],
+                  [
+                    2814,
+                    2835
+                  ],
+                  [
+                    2862,
+                    2887
+                  ]
+                ]
+              },
+              {
+                "score": 2.2974,
+                "pitch": 14.188,
+                "gap": 90.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2265,
+                    2301
+                  ],
+                  [
+                    2330,
+                    2365
+                  ],
+                  [
+                    2452,
+                    2477
+                  ]
+                ]
+              },
+              {
+                "score": 2.2941,
+                "pitch": 14.123,
+                "gap": 70.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2452,
+                    2477
+                  ],
+                  [
+                    2521,
+                    2557
+                  ],
+                  [
+                    2587,
+                    2624
+                  ]
+                ]
+              },
+              {
+                "score": 2.1858,
+                "pitch": 14.128,
+                "gap": 60.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2139,
+                    2187
+                  ],
+                  [
+                    2213,
+                    2223
+                  ],
+                  [
+                    2265,
+                    2301
+                  ]
+                ]
+              },
+              {
+                "score": 1.8932,
+                "pitch": 16.382,
+                "gap": 43.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2862,
+                    2887
+                  ],
+                  [
+                    2906,
+                    2929
+                  ],
+                  [
+                    2949,
+                    2972
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 319
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 221
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 833
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 401
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 250
+              }
+            ],
+            "chosen": 1,
+            "lines": [
+              {
+                "pitch": 14.255,
+                "cells": 131,
+                "detected": true
+              },
+              {
+                "pitch": 14.262,
+                "cells": 114,
+                "detected": true
+              },
+              {
+                "pitch": 12.184,
+                "cells": 10,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 255,
+            "erasures": 221
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 81
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-scuff-3-std-S40.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "ACCEPT",
+      "gate_reasons": null,
+      "classified_chars": 448,
+      "erasures": 396,
+      "rs_erasure_bytes": 81,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "laplacian_variance": 0.0020523821711125544,
+            "under_frac": 0.0009563045897371294,
+            "over_frac": 3.305237990257832e-05,
+            "footer_tonal_range": 0.6392156862745098,
+            "glare_region_frac": 7.789375292101573e-05,
+            "page_boundary_confidence": 0.871887417196817,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9112043707392273,
+            "footer_pitch_consistency": 0.982816889750769,
+            "footer_extent_frac": 0.9907407407407407,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "ACCEPT"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.871887417196817
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.4946,
+                "pitch": 20.718,
+                "gap": 46.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2778,
+                    2798
+                  ],
+                  [
+                    2823,
+                    2844
+                  ],
+                  [
+                    2870,
+                    2891
+                  ]
+                ]
+              },
+              {
+                "score": 2.2901,
+                "pitch": 13.956,
+                "gap": 64.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2417,
+                    2442
+                  ],
+                  [
+                    2479,
+                    2512
+                  ],
+                  [
+                    2543,
+                    2574
+                  ]
+                ]
+              },
+              {
+                "score": 2.1557,
+                "pitch": 13.98,
+                "gap": 61.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2099,
+                    2137
+                  ],
+                  [
+                    2164,
+                    2189
+                  ],
+                  [
+                    2224,
+                    2258
+                  ]
+                ]
+              },
+              {
+                "score": 1.8317,
+                "pitch": 20.891,
+                "gap": 47.75,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2678,
+                    2707
+                  ],
+                  [
+                    2726,
+                    2755
+                  ],
+                  [
+                    2778,
+                    2798
+                  ]
+                ]
+              },
+              {
+                "score": 1.8244,
+                "pitch": 16.492,
+                "gap": 140.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2726,
+                    2755
+                  ],
+                  [
+                    2870,
+                    2891
+                  ],
+                  [
+                    3010,
+                    3031
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1030
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 768
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 396
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 454
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 768
+              }
+            ],
+            "chosen": 2,
+            "lines": [
+              {
+                "pitch": 14.131,
+                "cells": 161,
+                "detected": true
+              },
+              {
+                "pitch": 3.222,
+                "cells": 155,
+                "detected": true
+              },
+              {
+                "pitch": 14.068,
+                "cells": 132,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 448,
+            "erasures": 396
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 81
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-spanstain-1-std-S45.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "FOOTER_SIGNAL_TOO_WEAK",
+      "classified_chars": 670,
+      "erasures": 645,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "FOOTER_SIGNAL_TOO_WEAK",
+          "metrics": {
+            "laplacian_variance": 0.0017363624220582484,
+            "under_frac": 0.0006150101899552167,
+            "over_frac": 2.9559902320944995e-06,
+            "footer_tonal_range": 0.5607843137254902,
+            "glare_region_frac": 0.0,
+            "page_boundary_confidence": 0.8818794514339016,
+            "footer_line_candidates": 0.0,
+            "footer_periodicity": 0.0,
+            "footer_pitch_consistency": 0.0,
+            "footer_extent_frac": 0.0,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8818794514339016
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.6734,
+                "pitch": 14.353,
+                "gap": 55.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2553,
+                    2559
+                  ],
+                  [
+                    2583,
+                    2617
+                  ],
+                  [
+                    2649,
+                    2685
+                  ]
+                ]
+              },
+              {
+                "score": 2.2361,
+                "pitch": 21.514,
+                "gap": 46.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2840,
+                    2873
+                  ],
+                  [
+                    2900,
+                    2906
+                  ],
+                  [
+                    2946,
+                    2952
+                  ]
+                ]
+              },
+              {
+                "score": 1.9704,
+                "pitch": 14.556,
+                "gap": 65.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2325,
+                    2359
+                  ],
+                  [
+                    2391,
+                    2424
+                  ],
+                  [
+                    2456,
+                    2489
+                  ]
+                ]
+              },
+              {
+                "score": 1.9005,
+                "pitch": 15.537,
+                "gap": 121.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2544,
+                    2547
+                  ],
+                  [
+                    2649,
+                    2685
+                  ],
+                  [
+                    2770,
+                    2806
+                  ]
+                ]
+              },
+              {
+                "score": 1.407,
+                "pitch": 21.125,
+                "gap": 56.0,
+                "n_detected": 1,
+                "rows": [
+                  [
+                    2900,
+                    2906
+                  ],
+                  [
+                    2956,
+                    2962
+                  ],
+                  [
+                    3012,
+                    3018
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1478
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 649
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 645
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1401
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1399
+              }
+            ],
+            "chosen": 2,
+            "lines": [
+              {
+                "pitch": 14.646,
+                "cells": 181,
+                "detected": true
+              },
+              {
+                "pitch": 14.657,
+                "cells": 181,
+                "detected": true
+              },
+              {
+                "pitch": 8.713,
+                "cells": 308,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 670,
+            "erasures": 645
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-2-std-S33.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 372,
+      "erasures": 350,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0011995085962566738,
+            "under_frac": 1.879836902081094e-05,
+            "over_frac": 0.0003914147358289721,
+            "footer_tonal_range": 0.6627450980392158,
+            "glare_region_frac": 7.849293563579278e-05,
+            "page_boundary_confidence": 0.8246540854904053,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9491267076922948,
+            "footer_pitch_consistency": 0.9721040552281885,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8246540854904053
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5671,
+                "pitch": 28.475,
+                "gap": 66.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3868,
+                    3901
+                  ],
+                  [
+                    3932,
+                    3965
+                  ],
+                  [
+                    3998,
+                    4035
+                  ]
+                ]
+              },
+              {
+                "score": 2.1794,
+                "pitch": 18.906,
+                "gap": 82.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3391,
+                    3416
+                  ],
+                  [
+                    3463,
+                    3504
+                  ],
+                  [
+                    3547,
+                    3591
+                  ]
+                ]
+              },
+              {
+                "score": 1.987,
+                "pitch": 18.573,
+                "gap": 77.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2871,
+                    2904
+                  ],
+                  [
+                    2939,
+                    2990
+                  ],
+                  [
+                    3016,
+                    3067
+                  ]
+                ]
+              },
+              {
+                "score": 1.896,
+                "pitch": 28.623,
+                "gap": 136.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3791,
+                    3834
+                  ],
+                  [
+                    3932,
+                    3965
+                  ],
+                  [
+                    4068,
+                    4101
+                  ]
+                ]
+              },
+              {
+                "score": 1.8563,
+                "pitch": 22.038,
+                "gap": 204.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3791,
+                    3834
+                  ],
+                  [
+                    3998,
+                    4035
+                  ],
+                  [
+                    4202,
+                    4239
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1464
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1954
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 350
+              },
+              {
+                "candidate": 4,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              }
+            ],
+            "chosen": 3,
+            "lines": [
+              {
+                "pitch": 15.362,
+                "cells": 162,
+                "detected": true
+              },
+              {
+                "pitch": 15.001,
+                "cells": 97,
+                "detected": true
+              },
+              {
+                "pitch": 7.845,
+                "cells": 113,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 372,
+            "erasures": 350
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-2-std-S34.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 1046,
+      "erasures": 1008,
+      "rs_erasure_bytes": 72,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0008098880182958577,
+            "under_frac": 6.129902941568785e-07,
+            "over_frac": 0.0006678733584937243,
+            "footer_tonal_range": 0.6196078431372549,
+            "glare_region_frac": 0.00015698587127158556,
+            "page_boundary_confidence": 0.8752547587662516,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9498415581743276,
+            "footer_pitch_consistency": 0.980042349487939,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8752547587662516
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.8109,
+                "pitch": 28.738,
+                "gap": 42.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3906,
+                    3910
+                  ],
+                  [
+                    3951,
+                    3953
+                  ],
+                  [
+                    3976,
+                    4008
+                  ]
+                ]
+              },
+              {
+                "score": 2.5955,
+                "pitch": 29.214,
+                "gap": 71.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3826,
+                    3872
+                  ],
+                  [
+                    3916,
+                    3943
+                  ],
+                  [
+                    3976,
+                    4008
+                  ]
+                ]
+              },
+              {
+                "score": 2.3295,
+                "pitch": 19.578,
+                "gap": 85.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2905,
+                    2912
+                  ],
+                  [
+                    2949,
+                    3010
+                  ],
+                  [
+                    3063,
+                    3097
+                  ]
+                ]
+              },
+              {
+                "score": 2.1057,
+                "pitch": 19.746,
+                "gap": 81.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3063,
+                    3097
+                  ],
+                  [
+                    3127,
+                    3175
+                  ],
+                  [
+                    3217,
+                    3267
+                  ]
+                ]
+              },
+              {
+                "score": 2.0306,
+                "pitch": 21.034,
+                "gap": 20.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2885,
+                    2892
+                  ],
+                  [
+                    2905,
+                    2912
+                  ],
+                  [
+                    2926,
+                    2931
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1299
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1008
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1414
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1087
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1728
+              }
+            ],
+            "chosen": 1,
+            "lines": [
+              {
+                "pitch": 2.759,
+                "cells": 901,
+                "detected": true
+              },
+              {
+                "pitch": 28.805,
+                "cells": 49,
+                "detected": true
+              },
+              {
+                "pitch": 15.33,
+                "cells": 96,
+                "detected": true
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 1046,
+            "erasures": 1008
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 72
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-3-std-S35.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 957,
+      "erasures": 957,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0012873451617573524,
+            "under_frac": 0.0001630145522261192,
+            "over_frac": 0.0033490929051359104,
+            "footer_tonal_range": 0.7137254901960783,
+            "glare_region_frac": 0.0003139717425431711,
+            "page_boundary_confidence": 0.8987266883877734,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9466344508251326,
+            "footer_pitch_consistency": 0.9438620031203149,
+            "footer_extent_frac": 0.9992997198879552,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.8987266883877734
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.5664,
+                "pitch": 30.374,
+                "gap": 57.5,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3900,
+                    3929
+                  ],
+                  [
+                    3966,
+                    3997
+                  ],
+                  [
+                    4028,
+                    4031
+                  ]
+                ]
+              },
+              {
+                "score": 2.5293,
+                "pitch": 19.033,
+                "gap": 98.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2853,
+                    2867
+                  ],
+                  [
+                    2910,
+                    2974
+                  ],
+                  [
+                    3054,
+                    3061
+                  ]
+                ]
+              },
+              {
+                "score": 2.4572,
+                "pitch": 30.374,
+                "gap": 77.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3894,
+                    3897
+                  ],
+                  [
+                    3966,
+                    3997
+                  ],
+                  [
+                    4033,
+                    4066
+                  ]
+                ]
+              },
+              {
+                "score": 2.2914,
+                "pitch": 19.005,
+                "gap": 21.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    2853,
+                    2867
+                  ],
+                  [
+                    2877,
+                    2885
+                  ],
+                  [
+                    2898,
+                    2906
+                  ]
+                ]
+              },
+              {
+                "score": 2.1917,
+                "pitch": 20.139,
+                "gap": 78.0,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3417,
+                    3424
+                  ],
+                  [
+                    3465,
+                    3510
+                  ],
+                  [
+                    3555,
+                    3598
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "REGISTRATION_FAIL",
+                "reason": "no periodic structure in line",
+                "erasures": 0
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1066
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1957
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 957
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1188
+              }
+            ],
+            "chosen": 3,
+            "lines": [
+              {
+                "pitch": 5.389,
+                "cells": 348,
+                "detected": true
+              },
+              {
+                "pitch": 5.196,
+                "cells": 369,
+                "detected": true
+              },
+              {
+                "pitch": 7.976,
+                "cells": 240,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 957,
+            "erasures": 957
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    },
+    {
+      "sheet": "bridge-water-3-std-S36.jpeg",
+      "category": "RS_BUDGET_EXCEEDED",
+      "gate_verdict": "RECAPTURE",
+      "gate_reasons": "LOW_SHARPNESS",
+      "classified_chars": 609,
+      "erasures": 576,
+      "rs_erasure_bytes": 83,
+      "stages": [
+        {
+          "stage": "CAPTURE",
+          "ok": false,
+          "reason": "LOW_SHARPNESS",
+          "metrics": {
+            "laplacian_variance": 0.0010622763631254611,
+            "under_frac": 3.947657494370297e-05,
+            "over_frac": 0.003461065798868567,
+            "footer_tonal_range": 0.7215686274509804,
+            "glare_region_frac": 0.00023547880690737833,
+            "page_boundary_confidence": 0.909099097155202,
+            "footer_line_candidates": 1.0,
+            "footer_periodicity": 0.9928809167597975,
+            "footer_pitch_consistency": 0.9935569009615779,
+            "footer_extent_frac": 0.9997665732959851,
+            "gate_mode": "REPORT_ONLY",
+            "gate_verdict": "RECAPTURE"
+          }
+        },
+        {
+          "stage": "PAGE",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "page_boundary_confidence": 0.909099097155202
+          }
+        },
+        {
+          "stage": "FOOTER",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "candidates": 5,
+            "summary": [
+              {
+                "score": 2.4608,
+                "pitch": 30.597,
+                "gap": 64.75,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    3811,
+                    3855
+                  ],
+                  [
+                    3884,
+                    3912
+                  ],
+                  [
+                    3947,
+                    3978
+                  ]
+                ]
+              },
+              {
+                "score": 2.3167,
+                "pitch": 20.302,
+                "gap": 91.25,
+                "n_detected": 3,
+                "rows": [
+                  [
+                    2901,
+                    2962
+                  ],
+                  [
+                    3002,
+                    3008
+                  ],
+                  [
+                    3091,
+                    3137
+                  ]
+                ]
+              },
+              {
+                "score": 1.7516,
+                "pitch": 23.609,
+                "gap": 64.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3947,
+                    3978
+                  ],
+                  [
+                    4008,
+                    4045
+                  ],
+                  [
+                    4072,
+                    4109
+                  ]
+                ]
+              },
+              {
+                "score": 1.7116,
+                "pitch": 23.416,
+                "gap": 128.25,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3884,
+                    3912
+                  ],
+                  [
+                    4008,
+                    4045
+                  ],
+                  [
+                    4136,
+                    4173
+                  ]
+                ]
+              },
+              {
+                "score": 1.659,
+                "pitch": 20.482,
+                "gap": 90.0,
+                "n_detected": 2,
+                "rows": [
+                  [
+                    3454,
+                    3502
+                  ],
+                  [
+                    3546,
+                    3590
+                  ],
+                  [
+                    3636,
+                    3680
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "stage": "REGISTRATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "attempts": [
+              {
+                "candidate": 0,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 910
+              },
+              {
+                "candidate": 1,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1262
+              },
+              {
+                "candidate": 2,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 576
+              },
+              {
+                "candidate": 3,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 582
+              },
+              {
+                "candidate": 4,
+                "outcome": "RS_BUDGET_EXCEEDED",
+                "reason": "too many erasures",
+                "erasures": 1664
+              }
+            ],
+            "chosen": 2,
+            "lines": [
+              {
+                "pitch": 30.657,
+                "cells": 52,
+                "detected": true
+              },
+              {
+                "pitch": 2.522,
+                "cells": 420,
+                "detected": true
+              },
+              {
+                "pitch": 7.982,
+                "cells": 137,
+                "detected": false
+              }
+            ]
+          }
+        },
+        {
+          "stage": "CLASSIFICATION",
+          "ok": true,
+          "reason": null,
+          "metrics": {
+            "classified": 609,
+            "erasures": 576
+          }
+        },
+        {
+          "stage": "TOKEN_EXTRACTION",
+          "ok": true,
+          "reason": null,
+          "metrics": {}
+        },
+        {
+          "stage": "RS",
+          "ok": false,
+          "reason": "too many erasures",
+          "metrics": {
+            "rs_errors": null,
+            "rs_erasures": 83
+          }
+        }
+      ],
+      "notes": null
+    }
+  ]
+}

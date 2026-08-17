@@ -1,0 +1,110 @@
+{
+  "capture_manifest_sha256": "0ddbd504eaf04045f4d121c770598a670c5703c7ca21058a4040af9028a39209",
+  "corpus_format_version": 1,
+  "corpus_id": "cal-run01-raw",
+  "description": "Calibration captures of sheet calsheet-v1-s20260817 (campaign cal-run01), supplied by the owner at the Task 21 checkpoint. Public sheet content \u2014 no secret material.",
+  "images": [
+    {
+      "condition": "angle",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-angle-1.jpeg",
+      "page": 1,
+      "page_block_indices": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "0271b935bc7067a8f3b7428719d5b8be4e4e6d60e704822ba975fd0aa74afb97"
+    },
+    {
+      "condition": "angle",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-angle-2.jpeg",
+      "page": 2,
+      "page_block_indices": [
+        3
+      ],
+      "sha256": "7f02fc391222c2efb080090a78d2e8e40f28dfaf561ecf3cec0d1f97ae4d8cd4"
+    },
+    {
+      "condition": "lowlight",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-lowlight-1.jpeg",
+      "page": 1,
+      "page_block_indices": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "c23b50c1a511f53a7ebf42b7750d42e0442ba778a50c4855e490570fce89346a"
+    },
+    {
+      "condition": "lowlight",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-lowlight-2.jpeg",
+      "page": 2,
+      "page_block_indices": [
+        3
+      ],
+      "sha256": "235d4d2528fb8ba85ca56065023aba2fecf115eab6b74481ac949be950b26dd7"
+    },
+    {
+      "condition": "shadow",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-shadow-1.jpeg",
+      "page": 1,
+      "page_block_indices": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "cfbc8f4ea61f2a0450819a7c44e82e5e446f75b574c46beae47d380c0a272f12"
+    },
+    {
+      "condition": "shadow",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-shadow-2.jpeg",
+      "page": 2,
+      "page_block_indices": [
+        3
+      ],
+      "sha256": "f4f2c6c055772971107aa618bd96bb2cd32e7f87db2efbcebcc552d8c2f09975"
+    },
+    {
+      "condition": "std",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-std-1.jpeg",
+      "page": 1,
+      "page_block_indices": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "4eb1dc4b7fc51f45e178e6b996954193c4da7f1bc412e260b6adc2e002f2fd2e"
+    },
+    {
+      "condition": "std",
+      "copy": "copy1",
+      "filename": "cal-calsheet-v1-s20260817-copy1-std-2.jpeg",
+      "page": 2,
+      "page_block_indices": [
+        3
+      ],
+      "sha256": "b4656ffe1156a5c9984d059abb64055c38f2628fd496f971cacb6dbb107999b6"
+    }
+  ],
+  "notes": [
+    "page / page_block_indices: the physical print paginated 3+1 (blocks 1-3 on page 1, block 4 on page 2). Page ordinal is derived from the capture filename suffix (-1/-2) and verified by eye against every capture (page 2 shows a lone 'BLOCK 4 OF 4' header). Block hints are applied ONLY from this recorded metadata, never inferred at extraction time.",
+    "validation_use_allowed=false: these captures calibrate the bank; once used for training they can never be validation material.",
+    "Protocol asks >= 2 printed copies. All captures are labelled copy1; owner reports a second printed copy was produced and visually established as identical. Recorded as a deviation \u2014 copy-level holdout is therefore impossible for this campaign."
+  ],
+  "status": "REAL-PRINT CALIBRATION MATERIAL / DEVELOPMENT / NOT GATE-A1",
+  "usage_flags": {
+    "classifier_training_allowed": true,
+    "gate_a1_evidence_allowed": false,
+    "locator_development_allowed": true,
+    "regression_testing_allowed": true,
+    "threshold_calibration_allowed": true,
+    "validation_use_allowed": false
+  }
+}

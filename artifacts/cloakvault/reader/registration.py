@@ -194,11 +194,16 @@ def fit_phase_drift(
     return x, d, w
 
 
-def register_line(line_img: np.ndarray, n_cells_hint: int | None = None) -> LineModel:
-    """Full per-line registration: path + pitch + drift model."""
+def register_line(line_img: np.ndarray, n_cells_hint: int | None = None,
+                  pitch_hint: float | None = None) -> LineModel:
+    """Full per-line registration: path + pitch + drift model.
+
+    `pitch_hint` overrides autocorrelation pitch estimation when the caller
+    knows the print geometry a priori (calibration sheets with a known
+    layout); production reading never passes it."""
     ink = 1.0 - np.asarray(line_img, dtype=np.float64)
     col = grad_profile(ink)
-    pitch = estimate_pitch(col)
+    pitch = float(pitch_hint) if pitch_hint else estimate_pitch(col)
     if pitch <= 0:
         raise ValueError("no periodic structure in line")
     kx, kd, kw = fit_phase_drift(col, pitch)

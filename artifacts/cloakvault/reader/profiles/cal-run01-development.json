@@ -1,0 +1,35 @@
+{
+  "profile_format_version": 1,
+  "reader_version": "0.2-dev",
+  "status": "DEVELOPMENT / NOT GATE-A1 / NOT PRODUCTION",
+  "confidence_floor": 0.64,
+  "margin_floor": 0.02,
+  "confidence_floor_note": "Frozen historical spike operating point. Not to be lowered against Bridge Run 01.",
+  "capture_quality": {
+    "sharpness_min_laplacian_var": 0.0015,
+    "exposure_max_under_frac": 0.3,
+    "exposure_max_over_frac": 0.15,
+    "exposure_min_footer_range": 0.18,
+    "glare_max_region_frac": 0.06,
+    "page_min_boundary_confidence": 0.35,
+    "footer_min_line_candidates": 1,
+    "footer_min_periodicity": 0.12,
+    "footer_min_extent_frac": 0.35
+  },
+  "classifier_id": "cal-run01-bank-v1 (real-print calibration bank, campaign cal-run01, spike-feat-v1 features, per-class max NN)",
+  "registration_model_id": "perline-robust-piecewise-phase-v1",
+  "calibration_corpora": [
+    "cal-run01-raw"
+  ],
+  "validation_corpora_note": "Bridge Run 01 is seen development/regression material and MUST NOT be cited as unseen validation of Reader v0.2.",
+  "created": "2026-08-17",
+  "source_commit": null,
+  "warning": "DEVELOPMENT thresholds calibrated on development material. NOT GATE-A1. NOT PRODUCTION. Terminal optics require separate calibration and a formal Gate A1 calibration corpus before any freeze.",
+  "profile_id": "cal-run01-development",
+  "glyph_bank": {
+    "path": "reader/banks/cal-run01-bank.npz",
+    "sha256": "37fd106b9bed34fc50bdd820344d245ba6bd7dc91590b753fa9c90b5f5ed0f93",
+    "samples": 4032,
+    "manifest": "reader/banks/cal-run01-bank.manifest.json"
+  }
+}
