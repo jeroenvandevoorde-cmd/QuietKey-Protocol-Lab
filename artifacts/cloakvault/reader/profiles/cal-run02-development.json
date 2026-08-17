@@ -1,0 +1,43 @@
+{
+  "profile_format_version": 1,
+  "reader_version": "0.2-dev",
+  "status": "DEVELOPMENT / NOT GATE-A1 / NOT PRODUCTION",
+  "confidence_floor": 0.64,
+  "margin_floor": 0.02,
+  "confidence_floor_note": "Frozen historical spike operating point. Not to be lowered against Bridge Run 01.",
+  "capture_quality": {
+    "sharpness_min_laplacian_var": 0.0015,
+    "exposure_max_under_frac": 0.3,
+    "exposure_max_over_frac": 0.15,
+    "exposure_min_footer_range": 0.18,
+    "glare_max_region_frac": 0.06,
+    "page_min_boundary_confidence": 0.35,
+    "footer_min_line_candidates": 1,
+    "footer_min_periodicity": 0.12,
+    "footer_min_extent_frac": 0.35
+  },
+  "classifier_id": "cal-run02-copy1-bank-v1 (production-path sheet, copy1 only, spike-feat-v1 features, per-class max NN)",
+  "registration_model_id": "perline-robust-piecewise-phase-v1",
+  "calibration_corpora": [
+    "cal-run02-production-raw (copy1 only)"
+  ],
+  "validation_corpora_note": "Bridge Run 01 is seen development/regression material and MUST NOT be cited as unseen validation of Reader v0.2.",
+  "created": "2026-08-17",
+  "source_commit": null,
+  "warning": "DEVELOPMENT thresholds calibrated on development material. NOT GATE-A1. NOT PRODUCTION. Terminal optics require separate calibration and a formal Gate A1 calibration corpus before any freeze.",
+  "profile_id": "cal-run02-development",
+  "glyph_bank": {
+    "path": "reader/banks/cal-run02-copy1-bank.npz",
+    "sha256": "032dff2470c675c4f3a8c188976f921b5053df62d73caae0baa14b5e53152bf5",
+    "manifest": "reader/banks/cal-run02-copy1-bank.manifest.json",
+    "bank_id": "cal-run02-copy1-bank-v1",
+    "n_samples": 5634,
+    "capture_sha256s": [
+      "04022a5761660c5178625e65e60127a39ca0eee1ff078e48426a5636242ef30a",
+      "10fe918cd13e2de79d8534d679863cf2a05717b51735584289deca59bda79d5c",
+      "110ad88e422bae29c306c726a913499879353f7687c1366f951087e209c7adf1",
+      "763a72c7c8748f1a3d0c242febf153d15e24f97a7178484554bd032b50905d1f",
+      "b720c06ca22e33140587c1a69b36a94a37ee2ff05dea9efb86a33fc32c42c705"
+    ]
+  }
+}

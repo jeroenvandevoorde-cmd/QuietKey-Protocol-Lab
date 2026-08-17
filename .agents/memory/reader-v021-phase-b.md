@@ -24,6 +24,12 @@ Phase B COMPLETE on branch `reader-v021-calibration` (commits through 159a830; w
 - Central finding: pristine gate-accepted S46 reads 1/142 token chars with the cal bank → calibration↔Bridge print domain shift; more captures of the current sheet won't help. Copy-out holdout invalid (copy 1 only).
 - Angle captures fail at line-band layout validation (PITCH_LAYOUT_MISMATCH from perspective pitch variation), deskew ≈0° — needs homography rectification, not more data.
 
+## Phase C transfer experiment (durable lessons)
+- Verdict B confirmed: cal-run02 copy1 bank transfers to never-seen copy2 (0.83 decided, median cosine 0.92) but S46 replay still fails identically (1/142, 2E+e 83 vs 34) because the frame pipeline's half-pitch registration harmonic classifies 350 cells; bank domain was NOT the binding failure. Frame-pipeline layout-consistent pitch filter fix awaits owner approval.
+- Band detector sometimes reports one printed line TWICE: a 2x-pitch harmonic band a fraction of a line height away with the same x-span. Any exact-group-count rule must dedupe these geometrically first (gap<0.35 line height, heavy span overlap, similar span length, keep the layout-consistent one) or good captures get rejected.
+- Standalone replay/eval scripts must independently re-validate bank provenance (identity, capture hashes ⊆ allowed set, banned-hash check) — checks living only in the bank-building script don't protect direct execution; a reviewer caught this twice.
+- Confident-wrong on production-domain sheets is spread evenly across classes and concentrates in room light — illumination noise, not glyph confusion; RS margin stays the binding constraint even with correct registration.
+
 ## Production-parity diagnostic (durable lessons)
 - S46 collapse has TWO stacked causes: (1) line registration locks the half-pitch harmonic on production-context footer lines (registered ~11 px vs layout 21 px → half-glyph windows); a layout-pitch hint corrects it and lifts median bank cosine 0.55→0.65. (2) A residual print-domain gap remains — glyph geometry matches cal but contrast is roughly halved (Bridge print far fainter); attribution provisional until a token-span-matched control (Task 5).
 - Calibration sheets must REUSE production rendering code, never copy appearance: the v2 generator imports the production wrap/render functions, extracts the footer class string and @media print block verbatim at generation time, and pins source sha256s so tests fail on drift. See `reader/calibration/PRODUCTION-PARITY-DIAGNOSTIC.md`.

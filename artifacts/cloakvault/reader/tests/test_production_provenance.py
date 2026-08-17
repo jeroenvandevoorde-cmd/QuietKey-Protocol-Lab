@@ -61,12 +61,27 @@ def test_cal_run02_manifest_two_copy_provenance():
     assert set(rules["distinct_print_copy_ids_required"]) == {"copy1", "copy2"}
     assert "print_copy" in rules["per_image_required_fields"]
     assert rules["s46_development_replay_only"] is True
-    # every usage flag must be OFF while the corpus has no captures
+    # Captures registered 2026-08-17: 2 copies x 3 conditions x 2 pages.
     flags = m["usage_flags"]
-    assert m["images"] == []
-    for k, v in flags.items():
-        if k != "note":
-            assert v is False, f"usage flag {k} must stay false until captures arrive"
+    assert len(m["images"]) == 12
+    assert flags["classifier_training_allowed"] is True
+    assert flags["calibration_allowed"] is True
+    # copy2 is the transfer TARGET: evaluation-only, never trains a bank
+    assert flags["training_copy_restriction"] == "copy1"
+    assert flags["validation_allowed"] is False
+    assert flags["regression_testing_allowed"] is False
+    seen = set()
+    for im in m["images"]:
+        for f in rules["per_image_required_fields"]:
+            assert im.get(f), f"{im.get('filename')} missing {f}"
+        assert im["print_copy"] in {"copy1", "copy2"}
+        assert im["page"] in (1, 2)
+        expected = list(range(0, 8)) if im["page"] == 1 else list(range(8, 16))
+        assert im["page_footer_indices"] == expected
+        assert len(im["sha256"]) == 64
+        seen.add((im["print_copy"], im["condition"], im["capture_id"], im["page"]))
+    assert {c for c, *_ in seen} == {"copy1", "copy2"}
+    assert len(seen) == 12  # no duplicate capture slots
     # no Bridge hashes may ever be listed
     bridge = corpus_image_hashes("bridge-run01-development")
     assert not ({im.get("sha256") for im in m["images"]} & bridge)

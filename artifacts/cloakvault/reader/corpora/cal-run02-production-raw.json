@@ -1,7 +1,7 @@
 {
   "corpus_id": "cal-run02-production-raw",
-  "status": "AWAITING_PHYSICAL_CAPTURES (production-path calibration sheet v2 generated; owner to print and photograph)",
-  "description": "Production-path calibration corpus for the domain-transfer diagnostic. Sheet: calibration-sheet-calsheet-production-v2-s20260817 rendered through the ACTUAL production footer code path (wrapToken/renderFooter/create.tsx class list/index.css print rules — see sheet groundtruth rendering_provenance). Captures must come from at least TWO independent physical print copies (preferably separate print jobs), same printer/paper/scale/settings as the Bridge Recovery Documents.",
+  "status": "CAPTURES_REGISTERED (2 print copies x 3 captures x 2 pages; supplied by owner)",
+  "description": "Production-path calibration corpus for the domain-transfer diagnostic. Sheet: calibration-sheet-calsheet-production-v2-s20260817 rendered through the ACTUAL production footer code path (wrapToken/renderFooter/create.tsx class list/index.css print rules \u2014 see sheet groundtruth rendering_provenance). Captures must come from at least TWO independent physical print copies (preferably separate print jobs), same printer/paper/scale/settings as the Bridge Recovery Documents.",
   "sheet": {
     "sheet_id": "calsheet-production-v2-s20260817",
     "html": "reader/calibration/sheets/calibration-sheet-calsheet-production-v2-s20260817.html",
@@ -14,18 +14,253 @@
     "roomlight-moderate"
   ],
   "capture_constraints": "No damage. No intentional lowlight. No angles. Domain-transfer diagnosis, not coverage expansion.",
-  "images": [],
+  "images": [
+    {
+      "filename": "cal-prod-v2-copy1-room1.jpeg",
+      "sha256": "b720c06ca22e33140587c1a69b36a94a37ee2ff05dea9efb86a33fc32c42c705",
+      "print_copy": "copy1",
+      "condition": "room",
+      "capture_id": "room",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy1-room2.jpeg",
+      "sha256": "110ad88e422bae29c306c726a913499879353f7687c1366f951087e209c7adf1",
+      "print_copy": "copy1",
+      "condition": "room",
+      "capture_id": "room",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy1-std-a1.jpeg",
+      "sha256": "10fe918cd13e2de79d8534d679863cf2a05717b51735584289deca59bda79d5c",
+      "print_copy": "copy1",
+      "condition": "std",
+      "capture_id": "std-a",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy1-std-a2.jpeg",
+      "sha256": "a4700789c4e7f648ded3a5dea435a6f5b0852cbc657cb549911f6fe5844157ef",
+      "print_copy": "copy1",
+      "condition": "std",
+      "capture_id": "std-a",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy1-std-b1.jpeg",
+      "sha256": "04022a5761660c5178625e65e60127a39ca0eee1ff078e48426a5636242ef30a",
+      "print_copy": "copy1",
+      "condition": "std",
+      "capture_id": "std-b",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy1-std-b2.jpeg",
+      "sha256": "763a72c7c8748f1a3d0c242febf153d15e24f97a7178484554bd032b50905d1f",
+      "print_copy": "copy1",
+      "condition": "std",
+      "capture_id": "std-b",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-room1.jpeg",
+      "sha256": "be757b0bb7fc859512626f4f1d37e6335fc0fd815c7c969765fcf8bbc0b5a489",
+      "print_copy": "copy2",
+      "condition": "room",
+      "capture_id": "room",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-room2.jpeg",
+      "sha256": "38cc140f1ce487ff9e069f8e5dc6f5eb5e042ec29a9b929a41ae5342f22e665e",
+      "print_copy": "copy2",
+      "condition": "room",
+      "capture_id": "room",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-std-a1.jpeg",
+      "sha256": "b30484a531ab974311a0e9008712f15fc0c96687ec7b0cfbec09169e63f2d41d",
+      "print_copy": "copy2",
+      "condition": "std",
+      "capture_id": "std-a",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-std-a2.jpeg",
+      "sha256": "e827d0afb7156a5c5c41b0345c199db9490d3442226a45d99554ba08eb39b740",
+      "print_copy": "copy2",
+      "condition": "std",
+      "capture_id": "std-a",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-std-b1.jpeg",
+      "sha256": "c35e7d3bbb339e0440ae9b27d1c248811beb4d2645919b1f1813a9ba96a0bba6",
+      "print_copy": "copy2",
+      "condition": "std",
+      "capture_id": "std-b",
+      "page": 1,
+      "page_footer_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "filename": "cal-prod-v2-copy2-std-b2.jpeg",
+      "sha256": "c2c774d6eba91570770dfd99761de80aa7159fa06fb0ea5aab4c8be5111779f5",
+      "print_copy": "copy2",
+      "condition": "std",
+      "capture_id": "std-b",
+      "page": 2,
+      "page_footer_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
   "usage_flags": {
-    "classifier_training_allowed": false,
-    "calibration_allowed": false,
+    "classifier_training_allowed": true,
+    "calibration_allowed": true,
     "validation_allowed": false,
     "regression_testing_allowed": false,
-    "note": "All flags stay false until physical captures are registered with per-image print_copy ids; training flags may then be enabled for Copy 1 only per the owner's minimal transfer experiment (Task 5). Bridge Run 01 hashes are permanently banned from this corpus and from any bank built from it. S46 remains DEVELOPMENT_REPLAY only and must never appear in calibration folds."
+    "note": "Training/calibration restricted to print_copy==copy1 per the owner minimal transfer experiment; copy2 is EVALUATION-ONLY (transfer target) and must never enter a bank. Bridge Run 01 hashes permanently banned. S46 remains DEVELOPMENT_REPLAY only.",
+    "training_copy_restriction": "copy1"
   },
   "provenance_rules": {
     "bridge_hashes_prohibited": true,
-    "per_image_required_fields": ["filename", "sha256", "print_copy", "condition", "capture_id"],
-    "distinct_print_copy_ids_required": ["copy1", "copy2"],
+    "per_image_required_fields": [
+      "filename",
+      "sha256",
+      "print_copy",
+      "condition",
+      "capture_id"
+    ],
+    "distinct_print_copy_ids_required": [
+      "copy1",
+      "copy2"
+    ],
     "s46_development_replay_only": true
+  },
+  "pagination": {
+    "pages": 2,
+    "footers_per_page": [
+      8,
+      8
+    ],
+    "evidence": "Page-to-footer mapping verified by matching the printed URL-line token prefixes against the unique ground-truth tokens (footer 7 cv0gwptl... last on page 1; footer 8 cv090awd... first on page 2). Tokens are globally unique so this mapping is unambiguous; recorded here as authoritative metadata."
   }
 }

@@ -1,0 +1,27 @@
+{
+  "replay": "DEVELOPMENT_REPLAY \u2014 Bridge S46 vs cal-run02 copy1 bank",
+  "status": "DEVELOPMENT / NOT GATE-A1 / S46 NEVER IN BANK",
+  "profile": "cal-run02-development (frozen 0.64/0.02)",
+  "quality_status": "ACCEPT",
+  "candidate_index_used_zero_based": 1,
+  "n_candidates": 5,
+  "rs_valid": false,
+  "rs_reason": "too many erasures",
+  "classified_chars": 350,
+  "erasure_cells": 330,
+  "token_char_stats_vs_gt": {
+    "token_chars": 142,
+    "correct": 1,
+    "erasure": 136,
+    "confident_wrong": 5
+  },
+  "rs_byte_audit_vs_gt": {
+    "rs_error_bytes_E": 0,
+    "rs_erasure_bytes_e": 83,
+    "two_E_plus_e": 83,
+    "rs_parity_budget": 34,
+    "within_budget": false
+  },
+  "aead": "NOT_REACHED",
+  "category": "RS_BUDGET_EXCEEDED"
+}
