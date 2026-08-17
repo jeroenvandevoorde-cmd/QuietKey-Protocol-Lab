@@ -1,0 +1,2771 @@
+{
+ "source": "cal-run02 production captures (owner-approved tolerance source)",
+ "n_lines": 276,
+ "ratio_min": 0.7123,
+ "ratio_max": 7.1667,
+ "ratio_median": 1.1248,
+ "ratio_p5": 0.8567,
+ "ratio_p95": 3.04795,
+ "rows": [
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 20.621,
+   "detected_pitch": 20.541,
+   "pitch_over_height": 0.9819
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 16.0,
+   "p_exp": 20.625,
+   "detected_pitch": 20.611,
+   "pitch_over_height": 1.2891
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 16.0,
+   "p_exp": 20.64,
+   "detected_pitch": 20.529,
+   "pitch_over_height": 1.29
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 24.0,
+   "p_exp": 20.632,
+   "detected_pitch": 20.563,
+   "pitch_over_height": 0.8597
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 16.0,
+   "p_exp": 20.771,
+   "detected_pitch": 41.198,
+   "pitch_over_height": 1.2982
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 20.6,
+   "detected_pitch": 20.253,
+   "pitch_over_height": 1.1444
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 23.0,
+   "p_exp": 20.621,
+   "detected_pitch": 20.654,
+   "pitch_over_height": 0.8966
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 20.812,
+   "detected_pitch": 41.121,
+   "pitch_over_height": 1.1562
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 20.64,
+   "detected_pitch": 20.743,
+   "pitch_over_height": 1.1467
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 20.609,
+   "detected_pitch": 20.594,
+   "pitch_over_height": 0.9814
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 16.0,
+   "p_exp": 20.729,
+   "detected_pitch": 20.539,
+   "pitch_over_height": 1.2956
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 17.0,
+   "p_exp": 20.7,
+   "detected_pitch": 20.771,
+   "pitch_over_height": 1.2176
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 20.701,
+   "detected_pitch": 20.912,
+   "pitch_over_height": 0.9858
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 4.0,
+   "p_exp": 20.688,
+   "detected_pitch": 20.904,
+   "pitch_over_height": 5.1719
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 17.0,
+   "p_exp": 20.7,
+   "detected_pitch": 20.603,
+   "pitch_over_height": 1.2176
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 21.057,
+   "detected_pitch": 20.797,
+   "pitch_over_height": 1.0027
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 6.0,
+   "p_exp": 20.875,
+   "detected_pitch": 20.767,
+   "pitch_over_height": 3.4792
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 15.0,
+   "p_exp": 21.54,
+   "detected_pitch": 20.537,
+   "pitch_over_height": 1.436
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 20.816,
+   "detected_pitch": 20.965,
+   "pitch_over_height": 0.9462
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 20.938,
+   "detected_pitch": 20.872,
+   "pitch_over_height": 1.1632
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 20.98,
+   "detected_pitch": 20.847,
+   "pitch_over_height": 1.1042
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 20.931,
+   "detected_pitch": 21.247,
+   "pitch_over_height": 0.9514
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 17.0,
+   "p_exp": 21.583,
+   "detected_pitch": 20.895,
+   "pitch_over_height": 1.2696
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 21.0,
+   "detected_pitch": 21.116,
+   "pitch_over_height": 1.1667
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 25.0,
+   "p_exp": 21.103,
+   "detected_pitch": 21.197,
+   "pitch_over_height": 0.8441
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.583,
+   "detected_pitch": 21.089,
+   "pitch_over_height": 1.136
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.12,
+   "detected_pitch": 41.798,
+   "pitch_over_height": 1.1116
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 26.0,
+   "p_exp": 21.046,
+   "detected_pitch": 21.199,
+   "pitch_over_height": 0.8095
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.167,
+   "detected_pitch": 20.984,
+   "pitch_over_height": 1.114
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.06,
+   "detected_pitch": 21.082,
+   "pitch_over_height": 1.1084
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 25.0,
+   "p_exp": 21.023,
+   "detected_pitch": 41.816,
+   "pitch_over_height": 0.8409
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.375,
+   "detected_pitch": 20.653,
+   "pitch_over_height": 1.125
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 20.0,
+   "p_exp": 21.0,
+   "detected_pitch": 20.859,
+   "pitch_over_height": 1.05
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 24.0,
+   "p_exp": 21.057,
+   "detected_pitch": 21.098,
+   "pitch_over_height": 0.8774
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.188,
+   "detected_pitch": 21.094,
+   "pitch_over_height": 1.1771
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.06,
+   "detected_pitch": 21.018,
+   "pitch_over_height": 1.1084
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 21.057,
+   "detected_pitch": 21.156,
+   "pitch_over_height": 1.0027
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.188,
+   "detected_pitch": 20.957,
+   "pitch_over_height": 1.1771
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 17.0,
+   "p_exp": 20.98,
+   "detected_pitch": 21.16,
+   "pitch_over_height": 1.2341
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 24.0,
+   "p_exp": 21.092,
+   "detected_pitch": 21.16,
+   "pitch_over_height": 0.8788
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.229,
+   "detected_pitch": 20.92,
+   "pitch_over_height": 1.1794
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 21.08,
+   "detected_pitch": 20.512,
+   "pitch_over_height": 1.1711
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 23.0,
+   "p_exp": 21.138,
+   "detected_pitch": 21.236,
+   "pitch_over_height": 0.919
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.5,
+   "detected_pitch": 20.989,
+   "pitch_over_height": 1.1944
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.08,
+   "detected_pitch": 21.19,
+   "pitch_over_height": 1.1095
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.161,
+   "detected_pitch": 21.567,
+   "pitch_over_height": 0.9619
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 1,
+   "band_height": 17.0,
+   "p_exp": 21.396,
+   "detected_pitch": 21.032,
+   "pitch_over_height": 1.2586
+  },
+  {
+   "capture": "room",
+   "copy": "copy1",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 21.26,
+   "detected_pitch": 21.015,
+   "pitch_over_height": 1.1811
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 34.0,
+   "p_exp": 29.126,
+   "detected_pitch": 29.004,
+   "pitch_over_height": 0.8567
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 28.875,
+   "detected_pitch": 28.623,
+   "pitch_over_height": 1.2031
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 28.94,
+   "detected_pitch": 29.066,
+   "pitch_over_height": 1.2058
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 29.092,
+   "detected_pitch": 29.021,
+   "pitch_over_height": 1.039
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 29.208,
+   "detected_pitch": 57.972,
+   "pitch_over_height": 1.217
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.04,
+   "detected_pitch": 28.844,
+   "pitch_over_height": 1.1169
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 34.0,
+   "p_exp": 29.126,
+   "detected_pitch": 28.898,
+   "pitch_over_height": 0.8567
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 29.271,
+   "detected_pitch": 58.047,
+   "pitch_over_height": 1.1258
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 29.1,
+   "detected_pitch": 29.245,
+   "pitch_over_height": 1.2125
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 33.0,
+   "p_exp": 29.023,
+   "detected_pitch": 28.787,
+   "pitch_over_height": 0.8795
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 29.938,
+   "detected_pitch": 29.132,
+   "pitch_over_height": 1.1975
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 29.16,
+   "detected_pitch": 15.248,
+   "pitch_over_height": 1.215
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.161,
+   "detected_pitch": 29.259,
+   "pitch_over_height": 0.9407
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 29.688,
+   "detected_pitch": 57.942,
+   "pitch_over_height": 1.5625
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 20.0,
+   "p_exp": 29.12,
+   "detected_pitch": 29.181,
+   "pitch_over_height": 1.456
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.207,
+   "detected_pitch": 29.257,
+   "pitch_over_height": 0.9422
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 29.042,
+   "detected_pitch": 29.16,
+   "pitch_over_height": 1.5285
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 21.0,
+   "p_exp": 29.04,
+   "detected_pitch": 28.727,
+   "pitch_over_height": 1.3829
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.172,
+   "detected_pitch": 29.476,
+   "pitch_over_height": 0.941
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 29.0,
+   "detected_pitch": 29.123,
+   "pitch_over_height": 1.6111
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 29.14,
+   "detected_pitch": 29.095,
+   "pitch_over_height": 1.267
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.126,
+   "detected_pitch": 29.454,
+   "pitch_over_height": 1.0044
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 29.0,
+   "detected_pitch": 28.937,
+   "pitch_over_height": 1.16
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 28.9,
+   "detected_pitch": 57.827,
+   "pitch_over_height": 1.2565
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 32.0,
+   "p_exp": 28.839,
+   "detected_pitch": 29.07,
+   "pitch_over_height": 0.9012
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 28.938,
+   "detected_pitch": 28.736,
+   "pitch_over_height": 1.1575
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 28.82,
+   "detected_pitch": 28.879,
+   "pitch_over_height": 1.2008
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 28.77,
+   "detected_pitch": 57.116,
+   "pitch_over_height": 1.0275
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 10.0,
+   "p_exp": 28.896,
+   "detected_pitch": 28.462,
+   "pitch_over_height": 2.8896
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 28.68,
+   "detected_pitch": 28.678,
+   "pitch_over_height": 1.195
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 28.736,
+   "detected_pitch": 28.679,
+   "pitch_over_height": 0.9579
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 28.979,
+   "detected_pitch": 29.223,
+   "pitch_over_height": 1.2075
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 28.86,
+   "detected_pitch": 29.004,
+   "pitch_over_height": 1.2025
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 28.736,
+   "detected_pitch": 28.669,
+   "pitch_over_height": 0.9909
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 21.0,
+   "p_exp": 28.979,
+   "detected_pitch": 28.674,
+   "pitch_over_height": 1.38
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 17.0,
+   "p_exp": 28.76,
+   "detected_pitch": 29.006,
+   "pitch_over_height": 1.6918
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 28.724,
+   "detected_pitch": 28.713,
+   "pitch_over_height": 0.9575
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 28.875,
+   "detected_pitch": 28.779,
+   "pitch_over_height": 1.5197
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 28.74,
+   "detected_pitch": 27.878,
+   "pitch_over_height": 1.5967
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 32.0,
+   "p_exp": 28.759,
+   "detected_pitch": 28.906,
+   "pitch_over_height": 0.8987
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 28.792,
+   "detected_pitch": 28.558,
+   "pitch_over_height": 1.5154
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 21.0,
+   "p_exp": 28.6,
+   "detected_pitch": 29.203,
+   "pitch_over_height": 1.3619
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 28.632,
+   "detected_pitch": 29.326,
+   "pitch_over_height": 0.9873
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 22.0,
+   "p_exp": 28.646,
+   "detected_pitch": 57.153,
+   "pitch_over_height": 1.3021
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.52,
+   "detected_pitch": 56.76,
+   "pitch_over_height": 1.1408
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 29.161,
+   "detected_pitch": 28.916,
+   "pitch_over_height": 0.972
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 29.896,
+   "detected_pitch": 28.91,
+   "pitch_over_height": 1.1498
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.04,
+   "detected_pitch": 29.001,
+   "pitch_over_height": 1.1169
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 29.138,
+   "detected_pitch": 29.191,
+   "pitch_over_height": 1.0406
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 30.021,
+   "detected_pitch": 57.893,
+   "pitch_over_height": 1.2008
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 28.98,
+   "detected_pitch": 28.692,
+   "pitch_over_height": 1.1146
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.115,
+   "detected_pitch": 29.269,
+   "pitch_over_height": 1.004
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 29.938,
+   "detected_pitch": 58.067,
+   "pitch_over_height": 1.1514
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.0,
+   "detected_pitch": 29.145,
+   "pitch_over_height": 1.1154
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.08,
+   "detected_pitch": 29.091,
+   "pitch_over_height": 1.0028
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 29.979,
+   "detected_pitch": 28.975,
+   "pitch_over_height": 1.153
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.08,
+   "detected_pitch": 29.276,
+   "pitch_over_height": 1.1185
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.218,
+   "detected_pitch": 29.658,
+   "pitch_over_height": 1.0075
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 7.0,
+   "p_exp": 29.396,
+   "detected_pitch": 29.685,
+   "pitch_over_height": 4.1994
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.02,
+   "detected_pitch": 29.103,
+   "pitch_over_height": 1.1162
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.322,
+   "detected_pitch": 29.522,
+   "pitch_over_height": 1.0111
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 8.0,
+   "p_exp": 29.146,
+   "detected_pitch": 29.107,
+   "pitch_over_height": 3.6432
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.12,
+   "detected_pitch": 28.531,
+   "pitch_over_height": 1.12
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 29.391,
+   "detected_pitch": 29.597,
+   "pitch_over_height": 1.0135
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 30.208,
+   "detected_pitch": 29.352,
+   "pitch_over_height": 1.1619
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 27.0,
+   "p_exp": 29.44,
+   "detected_pitch": 29.293,
+   "pitch_over_height": 1.0904
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 29.598,
+   "detected_pitch": 30.085,
+   "pitch_over_height": 0.9866
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 30.208,
+   "detected_pitch": 29.477,
+   "pitch_over_height": 1.2083
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 7.0,
+   "p_exp": 29.24,
+   "detected_pitch": 29.735,
+   "pitch_over_height": 4.1771
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 26.839,
+   "detected_pitch": 27.046,
+   "pitch_over_height": 0.9585
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 14.0,
+   "p_exp": 26.875,
+   "detected_pitch": 26.845,
+   "pitch_over_height": 1.9196
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 22.0,
+   "p_exp": 26.74,
+   "detected_pitch": 53.017,
+   "pitch_over_height": 1.2155
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 26.759,
+   "detected_pitch": 27.071,
+   "pitch_over_height": 0.9227
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 23.0,
+   "p_exp": 26.812,
+   "detected_pitch": 53.181,
+   "pitch_over_height": 1.1658
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 26.66,
+   "detected_pitch": 26.809,
+   "pitch_over_height": 1.1591
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 26.0,
+   "p_exp": 26.701,
+   "detected_pitch": 26.93,
+   "pitch_over_height": 1.027
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 13.0,
+   "p_exp": 27.375,
+   "detected_pitch": 26.351,
+   "pitch_over_height": 2.1058
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 26.54,
+   "detected_pitch": 26.606,
+   "pitch_over_height": 1.1539
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 26.77,
+   "detected_pitch": 26.792,
+   "pitch_over_height": 0.9915
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 22.0,
+   "p_exp": 27.312,
+   "detected_pitch": 26.746,
+   "pitch_over_height": 1.2415
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 26.7,
+   "detected_pitch": 26.712,
+   "pitch_over_height": 1.1609
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 26.816,
+   "detected_pitch": 26.802,
+   "pitch_over_height": 0.9932
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 22.0,
+   "p_exp": 26.854,
+   "detected_pitch": 26.765,
+   "pitch_over_height": 1.2206
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 10.0,
+   "p_exp": 26.6,
+   "detected_pitch": 26.966,
+   "pitch_over_height": 2.66
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 26.874,
+   "detected_pitch": 26.948,
+   "pitch_over_height": 0.9953
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 6.0,
+   "p_exp": 26.708,
+   "detected_pitch": 26.743,
+   "pitch_over_height": 4.4514
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 26.8,
+   "detected_pitch": 26.094,
+   "pitch_over_height": 1.1652
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 26.966,
+   "detected_pitch": 27.169,
+   "pitch_over_height": 0.9987
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 23.0,
+   "p_exp": 26.896,
+   "detected_pitch": 26.817,
+   "pitch_over_height": 1.1694
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 26.82,
+   "detected_pitch": 27.18,
+   "pitch_over_height": 1.1661
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 27.023,
+   "detected_pitch": 27.589,
+   "pitch_over_height": 0.9651
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 1,
+   "band_height": 21.0,
+   "p_exp": 27.104,
+   "detected_pitch": 54.08,
+   "pitch_over_height": 1.2907
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy1",
+   "condition": "std",
+   "line": 2,
+   "band_height": 22.0,
+   "p_exp": 27.02,
+   "detected_pitch": 26.911,
+   "pitch_over_height": 1.2282
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 23.0,
+   "p_exp": 21.092,
+   "detected_pitch": 21.007,
+   "pitch_over_height": 0.917
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.062,
+   "detected_pitch": 21.032,
+   "pitch_over_height": 1.1701
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.06,
+   "detected_pitch": 20.94,
+   "pitch_over_height": 1.1084
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.08,
+   "detected_pitch": 21.041,
+   "pitch_over_height": 0.9582
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 17.0,
+   "p_exp": 21.188,
+   "detected_pitch": 42.007,
+   "pitch_over_height": 1.2463
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.04,
+   "detected_pitch": 20.784,
+   "pitch_over_height": 1.1074
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.069,
+   "detected_pitch": 21.115,
+   "pitch_over_height": 0.9577
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.167,
+   "detected_pitch": 41.938,
+   "pitch_over_height": 1.1759
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 21.02,
+   "detected_pitch": 41.991,
+   "pitch_over_height": 1.1678
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.023,
+   "detected_pitch": 21.065,
+   "pitch_over_height": 0.9556
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.146,
+   "detected_pitch": 20.871,
+   "pitch_over_height": 1.1129
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.06,
+   "detected_pitch": 21.061,
+   "pitch_over_height": 1.1084
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.08,
+   "detected_pitch": 21.334,
+   "pitch_over_height": 0.9582
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.0,
+   "detected_pitch": 42.122,
+   "pitch_over_height": 1.1053
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.04,
+   "detected_pitch": 20.94,
+   "pitch_over_height": 1.1074
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.138,
+   "detected_pitch": 21.173,
+   "pitch_over_height": 0.9608
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 21.104,
+   "detected_pitch": 21.099,
+   "pitch_over_height": 1.1107
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.04,
+   "detected_pitch": 20.662,
+   "pitch_over_height": 1.1074
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 21.0,
+   "p_exp": 21.149,
+   "detected_pitch": 21.35,
+   "pitch_over_height": 1.0071
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.5,
+   "detected_pitch": 21.063,
+   "pitch_over_height": 1.1944
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 19.0,
+   "p_exp": 21.24,
+   "detected_pitch": 21.053,
+   "pitch_over_height": 1.1179
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 22.0,
+   "p_exp": 21.253,
+   "detected_pitch": 21.638,
+   "pitch_over_height": 0.966
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 18.0,
+   "p_exp": 21.354,
+   "detected_pitch": 21.146,
+   "pitch_over_height": 1.1863
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 18.0,
+   "p_exp": 21.26,
+   "detected_pitch": 21.356,
+   "pitch_over_height": 1.1811
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 20.0,
+   "p_exp": 21.391,
+   "detected_pitch": 21.782,
+   "pitch_over_height": 1.0695
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 5.0,
+   "p_exp": 21.646,
+   "detected_pitch": 43.111,
+   "pitch_over_height": 4.3292
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 9.0,
+   "p_exp": 21.52,
+   "detected_pitch": 42.947,
+   "pitch_over_height": 2.3911
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 21.437,
+   "detected_pitch": 21.57,
+   "pitch_over_height": 0.7656
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 14.0,
+   "p_exp": 21.542,
+   "detected_pitch": 42.646,
+   "pitch_over_height": 1.5387
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 16.0,
+   "p_exp": 21.46,
+   "detected_pitch": 21.221,
+   "pitch_over_height": 1.3413
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 15.0,
+   "p_exp": 19.609,
+   "detected_pitch": 42.412,
+   "pitch_over_height": 1.3073
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 3.0,
+   "p_exp": 21.5,
+   "detected_pitch": 21.658,
+   "pitch_over_height": 7.1667
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 10.0,
+   "p_exp": 21.34,
+   "detected_pitch": 21.097,
+   "pitch_over_height": 2.134
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 21.368,
+   "detected_pitch": 21.358,
+   "pitch_over_height": 0.7631
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 15.0,
+   "p_exp": 21.542,
+   "detected_pitch": 21.697,
+   "pitch_over_height": 1.4361
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 15.0,
+   "p_exp": 21.4,
+   "detected_pitch": 21.345,
+   "pitch_over_height": 1.4267
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 26.0,
+   "p_exp": 21.379,
+   "detected_pitch": 21.307,
+   "pitch_over_height": 0.8223
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 17.0,
+   "p_exp": 21.5,
+   "detected_pitch": 21.293,
+   "pitch_over_height": 1.2647
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 20.0,
+   "p_exp": 21.28,
+   "detected_pitch": 21.368,
+   "pitch_over_height": 1.064
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 21.356,
+   "detected_pitch": 21.4,
+   "pitch_over_height": 0.7364
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 21.0,
+   "p_exp": 21.458,
+   "detected_pitch": 21.166,
+   "pitch_over_height": 1.0218
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 21.38,
+   "detected_pitch": 20.849,
+   "pitch_over_height": 0.9296
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 21.368,
+   "detected_pitch": 21.524,
+   "pitch_over_height": 0.7123
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 22.0,
+   "p_exp": 21.458,
+   "detected_pitch": 21.305,
+   "pitch_over_height": 0.9754
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 22.0,
+   "p_exp": 21.36,
+   "detected_pitch": 21.416,
+   "pitch_over_height": 0.9709
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 21.345,
+   "detected_pitch": 21.749,
+   "pitch_over_height": 0.7623
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 1,
+   "band_height": 21.0,
+   "p_exp": 21.583,
+   "detected_pitch": 21.116,
+   "pitch_over_height": 1.0278
+  },
+  {
+   "capture": "room",
+   "copy": "copy2",
+   "condition": "room",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 21.44,
+   "detected_pitch": 21.175,
+   "pitch_over_height": 0.9322
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 34.0,
+   "p_exp": 29.506,
+   "detected_pitch": 29.221,
+   "pitch_over_height": 0.8678
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 17.0,
+   "p_exp": 29.5,
+   "detected_pitch": 29.753,
+   "pitch_over_height": 1.7353
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 16.0,
+   "p_exp": 29.44,
+   "detected_pitch": 29.64,
+   "pitch_over_height": 1.84
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 36.0,
+   "p_exp": 29.448,
+   "detected_pitch": 29.318,
+   "pitch_over_height": 0.818
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 19.0,
+   "p_exp": 29.562,
+   "detected_pitch": 58.944,
+   "pitch_over_height": 1.5559
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 29.32,
+   "detected_pitch": 29.032,
+   "pitch_over_height": 1.2217
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 36.0,
+   "p_exp": 29.402,
+   "detected_pitch": 29.494,
+   "pitch_over_height": 0.8167
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 23.0,
+   "p_exp": 29.542,
+   "detected_pitch": 29.315,
+   "pitch_over_height": 1.2844
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.3,
+   "detected_pitch": 29.58,
+   "pitch_over_height": 1.1269
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 34.0,
+   "p_exp": 29.333,
+   "detected_pitch": 29.297,
+   "pitch_over_height": 0.8627
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 23.0,
+   "p_exp": 29.396,
+   "detected_pitch": 29.403,
+   "pitch_over_height": 1.2781
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 29.32,
+   "detected_pitch": 29.591,
+   "pitch_over_height": 1.1728
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 32.0,
+   "p_exp": 29.356,
+   "detected_pitch": 29.703,
+   "pitch_over_height": 0.9174
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 29.188,
+   "detected_pitch": 58.878,
+   "pitch_over_height": 1.1675
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.28,
+   "detected_pitch": 29.343,
+   "pitch_over_height": 1.1262
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.414,
+   "detected_pitch": 29.491,
+   "pitch_over_height": 0.9488
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 16.0,
+   "p_exp": 29.729,
+   "detected_pitch": 29.612,
+   "pitch_over_height": 1.8581
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 27.0,
+   "p_exp": 29.28,
+   "detected_pitch": 28.79,
+   "pitch_over_height": 1.0844
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.437,
+   "detected_pitch": 29.714,
+   "pitch_over_height": 0.9496
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 27.0,
+   "p_exp": 29.604,
+   "detected_pitch": 29.543,
+   "pitch_over_height": 1.0965
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 27.0,
+   "p_exp": 29.56,
+   "detected_pitch": 29.548,
+   "pitch_over_height": 1.0948
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 32.0,
+   "p_exp": 29.632,
+   "detected_pitch": 29.976,
+   "pitch_over_height": 0.926
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 27.0,
+   "p_exp": 30.021,
+   "detected_pitch": 29.575,
+   "pitch_over_height": 1.1119
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.62,
+   "detected_pitch": 59.199,
+   "pitch_over_height": 1.1392
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 35.0,
+   "p_exp": 29.345,
+   "detected_pitch": 29.698,
+   "pitch_over_height": 0.8384
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 23.0,
+   "p_exp": 29.562,
+   "detected_pitch": 29.4,
+   "pitch_over_height": 1.2853
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 8.0,
+   "p_exp": 29.38,
+   "detected_pitch": 29.456,
+   "pitch_over_height": 3.6725
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 29.379,
+   "detected_pitch": 29.552,
+   "pitch_over_height": 1.0493
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 10.0,
+   "p_exp": 29.042,
+   "detected_pitch": 29.254,
+   "pitch_over_height": 2.9042
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 29.24,
+   "detected_pitch": 29.244,
+   "pitch_over_height": 1.1246
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 29.391,
+   "detected_pitch": 29.354,
+   "pitch_over_height": 1.0497
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 29.542,
+   "detected_pitch": 29.368,
+   "pitch_over_height": 1.1817
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 27.0,
+   "p_exp": 29.18,
+   "detected_pitch": 29.617,
+   "pitch_over_height": 1.0807
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 29.425,
+   "detected_pitch": 29.487,
+   "pitch_over_height": 0.9808
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 29.521,
+   "detected_pitch": 29.29,
+   "pitch_over_height": 1.1354
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 29.42,
+   "detected_pitch": 28.738,
+   "pitch_over_height": 1.2258
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 29.54,
+   "detected_pitch": 29.586,
+   "pitch_over_height": 0.9529
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 31.0,
+   "p_exp": 25.479,
+   "detected_pitch": 29.466,
+   "pitch_over_height": 0.8219
+  },
+  {
+   "capture": "std-a",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 28.0,
+   "p_exp": 29.34,
+   "detected_pitch": 29.913,
+   "pitch_over_height": 1.0479
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 28.747,
+   "detected_pitch": 28.512,
+   "pitch_over_height": 0.9913
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 16.0,
+   "p_exp": 28.604,
+   "detected_pitch": 28.837,
+   "pitch_over_height": 1.7878
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.64,
+   "detected_pitch": 28.496,
+   "pitch_over_height": 1.1456
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 28.701,
+   "detected_pitch": 28.602,
+   "pitch_over_height": 0.9567
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 29.396,
+   "detected_pitch": 57.247,
+   "pitch_over_height": 1.2248
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 28.52,
+   "detected_pitch": 28.378,
+   "pitch_over_height": 1.0969
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 32.0,
+   "p_exp": 28.667,
+   "detected_pitch": 28.701,
+   "pitch_over_height": 0.8958
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 28.75,
+   "detected_pitch": 57.167,
+   "pitch_over_height": 1.1058
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.54,
+   "detected_pitch": 28.79,
+   "pitch_over_height": 1.1416
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 28.586,
+   "detected_pitch": 28.605,
+   "pitch_over_height": 1.0209
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 28.604,
+   "detected_pitch": 28.492,
+   "pitch_over_height": 1.1002
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.58,
+   "detected_pitch": 28.778,
+   "pitch_over_height": 1.1432
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 28.713,
+   "detected_pitch": 28.99,
+   "pitch_over_height": 1.0634
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 6.0,
+   "p_exp": 28.5,
+   "detected_pitch": 29.28,
+   "pitch_over_height": 4.75
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.52,
+   "detected_pitch": 28.695,
+   "pitch_over_height": 1.1408
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 29.0,
+   "p_exp": 28.805,
+   "detected_pitch": 28.918,
+   "pitch_over_height": 0.9933
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 5.0,
+   "p_exp": 28.604,
+   "detected_pitch": 28.472,
+   "pitch_over_height": 5.7208
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 28.6,
+   "detected_pitch": 28.14,
+   "pitch_over_height": 1.144
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 28.816,
+   "detected_pitch": 29.157,
+   "pitch_over_height": 0.9605
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 26.0,
+   "p_exp": 28.812,
+   "detected_pitch": 28.849,
+   "pitch_over_height": 1.1082
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 26.0,
+   "p_exp": 28.88,
+   "detected_pitch": 28.836,
+   "pitch_over_height": 1.1108
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 31.0,
+   "p_exp": 28.966,
+   "detected_pitch": 29.298,
+   "pitch_over_height": 0.9344
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 29.667,
+   "detected_pitch": 28.703,
+   "pitch_over_height": 1.1867
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 8.0,
+   "p_exp": 28.8,
+   "detected_pitch": 28.868,
+   "pitch_over_height": 3.6
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 27.885,
+   "detected_pitch": 27.962,
+   "pitch_over_height": 0.9295
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 13.0,
+   "p_exp": 27.917,
+   "detected_pitch": 27.74,
+   "pitch_over_height": 2.1474
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 5.0,
+   "p_exp": 27.78,
+   "detected_pitch": 54.899,
+   "pitch_over_height": 5.556
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 30.0,
+   "p_exp": 27.759,
+   "detected_pitch": 27.984,
+   "pitch_over_height": 0.9253
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 25.0,
+   "p_exp": 27.875,
+   "detected_pitch": 27.675,
+   "pitch_over_height": 1.115
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 23.0,
+   "p_exp": 27.72,
+   "detected_pitch": 27.807,
+   "pitch_over_height": 1.2052
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 27.736,
+   "detected_pitch": 27.896,
+   "pitch_over_height": 0.9906
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 28.25,
+   "detected_pitch": 27.343,
+   "pitch_over_height": 1.1771
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 27.58,
+   "detected_pitch": 27.594,
+   "pitch_over_height": 1.1032
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 27.77,
+   "detected_pitch": 27.777,
+   "pitch_over_height": 0.9918
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 28.583,
+   "detected_pitch": 27.758,
+   "pitch_over_height": 1.191
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 25.0,
+   "p_exp": 27.7,
+   "detected_pitch": 27.792,
+   "pitch_over_height": 1.108
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 27.0,
+   "p_exp": 27.805,
+   "detected_pitch": 27.863,
+   "pitch_over_height": 1.0298
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 28.583,
+   "detected_pitch": 27.777,
+   "pitch_over_height": 1.191
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 27.62,
+   "detected_pitch": 27.905,
+   "pitch_over_height": 1.1508
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 27.874,
+   "detected_pitch": 27.996,
+   "pitch_over_height": 0.9955
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 7.0,
+   "p_exp": 27.646,
+   "detected_pitch": 27.584,
+   "pitch_over_height": 3.9494
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 27.78,
+   "detected_pitch": 27.12,
+   "pitch_over_height": 1.1575
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 27.954,
+   "detected_pitch": 28.009,
+   "pitch_over_height": 0.9984
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 24.0,
+   "p_exp": 27.958,
+   "detected_pitch": 27.809,
+   "pitch_over_height": 1.1649
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 24.0,
+   "p_exp": 27.8,
+   "detected_pitch": 28.309,
+   "pitch_over_height": 1.1583
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 0,
+   "band_height": 28.0,
+   "p_exp": 28.023,
+   "detected_pitch": 28.494,
+   "pitch_over_height": 1.0008
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 1,
+   "band_height": 20.0,
+   "p_exp": 28.146,
+   "detected_pitch": 27.964,
+   "pitch_over_height": 1.4073
+  },
+  {
+   "capture": "std-b",
+   "copy": "copy2",
+   "condition": "std",
+   "line": 2,
+   "band_height": 22.0,
+   "p_exp": 28.06,
+   "detected_pitch": 27.888,
+   "pitch_over_height": 1.2755
+  }
+ ]
+}

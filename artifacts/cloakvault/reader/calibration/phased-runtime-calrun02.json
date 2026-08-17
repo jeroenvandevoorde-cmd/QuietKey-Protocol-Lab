@@ -1,0 +1,3802 @@
+{
+ "run": "phase D runtime frame-pipeline evaluation on cal-run02",
+ "profile": "cal-run02-development (frozen 0.64/0.02)",
+ "code_sha_prefix": "b75ca42f616ac956",
+ "pooled": {
+  "token_cells": 3564,
+  "correct": 1419,
+  "erasure": 1328,
+  "confident_wrong": 817,
+  "correct_pct": 0.3981,
+  "erasure_pct": 0.3726,
+  "confident_wrong_pct": 0.2292,
+  "decided_accuracy": 0.6346,
+  "coverage": 0.6274,
+  "lines_with_expected_cell_count": "75/102"
+ },
+ "by_copy": {
+  "copy1": {
+   "token_cells": 1620,
+   "correct": 782,
+   "erasure": 602,
+   "confident_wrong": 236,
+   "correct_pct": 0.4827,
+   "erasure_pct": 0.3716,
+   "confident_wrong_pct": 0.1457,
+   "decided_accuracy": 0.7682,
+   "coverage": 0.6284,
+   "lines_with_expected_cell_count": "34/44"
+  },
+  "copy2": {
+   "token_cells": 1944,
+   "correct": 637,
+   "erasure": 726,
+   "confident_wrong": 581,
+   "correct_pct": 0.3277,
+   "erasure_pct": 0.3735,
+   "confident_wrong_pct": 0.2989,
+   "decided_accuracy": 0.523,
+   "coverage": 0.6265,
+   "lines_with_expected_cell_count": "41/58"
+  }
+ },
+ "by_page": {
+  "1": {
+   "token_cells": 1710,
+   "correct": 611,
+   "erasure": 609,
+   "confident_wrong": 490,
+   "correct_pct": 0.3573,
+   "erasure_pct": 0.3561,
+   "confident_wrong_pct": 0.2865,
+   "decided_accuracy": 0.555,
+   "coverage": 0.6439,
+   "lines_with_expected_cell_count": "36/46"
+  },
+  "2": {
+   "token_cells": 1854,
+   "correct": 808,
+   "erasure": 719,
+   "confident_wrong": 327,
+   "correct_pct": 0.4358,
+   "erasure_pct": 0.3878,
+   "confident_wrong_pct": 0.1764,
+   "decided_accuracy": 0.7119,
+   "coverage": 0.6122,
+   "lines_with_expected_cell_count": "39/56"
+  }
+ },
+ "by_condition": {
+  "room": {
+   "token_cells": 1192,
+   "correct": 629,
+   "erasure": 400,
+   "confident_wrong": 163,
+   "correct_pct": 0.5277,
+   "erasure_pct": 0.3356,
+   "confident_wrong_pct": 0.1367,
+   "decided_accuracy": 0.7942,
+   "coverage": 0.6644,
+   "lines_with_expected_cell_count": "25/31"
+  },
+  "std": {
+   "token_cells": 2372,
+   "correct": 790,
+   "erasure": 928,
+   "confident_wrong": 654,
+   "correct_pct": 0.3331,
+   "erasure_pct": 0.3912,
+   "confident_wrong_pct": 0.2757,
+   "decided_accuracy": 0.5471,
+   "coverage": 0.6088,
+   "lines_with_expected_cell_count": "50/71"
+  }
+ },
+ "captures": [
+  {
+   "capture_id": "room",
+   "filename": "cal-prod-v2-copy1-room1.jpeg",
+   "copy": "copy1",
+   "page": 1,
+   "condition": "room",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      733,
+      840
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1109,
+      1216
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      1487,
+      1594
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      1865,
+      1972
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      2308,
+      2416
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      2687,
+      2795
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      3071,
+      3182
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 15.307,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 30.983,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": null
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 20.819,
+       "selection_method": "layout",
+       "expected_pitch": 20.896,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.933,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 34,
+        "erasure": 13,
+        "confident_wrong": 1
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 53.081,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.279,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 21.028,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 22.159,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 6,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      3462,
+      3575
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.185,
+       "selection_method": "layout",
+       "expected_pitch": 20.759,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.121,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.06,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 25,
+        "erasure": 20,
+        "confident_wrong": 3
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 20.833,
+       "selection_method": "layout",
+       "expected_pitch": 21.021,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.666,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 38,
+        "erasure": 9,
+        "confident_wrong": 1
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 53.081,
+       "selection_method": "layout",
+       "expected_pitch": 49.6,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.279,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 21.028,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 22.159,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": null
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "room",
+   "filename": "cal-prod-v2-copy1-room2.jpeg",
+   "copy": "copy1",
+   "page": 2,
+   "condition": "room",
+   "quality_status": "ACCEPT",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      647,
+      765
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      1042,
+      1158
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      1430,
+      1544
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 11,
+     "rows": [
+      1815,
+      1930
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      2264,
+      2376
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.038,
+       "selection_method": "layout",
+       "expected_pitch": 20.885,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.246,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 14.845,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 34,
+        "erasure": 10,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 20.944,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.376,
+         "kept_fundamental": 24.828,
+         "empty_frac_rejected": 0.316,
+         "empty_frac_fundamental": 0.115,
+         "kind": "half_pitch"
+        },
+        {
+         "rejected_pitch": 40.168,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 42.847,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 50.493,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": null
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 21.017,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.44,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.569,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 12,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 13,
+     "rows": [
+      2653,
+      2766
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.017,
+       "selection_method": "layout",
+       "expected_pitch": 20.931,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.44,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.569,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 39,
+        "erasure": 9,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 20.912,
+       "selection_method": "layout",
+       "expected_pitch": 21.146,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.823,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 52.115,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 40,
+        "erasure": 8,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 22.384,
+       "selection_method": "layout",
+       "expected_pitch": 21.02,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.904,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": 2
+      }
+     ],
+     "gt_footer_by_rows": 13,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 14,
+     "rows": [
+      3041,
+      3154
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.01,
+       "selection_method": "layout",
+       "expected_pitch": 20.966,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.507,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 35,
+        "erasure": 9,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 20.805,
+       "selection_method": "layout",
+       "expected_pitch": 21.188,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.144,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 33,
+        "erasure": 8,
+        "confident_wrong": 7
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 20.966,
+       "selection_method": "layout",
+       "expected_pitch": 21.0,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.813,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 38,
+        "erasure": 5,
+        "confident_wrong": 3
+       }
+      }
+     ],
+     "gt_footer_by_rows": 14,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 15,
+     "rows": [
+      3435,
+      3552
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.255,
+       "selection_method": "layout",
+       "expected_pitch": 21.023,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.479,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 39,
+        "erasure": 9,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 20.924,
+       "selection_method": "layout",
+       "expected_pitch": 21.229,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 41.848,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 34,
+        "erasure": 11,
+        "confident_wrong": 3
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 22.171,
+       "selection_method": "layout",
+       "expected_pitch": 21.2,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.054,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 50,
+       "best_shift": 1
+      }
+     ],
+     "gt_footer_by_rows": 15,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-a",
+   "filename": "cal-prod-v2-copy1-std-a1.jpeg",
+   "copy": "copy1",
+   "page": 1,
+   "condition": "std",
+   "quality_status": "ACCEPT",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      1052,
+      1214
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1601,
+      1756
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      2135,
+      2294
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      2668,
+      2825
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      3292,
+      3447
+     ],
+     "locator": "FOUND",
+     "candidate_index": 4,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.796,
+       "selection_method": "layout",
+       "expected_pitch": 29.034,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.873,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 24,
+        "confident_wrong": 24
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.867,
+       "selection_method": "layout",
+       "expected_pitch": 29.292,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.207,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 20,
+        "erasure": 18,
+        "confident_wrong": 10
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.268,
+       "selection_method": "layout",
+       "expected_pitch": 29.04,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.382,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 31,
+        "erasure": 12,
+        "confident_wrong": 3
+       }
+      }
+     ],
+     "gt_footer_by_rows": 4,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      3825,
+      3985
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 28.867,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.207,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": null
+      },
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.002,
+       "selection_method": "layout",
+       "expected_pitch": 26.31,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 17,
+        "confident_wrong": 30
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 28.624,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.225,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 5,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      4368,
+      4532
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.379,
+       "selection_method": "layout",
+       "expected_pitch": 29.046,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.413,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 39,
+        "erasure": 9,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.978,
+       "selection_method": "layout",
+       "expected_pitch": 29.021,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.398,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 24,
+        "erasure": 17,
+        "confident_wrong": 7
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.624,
+       "selection_method": "layout",
+       "expected_pitch": 29.1,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.225,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 32,
+        "erasure": 14,
+        "confident_wrong": 0
+       }
+      }
+     ],
+     "gt_footer_by_rows": 6,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      4917,
+      5068
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.56,
+       "selection_method": "layout",
+       "expected_pitch": 29.057,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.151,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 10,
+        "confident_wrong": 38
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 30.667,
+       "selection_method": "layout",
+       "expected_pitch": 28.958,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.938,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": 2
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.482,
+       "selection_method": "layout",
+       "expected_pitch": 28.86,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.883,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 50,
+       "best_shift": 1
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-a",
+   "filename": "cal-prod-v2-copy1-std-a2.jpeg",
+   "copy": "copy1",
+   "page": 2,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 7,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      1428,
+      1584
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      1967,
+      2119
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      2494,
+      2646
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      3103,
+      3253
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.05,
+       "selection_method": "layout",
+       "expected_pitch": 28.69,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.529,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 20.332,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 21,
+        "erasure": 17,
+        "confident_wrong": 10
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.855,
+       "selection_method": "layout",
+       "expected_pitch": 28.958,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.737,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 37,
+        "erasure": 9,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.256,
+       "selection_method": "layout",
+       "expected_pitch": 28.68,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.228,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 29,
+        "erasure": 15,
+        "confident_wrong": 2
+       }
+      }
+     ],
+     "gt_footer_by_rows": 11,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 13,
+     "rows": [
+      3632,
+      3786
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 28.883,
+       "selection_method": "layout",
+       "expected_pitch": 28.655,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.704,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 15,
+        "erasure": 17,
+        "confident_wrong": 16
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.383,
+       "selection_method": "layout",
+       "expected_pitch": 28.854,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.726,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 28,
+        "erasure": 19,
+        "confident_wrong": 1
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.895,
+       "selection_method": "layout",
+       "expected_pitch": 28.7,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.451,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 50,
+       "best_shift": 0
+      }
+     ],
+     "gt_footer_by_rows": 12,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 14,
+     "rows": [
+      4164,
+      4322
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 28.64,
+       "selection_method": "layout",
+       "expected_pitch": 28.678,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.533,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 41,
+        "erasure": 7,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.434,
+       "selection_method": "layout",
+       "expected_pitch": 28.708,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.599,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 32,
+        "erasure": 14,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.384,
+       "selection_method": "layout",
+       "expected_pitch": 28.56,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.42,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 33,
+        "erasure": 11,
+        "confident_wrong": 2
+       }
+      }
+     ],
+     "gt_footer_by_rows": 13,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 15,
+     "rows": [
+      4700,
+      4852
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.322,
+       "selection_method": "layout",
+       "expected_pitch": 28.575,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.729,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 2,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 11,
+        "confident_wrong": 36
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 27.96,
+       "selection_method": "layout",
+       "expected_pitch": 28.604,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.1,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 45.196,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 56.49,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 48,
+       "best_shift": -1
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 27.919,
+       "selection_method": "layout",
+       "expected_pitch": 28.48,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 56.689,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 46,
+        "correct": 9,
+        "erasure": 14,
+        "confident_wrong": 23
+       }
+      }
+     ],
+     "gt_footer_by_rows": 14,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-b",
+   "filename": "cal-prod-v2-copy1-std-b1.jpeg",
+   "copy": "copy1",
+   "page": 1,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      1095,
+      1251
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1633,
+      1786
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      2168,
+      2322
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      2702,
+      2855
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      3332,
+      3485
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      3869,
+      4025
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 42.165,
+       "selection_method": "layout",
+       "expected_pitch": 42.0,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 19.534,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 47,
+        "confident_wrong": 1
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 44.063,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      },
+      {
+       "gt_line": 2,
+       "detected": false,
+       "selected_pitch": 43.744,
+       "selection_method": "layout",
+       "expected_pitch": 73.0,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 19.64,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 21.568,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 28.242,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 29.911,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 50,
+       "best_shift": null
+      }
+     ],
+     "gt_footer_by_rows": 5,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      4414,
+      4573
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      4972,
+      5113
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 42.424,
+       "selection_method": "layout",
+       "expected_pitch": 42.149,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 19.667,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 46,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": false,
+       "selected_pitch": 44.396,
+       "selection_method": "layout",
+       "expected_pitch": 76.396,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 29.549,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 31.201,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 48,
+       "best_shift": null
+      },
+      {
+       "gt_line": null,
+       "detected": false,
+       "selected_pitch": 43.816,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 29.889,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 32.189,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "row_order_fallback"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-b",
+   "filename": "cal-prod-v2-copy1-std-b2.jpeg",
+   "copy": "copy1",
+   "page": 2,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      997,
+      1143
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      1502,
+      1645
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      1997,
+      2137
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 11,
+     "rows": [
+      2487,
+      2627
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      3059,
+      3186
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 13,
+     "rows": [
+      3556,
+      3697
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 40.901,
+       "selection_method": "layout",
+       "expected_pitch": 40.598,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 48,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 40.107,
+       "selection_method": "layout",
+       "expected_pitch": 73.604,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 48,
+       "best_shift": null
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 39.905,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 13,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 14,
+     "rows": [
+      4054,
+      4197
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 41.779,
+       "selection_method": "layout",
+       "expected_pitch": 40.598,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 48,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 40.193,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 39.929,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 14,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 15,
+     "rows": [
+      4559,
+      4703
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 41.779,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 40.193,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": null
+      },
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 39.929,
+       "selection_method": "layout",
+       "expected_pitch": 40.368,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 47,
+        "confident_wrong": 1
+       }
+      }
+     ],
+     "gt_footer_by_rows": 15,
+     "gt_footer_id_method": "row_order_fallback"
+    }
+   ]
+  },
+  {
+   "capture_id": "room",
+   "filename": "cal-prod-v2-copy2-room1.jpeg",
+   "copy": "copy2",
+   "page": 1,
+   "condition": "room",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      705,
+      817
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1093,
+      1203
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      1480,
+      1590
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      1865,
+      1975
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      2319,
+      2429
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      2705,
+      2817
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      3095,
+      3208
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.048,
+       "selection_method": "layout",
+       "expected_pitch": 21.011,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.413,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.763,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 29,
+        "erasure": 16,
+        "confident_wrong": 3
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 21.04,
+       "selection_method": "layout",
+       "expected_pitch": 21.104,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.331,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 52.154,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 40,
+        "erasure": 7,
+        "confident_wrong": 1
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 20.83,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 32.801,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 37.809,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 43.094,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 47.112,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 49.917,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 53.968,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 6,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      3491,
+      3604
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.568,
+       "selection_method": "layout",
+       "expected_pitch": 21.115,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.379,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.611,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 26.13,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 23,
+        "erasure": 17,
+        "confident_wrong": 8
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 22.167,
+       "selection_method": "layout",
+       "expected_pitch": 21.271,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.055,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": 0
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 21.529,
+       "selection_method": "layout",
+       "expected_pitch": 21.18,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.214,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 52.272,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 46,
+        "correct": 1,
+        "erasure": 9,
+        "confident_wrong": 36
+       }
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "room",
+   "filename": "cal-prod-v2-copy2-room2.jpeg",
+   "copy": "copy2",
+   "page": 2,
+   "condition": "room",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      648,
+      751
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      1049,
+      1156
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      1454,
+      1549
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 11,
+     "rows": [
+      1835,
+      1942
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      2291,
+      2399
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.101,
+       "selection_method": "layout",
+       "expected_pitch": 21.172,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.266,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 15.885,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 14,
+        "confident_wrong": 34
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 21.347,
+       "selection_method": "layout",
+       "expected_pitch": 21.0,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 32.001,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 42.638,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 2,
+        "erasure": 46,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 23.143,
+       "selection_method": "layout",
+       "expected_pitch": 21.24,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.772,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 52.75,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": 1
+      }
+     ],
+     "gt_footer_by_rows": 12,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 13,
+     "rows": [
+      2683,
+      2796
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.127,
+       "selection_method": "layout",
+       "expected_pitch": 21.115,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.72,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 16.094,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 6,
+        "erasure": 40,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 21.153,
+       "selection_method": "layout",
+       "expected_pitch": 21.292,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.307,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 53.002,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 7,
+        "erasure": 37,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 23.655,
+       "selection_method": "layout",
+       "expected_pitch": 21.32,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 37.174,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 41.136,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": 1
+      }
+     ],
+     "gt_footer_by_rows": 13,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 14,
+     "rows": [
+      3075,
+      3188
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.143,
+       "selection_method": "layout",
+       "expected_pitch": 21.103,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.53,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 16.165,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 14,
+        "erasure": 27,
+        "confident_wrong": 7
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 21.085,
+       "selection_method": "layout",
+       "expected_pitch": 21.312,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.784,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 35,
+        "erasure": 11,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 21.42,
+       "selection_method": "layout",
+       "expected_pitch": 21.28,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.479,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 21,
+        "erasure": 21,
+        "confident_wrong": 4
+       }
+      }
+     ],
+     "gt_footer_by_rows": 14,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 15,
+     "rows": [
+      3469,
+      3584
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 21.608,
+       "selection_method": "layout",
+       "expected_pitch": 21.069,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 11.654,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 8,
+        "erasure": 19,
+        "confident_wrong": 21
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 21.16,
+       "selection_method": "layout",
+       "expected_pitch": 21.479,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.933,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 38,
+        "erasure": 8,
+        "confident_wrong": 2
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 21.052,
+       "selection_method": "layout",
+       "expected_pitch": 21.38,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 42.54,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 16,
+        "erasure": 17,
+        "confident_wrong": 13
+       }
+      }
+     ],
+     "gt_footer_by_rows": 15,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-a",
+   "filename": "cal-prod-v2-copy2-std-a1.jpeg",
+   "copy": "copy2",
+   "page": 1,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      1025,
+      1175
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1571,
+      1721
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      2114,
+      2265
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      2654,
+      2807
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      3286,
+      3439
+     ],
+     "locator": "FOUND",
+     "candidate_index": 4,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.776,
+       "selection_method": "layout",
+       "expected_pitch": 29.241,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.982,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 4,
+        "erasure": 20,
+        "confident_wrong": 24
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 29.628,
+       "selection_method": "layout",
+       "expected_pitch": 29.188,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 59.256,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": null,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 48,
+        "confident_wrong": 0
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.677,
+       "selection_method": "layout",
+       "expected_pitch": 29.24,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 59.353,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 31,
+        "erasure": 14,
+        "confident_wrong": 1
+       }
+      }
+     ],
+     "gt_footer_by_rows": 4,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      3825,
+      3981
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 29.375,
+       "selection_method": "layout",
+       "expected_pitch": 29.479,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.45,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 31,
+        "erasure": 12,
+        "confident_wrong": 5
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.844,
+       "selection_method": "layout",
+       "expected_pitch": 29.28,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.688,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 46,
+        "correct": 10,
+        "erasure": 12,
+        "confident_wrong": 24
+       }
+      },
+      {
+       "gt_line": null,
+       "detected": true,
+       "selected_pitch": 30.709,
+       "selection_method": "layout",
+       "expected_pitch": null,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 56.386,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": null
+      }
+     ],
+     "gt_footer_by_rows": 5,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      4373,
+      4529
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.825,
+       "selection_method": "layout",
+       "expected_pitch": 29.402,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.293,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 11,
+        "erasure": 23,
+        "confident_wrong": 14
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 29.358,
+       "selection_method": "layout",
+       "expected_pitch": 29.562,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.716,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 28,
+        "erasure": 16,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 29.478,
+       "selection_method": "layout",
+       "expected_pitch": 29.54,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.956,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 40,
+        "erasure": 6,
+        "confident_wrong": 0
+       }
+      }
+     ],
+     "gt_footer_by_rows": 6,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      4929,
+      5087
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 30.278,
+       "selection_method": "layout",
+       "expected_pitch": 29.563,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.011,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 1,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 12,
+        "confident_wrong": 35
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 31.351,
+       "selection_method": "layout",
+       "expected_pitch": 29.771,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 58.471,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": 1
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 32.338,
+       "selection_method": "layout",
+       "expected_pitch": 29.6,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": 2
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-a",
+   "filename": "cal-prod-v2-copy2-std-a2.jpeg",
+   "copy": "copy2",
+   "page": 2,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 5,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      1532,
+      1675
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      2082,
+      2233
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      3247,
+      3401
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 41.332,
+       "selection_method": "layout",
+       "expected_pitch": 35.299,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.28,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 2,
+       "token_cells": {
+        "n": 48,
+        "correct": 0,
+        "erasure": 44,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 38.975,
+       "selection_method": "layout",
+       "expected_pitch": 40.229,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 48,
+       "best_shift": null
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 43.845,
+       "selection_method": "layout",
+       "expected_pitch": 39.7,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.304,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 59.31,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": null
+      }
+     ],
+     "gt_footer_by_rows": 10,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 11,
+     "rows": [
+      3792,
+      3945
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 59.352,
+       "selection_method": "layout",
+       "expected_pitch": 35.299,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.035,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 87,
+       "best_shift": null
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 41.754,
+       "selection_method": "layout",
+       "expected_pitch": 40.292,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.311,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": null
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 45.054,
+       "selection_method": "layout",
+       "expected_pitch": 39.68,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": null
+      }
+     ],
+     "gt_footer_by_rows": 11,
+     "gt_footer_id_method": "row_order_fallback"
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      4336,
+      4492
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 59.25,
+       "selection_method": "layout",
+       "expected_pitch": 35.345,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.293,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 87,
+       "best_shift": null
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 46.139,
+       "selection_method": "layout",
+       "expected_pitch": 40.167,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.177,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 58.632,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": null
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 43.869,
+       "selection_method": "layout",
+       "expected_pitch": 39.68,
+       "harmonic_rejections": [],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": null
+      }
+     ],
+     "gt_footer_by_rows": 12,
+     "gt_footer_id_method": "row_order_fallback"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-b",
+   "filename": "cal-prod-v2-copy2-std-b1.jpeg",
+   "copy": "copy2",
+   "page": 1,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 0,
+     "rows": [
+      1053,
+      1208
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 1,
+     "rows": [
+      1585,
+      1737
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 2,
+     "rows": [
+      2112,
+      2265
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 3,
+     "rows": [
+      2641,
+      2792
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 4,
+     "rows": [
+      3258,
+      3408
+     ],
+     "locator": "FOUND",
+     "candidate_index": 2,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.254,
+       "selection_method": "layout",
+       "expected_pitch": 28.644,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.598,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 12,
+        "confident_wrong": 35
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.502,
+       "selection_method": "layout",
+       "expected_pitch": 28.5,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.591,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 33,
+        "erasure": 11,
+        "confident_wrong": 4
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.949,
+       "selection_method": "layout",
+       "expected_pitch": 28.54,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.501,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 36,
+        "erasure": 9,
+        "confident_wrong": 1
+       }
+      }
+     ],
+     "gt_footer_by_rows": 4,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 5,
+     "rows": [
+      3784,
+      3936
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.006,
+       "selection_method": "layout",
+       "expected_pitch": 28.644,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.076,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -2,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 14,
+        "confident_wrong": 33
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.743,
+       "selection_method": "layout",
+       "expected_pitch": 28.729,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.026,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": -2,
+       "token_cells": {
+        "n": 48,
+        "correct": 2,
+        "erasure": 12,
+        "confident_wrong": 34
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.601,
+       "selection_method": "layout",
+       "expected_pitch": 28.56,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.809,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": -2,
+       "token_cells": {
+        "n": 46,
+        "correct": 2,
+        "erasure": 15,
+        "confident_wrong": 29
+       }
+      }
+     ],
+     "gt_footer_by_rows": 5,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 6,
+     "rows": [
+      4319,
+      4472
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.317,
+       "selection_method": "layout",
+       "expected_pitch": 28.77,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.111,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 18,
+        "confident_wrong": 29
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 28.429,
+       "selection_method": "layout",
+       "expected_pitch": 28.812,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.999,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 26,
+        "erasure": 17,
+        "confident_wrong": 5
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.758,
+       "selection_method": "layout",
+       "expected_pitch": 28.84,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.821,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": -2,
+       "token_cells": {
+        "n": 46,
+        "correct": 1,
+        "erasure": 10,
+        "confident_wrong": 35
+       }
+      }
+     ],
+     "gt_footer_by_rows": 6,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 7,
+     "rows": [
+      4862,
+      5000
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.958,
+       "selection_method": "layout",
+       "expected_pitch": 28.885,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 16.018,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 15,
+        "erasure": 23,
+        "confident_wrong": 10
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 30.512,
+       "selection_method": "layout",
+       "expected_pitch": 29.312,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 38.736,
+         "kind": "layout_implausible_harmonic"
+        },
+        {
+         "rejected_pitch": 58.207,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 48,
+       "best_shift": 0
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 31.554,
+       "selection_method": "layout",
+       "expected_pitch": 28.8,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 57.596,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 46,
+       "expected_cells": 50,
+       "best_shift": 1
+      }
+     ],
+     "gt_footer_by_rows": 7,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  },
+  {
+   "capture_id": "std-b",
+   "filename": "cal-prod-v2-copy2-std-b2.jpeg",
+   "copy": "copy2",
+   "page": 2,
+   "condition": "std",
+   "quality_status": "RECAPTURE",
+   "n_locator_candidates": 5,
+   "n_gt_footers_located": 8,
+   "n_gt_footers_expected": 8,
+   "footers": [
+    {
+     "gt_footer": 8,
+     "rows": [
+      981,
+      1134
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 9,
+     "rows": [
+      1506,
+      1655
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 10,
+     "rows": [
+      2020,
+      2166
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 11,
+     "rows": [
+      2529,
+      2676
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 12,
+     "rows": [
+      3121,
+      3266
+     ],
+     "locator": "MISS",
+     "candidate_index": null,
+     "lines": []
+    },
+    {
+     "gt_footer": 13,
+     "rows": [
+      3637,
+      3783
+     ],
+     "locator": "FOUND",
+     "candidate_index": 3,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 28.068,
+       "selection_method": "layout",
+       "expected_pitch": 27.805,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.249,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -2,
+       "token_cells": {
+        "n": 48,
+        "correct": 1,
+        "erasure": 15,
+        "confident_wrong": 32
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 27.191,
+       "selection_method": "layout",
+       "expected_pitch": 27.896,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 55.3,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 48,
+       "best_shift": -2
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 28.284,
+       "selection_method": "layout",
+       "expected_pitch": 27.76,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 55.628,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 46,
+        "correct": 0,
+        "erasure": 15,
+        "confident_wrong": 31
+       }
+      }
+     ],
+     "gt_footer_by_rows": 13,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 14,
+     "rows": [
+      4152,
+      4298
+     ],
+     "locator": "FOUND",
+     "candidate_index": 1,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 28.109,
+       "selection_method": "layout",
+       "expected_pitch": 27.885,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.436,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": -1,
+       "token_cells": {
+        "n": 48,
+        "correct": 3,
+        "erasure": 18,
+        "confident_wrong": 27
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 27.707,
+       "selection_method": "layout",
+       "expected_pitch": 27.896,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 55.986,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 48,
+       "expected_cells": 48,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 39,
+        "erasure": 6,
+        "confident_wrong": 3
+       }
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 27.765,
+       "selection_method": "layout",
+       "expected_pitch": 27.78,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 56.067,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 36,
+        "erasure": 9,
+        "confident_wrong": 1
+       }
+      }
+     ],
+     "gt_footer_by_rows": 14,
+     "gt_footer_id_method": "text_match"
+    },
+    {
+     "gt_footer": 15,
+     "rows": [
+      4677,
+      4827
+     ],
+     "locator": "FOUND",
+     "candidate_index": 0,
+     "lines": [
+      {
+       "gt_line": 0,
+       "detected": true,
+       "selected_pitch": 29.074,
+       "selection_method": "layout",
+       "expected_pitch": 27.977,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 15.559,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 87,
+       "expected_cells": 87,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 48,
+        "correct": 13,
+        "erasure": 15,
+        "confident_wrong": 20
+       }
+      },
+      {
+       "gt_line": 1,
+       "detected": true,
+       "selected_pitch": 27.406,
+       "selection_method": "layout",
+       "expected_pitch": 28.125,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 55.76,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 48,
+       "best_shift": -2
+      },
+      {
+       "gt_line": 2,
+       "detected": true,
+       "selected_pitch": 27.709,
+       "selection_method": "layout",
+       "expected_pitch": 28.04,
+       "harmonic_rejections": [
+        {
+         "rejected_pitch": 55.813,
+         "kind": "layout_implausible_harmonic"
+        }
+       ],
+       "registration": "OK",
+       "cells": 50,
+       "expected_cells": 50,
+       "best_shift": 0,
+       "token_cells": {
+        "n": 46,
+        "correct": 31,
+        "erasure": 11,
+        "confident_wrong": 4
+       }
+      }
+     ],
+     "gt_footer_by_rows": 15,
+     "gt_footer_id_method": "text_match"
+    }
+   ]
+  }
+ ]
+}

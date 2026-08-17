@@ -26,7 +26,7 @@ import numpy as np
 
 from reader import structural_locator as SL
 from reader.calibration.extract import GlyphSample, _alignment_score, _deskew, _text_bands
-from reader.registration import register_line
+from reader.registration import register_line, select_pitch
 
 
 def band_is_token_plausible(b, widths: list[int]) -> bool:
@@ -137,8 +137,12 @@ def _register_expected(g: np.ndarray, band: SL.LineHypothesis, n_cells: int,
     pad_x = int(round(2 * max(p_exp, 1.0)))
     strip = g[max(0, band.row_start - pad_y):band.row_end + pad_y,
               max(0, band.x0 - pad_x):band.x1 + pad_x]
+    # Shared harmonic discipline (registration.select_pitch): same
+    # implementation as the normal frame pipeline, so harmonic handling
+    # cannot drift between calibration extraction and production reading.
+    sel = select_pitch(strip, span=span, expected_char_counts=[n_cells])
     candidates = []
-    for ph in (None, p_exp):
+    for ph in (sel.pitch if sel.pitch > 0 else None, p_exp):
         try:
             candidates.append(register_line(strip, n_cells_hint=n_cells, pitch_hint=ph))
         except Exception:

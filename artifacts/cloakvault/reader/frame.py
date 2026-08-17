@@ -33,7 +33,7 @@ import numpy as np
 
 from .profile import ReaderProfile
 from .quality import assess_quality
-from .registration import register_line
+from .registration import register_line, select_pitch
 from .structural_locator import FooterCandidate, locate_footer_candidates
 from .synthglyphs import classify_cells
 from .taxonomy import FrameResult, ResultCategory, Stage, StageDiagnostic
@@ -71,16 +71,23 @@ class _Attempt:
     depth: int = 0
 
 
-def _attempt_candidate(
+def prepare_candidate_lines(
     gray: np.ndarray,
     cand: FooterCandidate,
-    index: int,
     profile: ReaderProfile,
-    classifier: Callable,
-) -> _Attempt:
-    """Register/classify/extract/RS for ONE footer candidate."""
-    lines_text: list[str] = []
-    reg_metrics = []
+) -> list[tuple]:
+    """Shared runtime line preparation: crop each candidate line strip and
+    select its glyph pitch with the layout-consistent discipline
+    (registration.select_pitch) — pass 1 independent per line, pass 2
+    neighboring-line pitch agreement. Used by _attempt_candidate and by the
+    runtime evaluation scripts so the registration path cannot drift.
+
+    Returns [(line_hypothesis, strip, PitchSelection), ...].
+    """
+    layout = profile.data.get("production_layout") or {}
+    char_counts = layout.get("token_line_char_counts")
+
+    strips: list[np.ndarray] = []
     for l in cand.lines:
         pad_y = max(2, (l.row_end - l.row_start) // 2)
         pad_x = int(round(2 * max(l.pitch, 1.0)))
@@ -88,12 +95,65 @@ def _attempt_candidate(
         e = min(gray.shape[0], l.row_end + pad_y)
         x0 = max(0, l.x0 - pad_x)
         x1 = min(gray.shape[1], l.x1 + pad_x)
-        strip = gray[s:e, x0:x1]
+        strips.append(gray[s:e, x0:x1])
+
+    # pass 1: independent layout-consistent selection per line
+    sels = [select_pitch(strip, span=float(l.x1 - l.x0),
+                         expected_char_counts=char_counts)
+            for strip, l in zip(strips, cand.lines)]
+    # pass 2: neighboring-line pitch agreement — lines of one footer share
+    # the print pitch, so outliers are re-selected against the group median
+    # of layout-plausible selections.
+    anchor = [s.pitch for s in sels if s.method == "layout" and s.pitch > 0]
+    if len(anchor) >= 2:
+        med = float(np.median(anchor))
+        for i, (strip, l, sel) in enumerate(zip(strips, cand.lines, sels)):
+            if sel.pitch <= 0 or abs(sel.pitch / med - 1.0) > 0.15:
+                sels[i] = select_pitch(strip, span=float(l.x1 - l.x0),
+                                       expected_char_counts=char_counts,
+                                       neighbor_pitch=med)
+
+    # layout-consistent cell count: when the pitch was chosen by the layout
+    # window, the implied char count is the layout count that window came
+    # from — snapping to it removes edge-trim off-by-one jitter that would
+    # shift positional alignment of every later cell.
+    hints: list[int | None] = []
+    for l, sel in zip(cand.lines, sels):
+        hint = None
+        if sel.method == "layout" and char_counts and sel.pitch > 0:
+            span = float(l.x1 - l.x0)
+            hint = min(char_counts, key=lambda w: abs(span / w - sel.pitch))
+        hints.append(hint)
+    return list(zip(cand.lines, strips, sels, hints))
+
+
+def _attempt_candidate(
+    gray: np.ndarray,
+    cand: FooterCandidate,
+    index: int,
+    profile: ReaderProfile,
+    classifier: Callable,
+) -> _Attempt:
+    """Register/classify/extract/RS for ONE footer candidate.
+
+    v0.2.1 harmonic fix: per-line glyph pitch is chosen by the shared
+    layout-consistent discipline (registration.select_pitch) using only
+    public structural information — candidate line extent, expected footer
+    typography char counts from the bound profile, occupancy/harmonic
+    consistency, and neighboring-line pitch agreement. No per-image logic.
+    """
+    lines_text: list[str] = []
+    reg_metrics = []
+    prepared = prepare_candidate_lines(gray, cand, profile)
+
+    for l, strip, sel, n_hint in prepared:
         try:
-            model = register_line(strip)
+            model = register_line(strip, n_cells_hint=n_hint,
+                                  pitch_hint=sel.pitch if sel.pitch > 0 else None)
         except ValueError as exc:
             return _Attempt(index, ResultCategory.REGISTRATION_FAIL, str(exc),
-                            {"line_rows": [l.row_start, l.row_end]},
+                            {"line_rows": [l.row_start, l.row_end],
+                             "pitch_selection": sel.diagnostics()},
                             depth=_DEPTH[ResultCategory.REGISTRATION_FAIL])
         centers = model.centers()
         y_mid = float(np.mean(model.y_at(centers)))
@@ -102,7 +162,8 @@ def _attempt_candidate(
         )
         lines_text.append(text)
         reg_metrics.append({"pitch": round(model.pitch, 3), "cells": len(text),
-                            "detected": l.detected})
+                            "detected": l.detected,
+                            "pitch_selection": sel.diagnostics()})
     classified = sum(len(t) for t in lines_text)
     erasures = sum(t.count("?") for t in lines_text)
 

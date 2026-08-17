@@ -16,6 +16,12 @@
     "footer_min_periodicity": 0.12,
     "footer_min_extent_frac": 0.35
   },
+  "production_layout": {
+    "token_line_char_counts": [46, 48, 50, 87],
+    "note": "Public typography geometry of production footer lines known to the reader: capture-spike/Recovery Document token wrap is 48/48/46 monospace chars; the production-v2 sheet footer prints 87/48/50-char monospace lines. Used ONLY for layout-consistent glyph-pitch discipline (registration.select_pitch); never for classification.",
+    "pitch_rel_tol": 0.2,
+    "tolerance_rationale": "Matches the 0.8-1.25 pitch/expected acceptance band proven by production calibration extraction (cal-run01/cal-run02, see reader/calibration/phased-geometry.json) with margin for print/camera scale and mild perspective (synthetic regression tests). Derived from production layout geometry, synthetic tests, and cal-run02 captures — NOT from S46/Bridge."
+  },
   "classifier_id": "cal-run01-bank-v1 (real-print calibration bank, campaign cal-run01, spike-feat-v1 features, per-class max NN)",
   "registration_model_id": "perline-robust-piecewise-phase-v1",
   "calibration_corpora": [
