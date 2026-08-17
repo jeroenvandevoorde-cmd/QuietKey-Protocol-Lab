@@ -17,3 +17,9 @@ Phase B COMPLETE on branch `reader-v021-calibration` (commits through 159a830; w
 - Resumable /tmp caches for slow pipelines must key on EVERY labelled-output input: capture sha, ground-truth sha, hint, and code revision of all behavior modules (extract, registration, structural_locator); replay caches need profile sha + reader code sha. Regression tests in `reader/tests/test_phaseb_pipeline.py`.
 - Sub-page groups smaller than max(2, lpb/2) lines must be dropped as strays before block indexing or labels silently shift.
 - Shell timeout is 300s and background processes die with the shell session — long pipelines need per-item caching + rerun-until-done, or in-script ProcessPoolExecutor.
+
+## Acceptance audit (post-Phase B)
+- Owner-ordered analysis-only audit → `reader/calibration/ACCEPTANCE-REPORT-cal-run01.md` + JSON via read-only `scripts/phaseb_acceptance_audit.py`. Verdict: **B — bank INADEQUATE**; Bridge Run 02 and Reader freeze remain blocked pending owner review.
+- 0.711/0.731 were FOLD-MEAN decided accuracies; pooled sample-level = 0.768/0.761. Confident-wrong 16% — far beyond RS(83,49) 34-unit budget.
+- Central finding: pristine gate-accepted S46 reads 1/142 token chars with the cal bank → calibration↔Bridge print domain shift; more captures of the current sheet won't help. Copy-out holdout invalid (copy 1 only).
+- Angle captures fail at line-band layout validation (PITCH_LAYOUT_MISMATCH from perspective pitch variation), deskew ≈0° — needs homography rectification, not more data.
