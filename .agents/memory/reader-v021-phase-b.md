@@ -23,3 +23,9 @@ Phase B COMPLETE on branch `reader-v021-calibration` (commits through 159a830; w
 - 0.711/0.731 were FOLD-MEAN decided accuracies; pooled sample-level = 0.768/0.761. Confident-wrong 16% — far beyond RS(83,49) 34-unit budget.
 - Central finding: pristine gate-accepted S46 reads 1/142 token chars with the cal bank → calibration↔Bridge print domain shift; more captures of the current sheet won't help. Copy-out holdout invalid (copy 1 only).
 - Angle captures fail at line-band layout validation (PITCH_LAYOUT_MISMATCH from perspective pitch variation), deskew ≈0° — needs homography rectification, not more data.
+
+## Production-parity diagnostic (durable lessons)
+- S46 collapse has TWO stacked causes: (1) line registration locks the half-pitch harmonic on production-context footer lines (registered ~11 px vs layout 21 px → half-glyph windows); a layout-pitch hint corrects it and lifts median bank cosine 0.55→0.65. (2) A residual print-domain gap remains — glyph geometry matches cal but contrast is roughly halved (Bridge print far fainter); attribution provisional until a token-span-matched control (Task 5).
+- Calibration sheets must REUSE production rendering code, never copy appearance: the v2 generator imports the production wrap/render functions, extracts the footer class string and @media print block verbatim at generation time, and pins source sha256s so tests fail on drift. See `reader/calibration/PRODUCTION-PARITY-DIAGNOSTIC.md`.
+- v2 tokens start with the production sentinel but are deliberately NOT RS-valid (decodability precludes exact class balance). The v1 extractor's uniform `chars_per_line` assumption does NOT fit production footers — a span-aware extraction (URL prefix / `&v=1` / trailer exclusion via `token_line_spans`) must be built before consuming v2 captures.
+- STOPPED at physical checkpoint: owner to print 2 copies of the v2 sheet (same printer/settings as Bridge); transfer experiment + A/B/C verdict blocked on captures.

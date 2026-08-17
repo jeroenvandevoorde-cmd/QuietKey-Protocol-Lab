@@ -1,0 +1,530 @@
+{
+  "generator": "calsheet-production-v2",
+  "seed": "20260817",
+  "sheet_id": "calsheet-production-v2-s20260817",
+  "alphabet": "qpzry9x8gf2tvdw0s3jn54khce6mua7l",
+  "token_length": 142,
+  "sentinel": "cv0",
+  "tokens_note": "Every token starts with the production sentinel so structural location behaves as on real footers. Tokens are balanced calibration content, NOT decodable production tokens: no RS checksum validity. Global class counts are exactly balanced (sentinel occurrences included).",
+  "wrap_width": 48,
+  "printed_date": "17/08/2026",
+  "n_footers": 16,
+  "class_counts": {
+    "0": 71,
+    "2": 71,
+    "3": 71,
+    "4": 71,
+    "5": 71,
+    "6": 71,
+    "7": 71,
+    "8": 71,
+    "9": 71,
+    "c": 71,
+    "v": 71,
+    "m": 71,
+    "z": 71,
+    "t": 71,
+    "r": 71,
+    "n": 71,
+    "p": 71,
+    "u": 71,
+    "j": 71,
+    "a": 71,
+    "w": 71,
+    "x": 71,
+    "y": 71,
+    "g": 71,
+    "f": 71,
+    "k": 71,
+    "q": 71,
+    "h": 71,
+    "l": 71,
+    "d": 71,
+    "e": 71,
+    "s": 71
+  },
+  "footers": [
+    {
+      "index": 0,
+      "token": "cv0m7z7trnpuja7wxrx9ymg2mfyxkntq6h70jfu4m6mljdtkzmet4pk2wzc65e93ekpxjz5nyrskyepqfzdsxgshttcmtxhtuxzpng97fsa7vfwh77y9mz60e99mk7p2ncepn72ugahaw2",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0m7z7trnpuja7wxrx9ymg2mfyxkntq6h70jfu4m6mljdtk",
+        "zmet4pk2wzc65e93ekpxjz5nyrskyepqfzdsxgshttcmtxht",
+        "uxzpng97fsa7vfwh77y9mz60e99mk7p2ncepn72ugahaw2&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "token": "cv0q9ewmtqy8ewqja2ltk2kjjc5d2gra322qgtsu5j5u263w0n4w3mq8ktpywt6klknyk8lam3jsg74sy66tvnt9zwhr5wz0vsvxqax266xkcrdxaltrp49g976d2d3f5nxjq9p4zjah9f",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0q9ewmtqy8ewqja2ltk2kjjc5d2gra322qgtsu5j5u263w",
+        "0n4w3mq8ktpywt6klknyk8lam3jsg74sy66tvnt9zwhr5wz0",
+        "vsvxqax266xkcrdxaltrp49g976d2d3f5nxjq9p4zjah9f&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "token": "cv0txpzy973l2qy5ykc3zplrw7v2qdhxukwm5tjhvlgngdr8g0ahz8pa3x36u56luzkvsgq2l2xfe9qwhfp8j0dcazgfn0fdvm86u3eg29xhkqmtwds9p6kj4ufqrw8e9ml0jc2v3u48lz",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0txpzy973l2qy5ykc3zplrw7v2qdhxukwm5tjhvlgngdr8",
+        "g0ahz8pa3x36u56luzkvsgq2l2xfe9qwhfp8j0dcazgfn0fd",
+        "vm86u3eg29xhkqmtwds9p6kj4ufqrw8e9ml0jc2v3u48lz&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "token": "cv0mv5glvwen7yfpqh02f2n6pwqytmfdhevg9se45su7a25fydd3g6hmxg3g7ay8p5ltdudeks6crssjr884lzyszp05p5u7smj2ung7m6fxndhdlgsuxh0eh4p0c3ydkh7dcudeyaprjl",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0mv5glvwen7yfpqh02f2n6pwqytmfdhevg9se45su7a25f",
+        "ydd3g6hmxg3g7ay8p5ltdudeks6crssjr884lzyszp05p5u7",
+        "smj2ung7m6fxndhdlgsuxh0eh4p0c3ydkh7dcudeyaprjl&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "token": "cv0anvccsne492dj42xk7luaka4uezg9l4nxnt4c7f6ppulsj8jgjva2uwrencytuert2sfr3zdjn95408qr5k9ealdqxn7j2dkk6dqqzjq2vdyuzh5ykjf9ehh6k4cyktxggc0uymr3ek",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0anvccsne492dj42xk7luaka4uezg9l4nxnt4c7f6ppuls",
+        "j8jgjva2uwrencytuert2sfr3zdjn95408qr5k9ealdqxn7j",
+        "2dkk6dqqzjq2vdyuzh5ykjf9ehh6k4cyktxggc0uymr3ek&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "token": "cv0vmnu20vu2d7gysj8sp4k2sm44evz0tk330gf2q8ltcyx2r7pur3mcgs54cjfe88sxz2fgmv8r6rfd6h2rcd5gh38aentfjfx65n9j8jvt0v2ht2gtscpfhncnrknmcwts8n4w0hll3z",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0vmnu20vu2d7gysj8sp4k2sm44evz0tk330gf2q8ltcyx2",
+        "r7pur3mcgs54cjfe88sxz2fgmv8r6rfd6h2rcd5gh38aentf",
+        "jfx65n9j8jvt0v2ht2gtscpfhncnrknmcwts8n4w0hll3z&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "token": "cv0dwy4a3n66waz7lal5aqwt7atmkve6tqus3cae5ue8vq7l23vhd366mrlan45g3dtqeqgpafa4k4n7r7ft8rfs5q0hxcwwmml66ay37ht9e9p82dhp4rrsn0gcqz7ck89zsup3swse80",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0dwy4a3n66waz7lal5aqwt7atmkve6tqus3cae5ue8vq7l",
+        "23vhd366mrlan45g3dtqeqgpafa4k4n7r7ft8rfs5q0hxcww",
+        "mml66ay37ht9e9p82dhp4rrsn0gcqz7ck89zsup3swse80&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "token": "cv0gwptl8mf65n6k0yvjuk8fhxlvx5yzswrzwh7cpf7auljxrp8kl2qxsf0jey005wnt5afrsuvm0pcrhmqjj4uy9ne0mmqwvh0dkw4e2gqtry72t7z43mxfln7zzacqxq5xr2q5ulnr8x",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0gwptl8mf65n6k0yvjuk8fhxlvx5yzswrzwh7cpf7auljx",
+        "rp8kl2qxsf0jey005wnt5afrsuvm0pcrhmqjj4uy9ne0mmqw",
+        "vh0dkw4e2gqtry72t7z43mxfln7zzacqxq5xr2q5ulnr8x&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "token": "cv090awd48qm6lkxfnzg5zu96g9l49hl8n7jzqxzpq50jrxkejsths300zf93maxfp2pzrcx64nfajkm9535mgczkaarytz28ps7jk4u8sl63q9zjvlstqz594v3ylefh5sm28yqcydlg7",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv090awd48qm6lkxfnzg5zu96g9l49hl8n7jzqxzpq50jrxk",
+        "ejsths300zf93maxfp2pzrcx64nfajkm9535mgczkaarytz2",
+        "8ps7jk4u8sl63q9zjvlstqz594v3ylefh5sm28yqcydlg7&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "token": "cv0ywf9wz0q8nudfl8zjcr5sn3udpmy7uqjwfj6wg92hxfnku5lymyvfmmt02uszvgv7gvslux59m0qcpzufdku6qk36yegp89vxrpfl3vred6ylujqdd8zd7uj79k5pkynep9yx6w3me7",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0ywf9wz0q8nudfl8zjcr5sn3udpmy7uqjwfj6wg92hxfnk",
+        "u5lymyvfmmt02uszvgv7gvslux59m0qcpzufdku6qk36yegp",
+        "89vxrpfl3vred6ylujqdd8zd7uj79k5pkynep9yx6w3me7&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "token": "cv0t9y38jju4jatwrjhxqegqx8a4eugepyhx03whp9kaynyss7sp3e8p9fkphmwg7xwpecmtqjd8zqc8ykjrge82yf2j5naetp25ut8wf2g8xvh6t0eg23n4m02n989w923kvh58eeanhh",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0t9y38jju4jatwrjhxqegqx8a4eugepyhx03whp9kaynys",
+        "s7sp3e8p9fkphmwg7xwpecmtqjd8zqc8ykjrge82yf2j5nae",
+        "tp25ut8wf2g8xvh6t0eg23n4m02n989w923kvh58eeanhh&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "token": "cv0jaqnsfn6e649aazw54zwrsclt042cyfw3e8q6cctxmwy084z90zl8n7a58yacw46dp7vjsd5hfrvgm4nl720luf0acya56p8y0t5fsj5qxn0g6a45hx3rfqu7kzqhgqgdxar07vjndl",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0jaqnsfn6e649aazw54zwrsclt042cyfw3e8q6cctxmwy0",
+        "84z90zl8n7a58yacw46dp7vjsd5hfrvgm4nl720luf0acya5",
+        "6p8y0t5fsj5qxn0g6a45hx3rfqu7kzqhgqgdxar07vjndl&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "token": "cv03zd4unpm39n3tmt975343k9m3aelprfeudvmpvlzwd8t34n94cwdxyp6yvkj969rarcp9hfgkm2uurfnxdus7m8ad9whwjdu0sr6j8npjnxptzslqwjfq365p5h29w7s7hgv4ct773d",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv03zd4unpm39n3tmt975343k9m3aelprfeudvmpvlzwd8t3",
+        "4n94cwdxyp6yvkj969rarcp9hfgkm2uurfnxdus7m8ad9whw",
+        "jdu0sr6j8npjnxptzslqwjfq365p5h29w7s7hgv4ct773d&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "token": "cv08r7ugqd04uxt68t6x6ntfvg0vuacd47kkge95l74647s25ua6ysrh9f43jw7a7na7z22u97zane25wlega5e2sklzz7epn9cg3zdxvyjmygx2emku6zlm4ry82p3rhw3jlye9wgz6e5",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv08r7ugqd04uxt68t6x6ntfvg0vuacd47kkge95l74647s2",
+        "5ua6ysrh9f43jw7a7na7z22u97zane25wlega5e2sklzz7ep",
+        "n9cg3zdxvyjmygx2emku6zlm4ry82p3rhw3jlye9wgz6e5&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "token": "cv0rlspfdqanvn0mmythz56gc8jay303rx8as8re6qwe6hga5mnrqvd5m44p53lfphp3lp86qwqwk5rvsj9af3lrgwx02m88zmt7gf3d0xjr695anuxwskw8mhc4tf2d8y8g6wfhj48erx",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv0rlspfdqanvn0mmythz56gc8jay303rx8as8re6qwe6hga",
+        "5mnrqvd5m44p53lfphp3lp86qwqwk5rvsj9af3lrgwx02m88",
+        "zmt7gf3d0xjr695anuxwskw8mhc4tf2d8y8g6wfhj48erx&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "token": "cv06krtf3ucux42yv6evv35rtslkedrs6xuy9r94sw9zytplax53h53g3mzykhlrm4h9ldqsl5h7ke4ldgk4wq7u4wx4lqr0h5s4kdzh6dcgzwtvkh4sczkeytucqh3ah947qp2dfdsxjh",
+      "lines_as_printed": [
+        "https://arecipeforamaster.com/print?id=cv06krtf3ucux42yv6evv35rtslkedrs6xuy9r94sw9zytpl",
+        "ax53h53g3mzykhlrm4h9ldqsl5h7ke4ldgk4wq7u4wx4lqr0",
+        "h5s4kdzh6dcgzwtvkh4sczkeytucqh3ah947qp2dfdsxjh&v=1",
+        "Printed 17/08/2026 · page 1 of 1"
+      ],
+      "token_line_spans": [
+        {
+          "line": 0,
+          "prefix_chars": 39,
+          "token_chars": 48
+        },
+        {
+          "line": 1,
+          "prefix_chars": 0,
+          "token_chars": 48
+        },
+        {
+          "line": 2,
+          "prefix_chars": 0,
+          "token_chars": 46,
+          "suffix": "&v=1"
+        }
+      ]
+    }
+  ],
+  "rendering_provenance": {
+    "source_commit": "58cd2809846a173f2ab30ba9ae2b9e8e9326f311",
+    "footer_class_list": "mt-8 pt-2 border-t border-gray-200 text-[10px] text-gray-500 font-mono break-all",
+    "footer_utility_css": {
+      "mt-8": "margin-top: 2rem;",
+      "pt-2": "padding-top: 0.5rem;",
+      "border-t": "border-top-width: 1px; border-top-style: solid;",
+      "border-gray-200": "border-top-color: #e5e7eb;",
+      "text-[10px]": "font-size: 10px;",
+      "text-gray-500": "color: #6b7280;",
+      "font-mono": "font-family: var(--app-font-mono);",
+      "break-all": "word-break: break-all;"
+    },
+    "print_css_copied_verbatim": true,
+    "reused_production_code": [
+      "src/lib/codec/footer.ts (wrapToken, FOOTER_WRAP_WIDTH)",
+      "src/lib/pipeline.ts (renderFooter: URL line, &v=1 suffix, Printed line)",
+      "src/pages/create.tsx (footer className, extracted verbatim)",
+      "src/index.css (@media print block + --app-font-mono, copied verbatim)"
+    ],
+    "source_sha256": {
+      "src/lib/codec/footer.ts": "4224faf93b610c0a499cba4da48945a10749c09a6f44be862fc1ea4417a84fc9",
+      "src/lib/pipeline.ts": "a987248ad5ad9ef0265a7bfbf628e2e919bd01f6a1a501c5f0d0ecb57e9418c7",
+      "src/pages/create.tsx": "c327cbca99dd4c63e001b4dfd75c06deeacb455c30e81a4e8826186a28b1edaa",
+      "src/index.css": "288c4a2756e674abe112f7649b644033d8c38b9d3660721650360242ca69f3f3"
+    },
+    "page": "A4, 16mm margins (from production @page rule)",
+    "print_instruction": "100% scale, never fit-to-page, same printer/paper/settings as Bridge Recovery Documents"
+  },
+  "provenance_rules": {
+    "bridge_hashes_prohibited": true,
+    "s46_development_replay_only": true,
+    "required_physical_print_copies": 2
+  }
+}

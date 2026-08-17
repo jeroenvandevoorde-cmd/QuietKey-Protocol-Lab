@@ -1,0 +1,31 @@
+{
+  "corpus_id": "cal-run02-production-raw",
+  "status": "AWAITING_PHYSICAL_CAPTURES (production-path calibration sheet v2 generated; owner to print and photograph)",
+  "description": "Production-path calibration corpus for the domain-transfer diagnostic. Sheet: calibration-sheet-calsheet-production-v2-s20260817 rendered through the ACTUAL production footer code path (wrapToken/renderFooter/create.tsx class list/index.css print rules — see sheet groundtruth rendering_provenance). Captures must come from at least TWO independent physical print copies (preferably separate print jobs), same printer/paper/scale/settings as the Bridge Recovery Documents.",
+  "sheet": {
+    "sheet_id": "calsheet-production-v2-s20260817",
+    "html": "reader/calibration/sheets/calibration-sheet-calsheet-production-v2-s20260817.html",
+    "groundtruth": "reader/calibration/sheets/calibration-sheet-calsheet-production-v2-s20260817.groundtruth.json"
+  },
+  "required_print_copies": 2,
+  "requested_captures_per_copy": [
+    "std-straight-on-A",
+    "std-straight-on-B",
+    "roomlight-moderate"
+  ],
+  "capture_constraints": "No damage. No intentional lowlight. No angles. Domain-transfer diagnosis, not coverage expansion.",
+  "images": [],
+  "usage_flags": {
+    "classifier_training_allowed": false,
+    "calibration_allowed": false,
+    "validation_allowed": false,
+    "regression_testing_allowed": false,
+    "note": "All flags stay false until physical captures are registered with per-image print_copy ids; training flags may then be enabled for Copy 1 only per the owner's minimal transfer experiment (Task 5). Bridge Run 01 hashes are permanently banned from this corpus and from any bank built from it. S46 remains DEVELOPMENT_REPLAY only and must never appear in calibration folds."
+  },
+  "provenance_rules": {
+    "bridge_hashes_prohibited": true,
+    "per_image_required_fields": ["filename", "sha256", "print_copy", "condition", "capture_id"],
+    "distinct_print_copy_ids_required": ["copy1", "copy2"],
+    "s46_development_replay_only": true
+  }
+}
