@@ -29,6 +29,11 @@ def _load_images(corpus_dir: Path) -> list[tuple[str, np.ndarray]]:
 
 
 def calibrate(corpus_dir: Path, base_profile: Path, out_path: Path, corpus_id: str) -> dict:
+    # Provenance enforcement: calibration REQUIRES a registered corpus
+    # manifest whose flags allow threshold calibration. Bridge Run 01 (and
+    # any other seen corpus) is rejected here, not merely tagged.
+    from .provenance import require_flag
+    require_flag(corpus_id, "threshold_calibration_allowed")
     base = load_profile(base_profile)
     images = _load_images(corpus_dir)
     if not images:

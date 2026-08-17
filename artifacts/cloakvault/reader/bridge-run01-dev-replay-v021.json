@@ -1,0 +1,113 @@
+{
+  "profile_path": "reader/profiles/spike-reader-v02-development.json",
+  "profile_sha256": "fb8972d98a9b458f3f6080b22d9d4204c6ab811b7e7b848f21135db495898da1",
+  "profile_status": "DEVELOPMENT / NOT GATE-A1 / NOT PRODUCTION",
+  "corpus_id": "bridge-run01-dev-npy",
+  "corpus_manifest_sha256": "06145f601e35ddc920eb9ad43e124ec8bf37a114854dff9b81134913882e09fa",
+  "development_data": true,
+  "development_replay": true,
+  "run_kind": "DEVELOPMENT_REPLAY",
+  "images": 19,
+  "category_counts": {
+    "CAPTURE_QUALITY_REJECT": 13,
+    "RS_BUDGET_EXCEEDED": 6
+  },
+  "per_image": [
+    {
+      "filename": "bridge-baseline-0-std-S28.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-baseline-0-std-S46.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-bodyring-1-std-S43.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-cliptear-1-std-S44.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-coffee-2-std-S29.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-coffee-2-std-S30.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-crumple-1-std-S37.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-crumple-2-std-S31.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-crumple-2-std-S32.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-edge-3-std-S42.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-fade-3-std-S41.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-fold-3-std-S38.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-scratch-3-std-S39.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-scuff-3-std-S40.npy",
+      "category": "RS_BUDGET_EXCEEDED",
+      "failing_stage": "RS"
+    },
+    {
+      "filename": "bridge-spanstain-1-std-S45.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-water-2-std-S33.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-water-2-std-S34.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-water-3-std-S35.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    },
+    {
+      "filename": "bridge-water-3-std-S36.npy",
+      "category": "CAPTURE_QUALITY_REJECT",
+      "failing_stage": "CAPTURE"
+    }
+  ],
+  "note": "metrics only; validation never tunes, never writes profiles"
+}

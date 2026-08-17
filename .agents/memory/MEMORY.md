@@ -1,1 +1,2 @@
 - [CloakVault process rules](cloakvault-process.md) — milestone gates, frozen-vector authority, KAT hard stop, current v3 process rules.
+- [Reader v0.2.1 Phase A state](reader-v021-phase-a.md) — Phase A done, stopped at Task 21 capture checkpoint; locator-v2 lessons and corpus-flag enforcement.

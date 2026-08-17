@@ -32,10 +32,35 @@ from .frame import read_frame
 from .profile import load_profile
 
 
-def validate(profile_path: Path, corpus_dir: Path, manifest_path: Path) -> dict:
+def validate(profile_path: Path, corpus_dir: Path, manifest_path: Path,
+             development_replay: bool = False) -> dict:
+    """Metrics run. `development_replay=False` (real validation) REFUSES any
+    corpus registered with validation_use_allowed=false (e.g. Bridge Run 01).
+    `development_replay=True` permits a seen corpus registered with
+    regression_testing_allowed=true, and the output is labelled a
+    development replay — it is never validation."""
+    from .provenance import CORPORA_DIR, ProvenanceError, load_corpus_manifest
+
     profile = load_profile(profile_path)  # raises if absent/invalid
     manifest_sha = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     manifest = json.loads(manifest_path.read_text())
+
+    corpus_id_early = manifest.get("corpus_id", "")
+    registered = (CORPORA_DIR / f"{corpus_id_early}.json").exists()
+    if registered:
+        flags = load_corpus_manifest(corpus_id_early)["usage_flags"]
+        if not development_replay and flags.get("validation_use_allowed") is not True:
+            raise ProvenanceError(
+                f"corpus {corpus_id_early} forbids validation use; "
+                "rerun with development_replay=True (--development-replay) "
+                "and the output will be labelled a development replay")
+        if development_replay and flags.get("regression_testing_allowed") is not True:
+            raise ProvenanceError(
+                f"corpus {corpus_id_early} does not allow regression/replay use")
+    elif "bridge-run01" in corpus_id_early.lower() and not development_replay:
+        raise ProvenanceError(
+            f"corpus {corpus_id_early} looks like Bridge Run 01 (permanently "
+            "seen); it can never be validated — use --development-replay")
 
     categories: Counter[str] = Counter()
     per_image = []
@@ -54,6 +79,8 @@ def validate(profile_path: Path, corpus_dir: Path, manifest_path: Path) -> dict:
         "corpus_id": corpus_id,
         "corpus_manifest_sha256": manifest_sha,
         "development_data": "bridge-run01" in corpus_id.lower(),
+        "development_replay": development_replay,
+        "run_kind": "DEVELOPMENT_REPLAY" if development_replay else "VALIDATION",
         "images": len(per_image),
         "category_counts": dict(categories),
         "per_image": per_image,
@@ -70,8 +97,11 @@ def main() -> None:
     ap.add_argument("--corpus", required=True, type=Path, help="directory of .npy images")
     ap.add_argument("--manifest", required=True, type=Path, help="corpus manifest JSON")
     ap.add_argument("--out", type=Path, help="write metrics JSON here (optional)")
+    ap.add_argument("--development-replay", action="store_true",
+                    help="permit a seen development/regression corpus; output is labelled a replay, never validation")
     a = ap.parse_args()
-    result = validate(a.profile, a.corpus, a.manifest)
+    result = validate(a.profile, a.corpus, a.manifest,
+                      development_replay=a.development_replay)
     text = json.dumps(result, indent=2)
     if a.out:
         a.out.write_text(text + "\n")

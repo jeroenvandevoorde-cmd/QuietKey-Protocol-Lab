@@ -80,13 +80,21 @@ def test_validation_cli_rejects_threshold_flag(tmp_path):
     assert r.returncode != 0, "validate accepted a tuning flag"
 
 
-def test_bridge_run01_tagged_development(tmp_path):
+def test_bridge_run01_refused_as_validation_allowed_as_replay(tmp_path):
+    """v0.2.1 hardening: Bridge Run 01 is REFUSED as validation outright;
+    it is only processable as an explicitly labelled development replay."""
+    from reader.provenance import ProvenanceError
+
     corpus, mpath = _mk_corpus(tmp_path)
     m = json.loads(mpath.read_text())
     m["corpus_id"] = "bridge-run01-development-regression"
     mpath.write_text(json.dumps(m))
-    out = validate(default_development_profile_path(), corpus, mpath)
+    with pytest.raises(ProvenanceError):
+        validate(default_development_profile_path(), corpus, mpath)
+    out = validate(default_development_profile_path(), corpus, mpath,
+                   development_replay=True)
     assert out["development_data"] is True
+    assert out["run_kind"] == "DEVELOPMENT_REPLAY"
 
 
 def test_calibration_writes_new_profile_never_overwrites(tmp_path):
@@ -101,4 +109,4 @@ def test_calibration_writes_new_profile_never_overwrites(tmp_path):
     assert written.data["calibration_corpora"] == ["synthetic-dev-corpus-v1"]
     assert res["profile_sha256"] == written.sha256
     with pytest.raises(SystemExit, match="refusing to overwrite"):
-        calibrate(corpus, default_development_profile_path(), out, "x")
+        calibrate(corpus, default_development_profile_path(), out, "synthetic-dev-corpus-v1")

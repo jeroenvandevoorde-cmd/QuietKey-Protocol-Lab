@@ -1,0 +1,19 @@
+{
+  "corpus_id": "synthetic-dev-corpus-v1",
+  "corpus_format_version": 1,
+  "status": "SYNTHETIC ENGINEERING MATERIAL / NOT GATE-A1",
+  "description": "Synthetic rendered pages generated in-test (reader.synthglyphs). No physical capture, no secret, freely regenerable; used by engineering tests for the calibration and validation code paths.",
+  "usage_flags": {
+    "locator_development_allowed": true,
+    "regression_testing_allowed": true,
+    "classifier_training_allowed": true,
+    "threshold_calibration_allowed": true,
+    "validation_use_allowed": true,
+    "gate_a1_evidence_allowed": false
+  },
+  "images": [],
+  "notes": [
+    "Synthetic images are generated at test time; there are no persistent files to hash.",
+    "gate_a1_evidence_allowed is false: synthetic results are never physical-print evidence."
+  ]
+}

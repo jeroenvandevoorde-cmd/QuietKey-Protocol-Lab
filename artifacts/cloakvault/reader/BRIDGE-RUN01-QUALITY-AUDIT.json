@@ -1,0 +1,1978 @@
+{
+  "audit": "bridge-run01-quality-audit (Task 2, Reader v0.2.1)",
+  "development_data": true,
+  "profile": {
+    "path": "reader/profiles/spike-reader-v02-development.json",
+    "sha256": "fb8972d98a9b458f3f6080b22d9d4204c6ab811b7e7b848f21135db495898da1"
+  },
+  "thresholds": {
+    "sharpness_min_laplacian_var": 0.0015,
+    "exposure_max_under_frac": 0.3,
+    "exposure_max_over_frac": 0.15,
+    "exposure_min_footer_range": 0.18,
+    "glare_max_region_frac": 0.06,
+    "page_min_boundary_confidence": 0.35,
+    "footer_min_line_candidates": 1,
+    "footer_min_periodicity": 0.12,
+    "footer_min_extent_frac": 0.35
+  },
+  "status_counts": {
+    "ACCEPT": 6,
+    "RECAPTURE": 13
+  },
+  "rejections_grouped_by_reason": {
+    "LOW_SHARPNESS": [
+      "bridge-baseline-0-std-S28.jpeg",
+      "bridge-coffee-2-std-S29.jpeg",
+      "bridge-coffee-2-std-S30.jpeg",
+      "bridge-crumple-1-std-S37.jpeg",
+      "bridge-crumple-2-std-S31.jpeg",
+      "bridge-crumple-2-std-S32.jpeg",
+      "bridge-fold-3-std-S38.jpeg",
+      "bridge-water-2-std-S33.jpeg",
+      "bridge-water-2-std-S34.jpeg",
+      "bridge-water-3-std-S35.jpeg",
+      "bridge-water-3-std-S36.jpeg"
+    ],
+    "FOOTER_SIGNAL_TOO_WEAK": [
+      "bridge-baseline-0-std-S28.jpeg",
+      "bridge-coffee-2-std-S30.jpeg",
+      "bridge-crumple-1-std-S37.jpeg",
+      "bridge-fade-3-std-S41.jpeg",
+      "bridge-fold-3-std-S38.jpeg",
+      "bridge-spanstain-1-std-S45.jpeg"
+    ]
+  },
+  "images": [
+    {
+      "sheet": "bridge-baseline-0-std-S28.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS",
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0006726350928001568,
+        "under_frac": 0.0008761674604482316,
+        "over_frac": 1.389444666755591e-06,
+        "footer_tonal_range": 0.43529411764705883,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.679354421507165,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0006726350928001568,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0008761674604482316,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 1.389444666755591e-06,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.43529411764705883,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.679354421507165,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-baseline-0-std-S46.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.0018387238481323985,
+        "under_frac": 4.343663424383307e-05,
+        "over_frac": 0.0,
+        "footer_tonal_range": 0.584313725490196,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8473428932247061,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9799285688918414,
+        "footer_pitch_consistency": 0.9945074065735504,
+        "footer_extent_frac": 0.999669093315685
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0018387238481323985,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 4.343663424383307e-05,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.584313725490196,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8473428932247061,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9799285688918414,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.999669093315685,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-bodyring-1-std-S43.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.001868937871972205,
+        "under_frac": 0.0004957031397542915,
+        "over_frac": 0.0,
+        "footer_tonal_range": 0.5450980392156862,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8517392718082285,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.8579949630598461,
+        "footer_pitch_consistency": 0.997382352108236,
+        "footer_extent_frac": 0.99933818663137
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.001868937871972205,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0004957031397542915,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.5450980392156862,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8517392718082285,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.8579949630598461,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.99933818663137,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-cliptear-1-std-S44.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.0017384594289780253,
+        "under_frac": 7.38997558023625e-06,
+        "over_frac": 8.211083978040277e-08,
+        "footer_tonal_range": 0.5607843137254902,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8646562101249234,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9709955231410512,
+        "footer_pitch_consistency": 0.8565950083003214,
+        "footer_extent_frac": 0.999669093315685
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0017384594289780253,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 7.38997558023625e-06,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 8.211083978040277e-08,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.5607843137254902,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8646562101249234,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9709955231410512,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.999669093315685,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S29.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0007322542156645303,
+        "under_frac": 0.001153892929720908,
+        "over_frac": 0.0003324859355506909,
+        "footer_tonal_range": 0.6039215686274509,
+        "glare_region_frac": 0.00015698587127158556,
+        "page_boundary_confidence": 0.6979782108922,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9827299869687752,
+        "footer_pitch_consistency": 0.9946417720651608,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0007322542156645303,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.001153892929720908,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0003324859355506909,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6039215686274509,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00015698587127158556,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.6979782108922,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9827299869687752,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-coffee-2-std-S30.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS",
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0009610554628637117,
+        "under_frac": 0.00038802285620130405,
+        "over_frac": 8.173203922091713e-08,
+        "footer_tonal_range": 0.6196078431372549,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8263156978477666,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0009610554628637117,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.00038802285620130405,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 8.173203922091713e-08,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6196078431372549,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8263156978477666,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-crumple-1-std-S37.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS",
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0010337380980441101,
+        "under_frac": 0.0003456447938652585,
+        "over_frac": 0.0022333279717115604,
+        "footer_tonal_range": 0.7490196078431373,
+        "glare_region_frac": 0.00023547880690737833,
+        "page_boundary_confidence": 0.9069812974209291,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0010337380980441101,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0003456447938652585,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0022333279717115604,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.7490196078431373,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00023547880690737833,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.9069812974209291,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S31.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0010087513104102114,
+        "under_frac": 7.923921202467915e-05,
+        "over_frac": 0.0008236546252487924,
+        "footer_tonal_range": 0.6705882352941176,
+        "glare_region_frac": 0.00023547880690737833,
+        "page_boundary_confidence": 0.854770789034568,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9672172381379551,
+        "footer_pitch_consistency": 0.9825978432409627,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0010087513104102114,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 7.923921202467915e-05,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0008236546252487924,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6705882352941176,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00023547880690737833,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.854770789034568,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9672172381379551,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-crumple-2-std-S32.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0009328224868945762,
+        "under_frac": 0.002354945246072285,
+        "over_frac": 0.0029247810235205193,
+        "footer_tonal_range": 0.8313725490196078,
+        "glare_region_frac": 0.00015698587127158556,
+        "page_boundary_confidence": 0.8863970016111019,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9842082504936001,
+        "footer_pitch_consistency": 0.9943651368626832,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0009328224868945762,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.002354945246072285,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0029247810235205193,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.8313725490196078,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00015698587127158556,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8863970016111019,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9842082504936001,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-edge-3-std-S42.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.002083491712609759,
+        "under_frac": 0.000478398342361636,
+        "over_frac": 8.201583102376753e-08,
+        "footer_tonal_range": 0.596078431372549,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.9145873193027211,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9782196037155343,
+        "footer_pitch_consistency": 0.9917939470944221,
+        "footer_extent_frac": 0.9996693121693122
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.002083491712609759,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.000478398342361636,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 8.201583102376753e-08,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.596078431372549,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.9145873193027211,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9782196037155343,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9996693121693122,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-fade-3-std-S41.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.00212828284779723,
+        "under_frac": 0.0036971916467204166,
+        "over_frac": 0.0,
+        "footer_tonal_range": 0.5960784313725491,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8781675334099689,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.00212828284779723,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0036971916467204166,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.5960784313725491,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8781675334099689,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-fold-3-std-S38.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS",
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.000806200284099111,
+        "under_frac": 8.332581398572501e-05,
+        "over_frac": 0.001832432319332962,
+        "footer_tonal_range": 0.5647058823529412,
+        "glare_region_frac": 0.00023547880690737833,
+        "page_boundary_confidence": 0.9235188356388307,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.000806200284099111,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 8.332581398572501e-05,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.001832432319332962,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.5647058823529412,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00023547880690737833,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.9235188356388307,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-scratch-3-std-S39.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.0017829725923457348,
+        "under_frac": 0.0009590111121609138,
+        "over_frac": 1.0333994708994708e-05,
+        "footer_tonal_range": 0.6352941176470588,
+        "glare_region_frac": 7.789375292101573e-05,
+        "page_boundary_confidence": 0.9101343517731166,
+        "footer_line_candidates": 2.0,
+        "footer_periodicity": 0.9799464470000223,
+        "footer_pitch_consistency": 0.9917204454729259,
+        "footer_extent_frac": 0.9996693121693122
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0017829725923457348,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0009590111121609138,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 1.0333994708994708e-05,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6352941176470588,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 7.789375292101573e-05,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.9101343517731166,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 2.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9799464470000223,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9996693121693122,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-scuff-3-std-S40.jpeg",
+      "status": "ACCEPT",
+      "reasons": [],
+      "metrics": {
+        "laplacian_variance": 0.0020523821711125544,
+        "under_frac": 0.0009563045897371294,
+        "over_frac": 3.305237990257832e-05,
+        "footer_tonal_range": 0.6392156862745098,
+        "glare_region_frac": 7.789375292101573e-05,
+        "page_boundary_confidence": 0.871887417196817,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9112043707392273,
+        "footer_pitch_consistency": 0.982816889750769,
+        "footer_extent_frac": 0.9907407407407407
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0020523821711125544,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0009563045897371294,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 3.305237990257832e-05,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6392156862745098,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 7.789375292101573e-05,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.871887417196817,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9112043707392273,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9907407407407407,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-spanstain-1-std-S45.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "FOOTER_SIGNAL_TOO_WEAK"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0017363624220582484,
+        "under_frac": 0.0006150101899552167,
+        "over_frac": 2.9559902320944995e-06,
+        "footer_tonal_range": 0.5607843137254902,
+        "glare_region_frac": 0.0,
+        "page_boundary_confidence": 0.8818794514339016,
+        "footer_line_candidates": 0.0,
+        "footer_periodicity": 0.0,
+        "footer_pitch_consistency": 0.0,
+        "footer_extent_frac": 0.0
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0017363624220582484,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0006150101899552167,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 2.9559902320944995e-06,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.5607843137254902,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8818794514339016,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 0.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.0,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.0,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-water-2-std-S33.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0011995085962566738,
+        "under_frac": 1.879836902081094e-05,
+        "over_frac": 0.0003914147358289721,
+        "footer_tonal_range": 0.6627450980392158,
+        "glare_region_frac": 7.849293563579278e-05,
+        "page_boundary_confidence": 0.8246540854904053,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9491267076922948,
+        "footer_pitch_consistency": 0.9721040552281885,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0011995085962566738,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 1.879836902081094e-05,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0003914147358289721,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6627450980392158,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 7.849293563579278e-05,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8246540854904053,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9491267076922948,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-water-2-std-S34.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0008098880182958577,
+        "under_frac": 6.129902941568785e-07,
+        "over_frac": 0.0006678733584937243,
+        "footer_tonal_range": 0.6196078431372549,
+        "glare_region_frac": 0.00015698587127158556,
+        "page_boundary_confidence": 0.8752547587662516,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9498415581743276,
+        "footer_pitch_consistency": 0.980042349487939,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0008098880182958577,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 6.129902941568785e-07,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0006678733584937243,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.6196078431372549,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00015698587127158556,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8752547587662516,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9498415581743276,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-water-3-std-S35.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0012873451617573524,
+        "under_frac": 0.0001630145522261192,
+        "over_frac": 0.0033490929051359104,
+        "footer_tonal_range": 0.7137254901960783,
+        "glare_region_frac": 0.0003139717425431711,
+        "page_boundary_confidence": 0.8987266883877734,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9466344508251326,
+        "footer_pitch_consistency": 0.9438620031203149,
+        "footer_extent_frac": 0.9992997198879552
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0012873451617573524,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 0.0001630145522261192,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.0033490929051359104,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.7137254901960783,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.0003139717425431711,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.8987266883877734,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9466344508251326,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9992997198879552,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    },
+    {
+      "sheet": "bridge-water-3-std-S36.jpeg",
+      "status": "RECAPTURE",
+      "reasons": [
+        "LOW_SHARPNESS"
+      ],
+      "metrics": {
+        "laplacian_variance": 0.0010622763631254611,
+        "under_frac": 3.947657494370297e-05,
+        "over_frac": 0.003461065798868567,
+        "footer_tonal_range": 0.7215686274509804,
+        "glare_region_frac": 0.00023547880690737833,
+        "page_boundary_confidence": 0.909099097155202,
+        "footer_line_candidates": 1.0,
+        "footer_periodicity": 0.9928809167597975,
+        "footer_pitch_consistency": 0.9935569009615779,
+        "footer_extent_frac": 0.9997665732959851
+      },
+      "checks": [
+        {
+          "metric": "laplacian_variance",
+          "value": 0.0010622763631254611,
+          "threshold_key": "sharpness_min_laplacian_var",
+          "threshold": 0.0015,
+          "direction": ">=",
+          "pass": false,
+          "reason_if_fail": "LOW_SHARPNESS"
+        },
+        {
+          "metric": "under_frac",
+          "value": 3.947657494370297e-05,
+          "threshold_key": "exposure_max_under_frac",
+          "threshold": 0.3,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "UNDEREXPOSED"
+        },
+        {
+          "metric": "over_frac",
+          "value": 0.003461065798868567,
+          "threshold_key": "exposure_max_over_frac",
+          "threshold": 0.15,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "OVEREXPOSED"
+        },
+        {
+          "metric": "footer_tonal_range",
+          "value": 0.7215686274509804,
+          "threshold_key": "exposure_min_footer_range",
+          "threshold": 0.18,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "LOW_FOOTER_TONAL_RANGE"
+        },
+        {
+          "metric": "glare_region_frac",
+          "value": 0.00023547880690737833,
+          "threshold_key": "glare_max_region_frac",
+          "threshold": 0.06,
+          "direction": "<=",
+          "pass": true,
+          "reason_if_fail": "GLARE"
+        },
+        {
+          "metric": "page_boundary_confidence",
+          "value": 0.909099097155202,
+          "threshold_key": "page_min_boundary_confidence",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "PAGE_NOT_CONFIDENT"
+        },
+        {
+          "metric": "footer_line_candidates",
+          "value": 1.0,
+          "threshold_key": "footer_min_line_candidates",
+          "threshold": 1,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_periodicity",
+          "value": 0.9928809167597975,
+          "threshold_key": "footer_min_periodicity",
+          "threshold": 0.12,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        },
+        {
+          "metric": "footer_extent_frac",
+          "value": 0.9997665732959851,
+          "threshold_key": "footer_min_extent_frac",
+          "threshold": 0.35,
+          "direction": ">=",
+          "pass": true,
+          "reason_if_fail": "FOOTER_SIGNAL_TOO_WEAK"
+        }
+      ]
+    }
+  ]
+}

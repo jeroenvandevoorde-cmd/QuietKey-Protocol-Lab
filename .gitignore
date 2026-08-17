@@ -55,3 +55,4 @@ artifacts/cloakvault/reader/.venv/
 
 # Bridge Run 01 raw captures: development data, contains EXIF/GPS from capture device — never commit or publish
 artifacts/cloakvault/bridge/captures/*.jpeg
+artifacts/cloakvault/reader/calibration/captures/
