@@ -1,36 +1,51 @@
 # Architecture Authority — read before changing anything
 
-## Current system architecture
+## Current authority and repository boundary
 
-The current QuietKey system architecture is governed by the **QK2-04 blueprint**, maintained outside this repository.
+The current QuietKey system architecture is governed by the Owner-controlled
+QuietKey repository.  The bench boundary used here is pinned to QuietKey commit
+`ae697d1f88eb4deaa8adb9ac999db7d445550f7d`, especially QK-DEC-085 and
+QK-DEC-104.
 
-Its non-negotiable system rules include:
+QuietKey-Protocol-Lab is solely a physical-evidence bench.  It is writable for
+capture-corpus custody and reader research under the governing evidence and
+provenance rules.  While OD-08 remains open, source code does not migrate from
+QuietKey into this repository or from this repository into QuietKey.  A value,
+algorithm, or implementation present here has no product authority merely
+because it is executable.
 
-- native 2-of-2 P2WSH wallet;
-- leg A originates from the seed encrypted into the Recovery Document capsule;
-- leg B belongs to the smart-card secure element;
-- normal QuietKey recovery/spending requires the **Recovery Document + an authorized smart card**;
-- Independent Recovery is mandatory and protects the **64-byte `VaultKey ‖ keyB` payload**;
-- no human-memory security dependency and no memorized PIN/passphrase;
-- the Recovery Document body carries **zero payload** and is never procedurally generated from secret material;
-- reader conformance follows the frozen protocol: uncertain or degraded characters become erasures and are never confidently guessed.
+Reader v0.2 is bench-only research.  It may consume frozen clean renders and a
+preregistered synthetic training partition.  It may not execute against fresh
+M19-R anchors until the later QK-DEC-103 scoring row expressly authorizes the
+real holdout captures.  It emits fixed-position symbols and explicit erasures
+for a separately authored codec-and-authentication adapter; it does not import
+or implement the QuietKey codec, Reed-Solomon decoder, or capsule AEAD.
 
-Details that QK2-04 deliberately leaves for later gates — including exact leg-B derivation/profile, card sealing mechanisms, KMAC representation, provisioning/export state-machine details, and the final Independent Recovery serialization — MUST NOT be invented by this repository.
+This bench does not restate the current product architecture.  In particular,
+it must not infer product behavior from the older QK2-04 descriptions retained
+in Git history.  Uncertain reader characters become erasures and are never
+guessed; every other product rule and open decision is read from the pinned
+QuietKey authority.
 
-## Current wire protocol
+## Frozen old-format protocol material
 
-The current document-capsule wire protocol is governed solely by:
+The following files govern only their preserved old-format Browser Protocol
+Laboratory protocol:
 
 - `artifacts/cloakvault/docs/cloakvault-protocol-v3.md`
 - `artifacts/cloakvault/docs/cloakvault-v3-test-vector.json`
 
 The wire capsule version byte is `0x02`.
 
-These files are frozen. A reference implementation does not have authority to redefine them. Any future protocol change requires an explicitly approved new version, specification, conformance material, and independent interoperability work.
+These files are frozen historical/reference material.  They do not govern the
+current QKA1 print alphabet, geometry, codec, capsule, or Reader v0.2.  A
+reference implementation does not have authority to redefine any protocol.
 
-## Current reference implementations
+## Old-format reference implementations
 
-The v3 TypeScript code under `artifacts/cloakvault/src/` and the independent Python implementation under `artifacts/cloakvault/interop/python/` implement and test the frozen wire protocol.
+The v3 TypeScript code under `artifacts/cloakvault/src/` and the Python
+implementation under `artifacts/cloakvault/interop/python/` implement and test
+the frozen old-format wire protocol.
 
 They are **reference/test implementations, not architectural or protocol authorities**.
 
@@ -47,11 +62,18 @@ The following are superseded historical designs and MUST NOT be treated as curre
 
 Historical material may remain for compatibility, evidence, or regression testing only when unmistakably labeled **LEGACY / SUPERSEDED**.
 
-## Browser Protocol Laboratory
+The existing package at `artifacts/cloakvault/reader/` is old-format reader
+research: it recognizes the Bech32 alphabet, the `cv0` sentinel, 142-symbol
+tokens, and the old RS(83,49) pipeline.  It is not Reader v0.2 under
+QK-DEC-104, is not a source for current constants, and must not be imported by
+the isolated QKA1 reader package.
 
-The current web application is a **Browser Protocol Laboratory**.
+## Legacy Browser Protocol Laboratory
 
-It exists to exercise, inspect, test, and demonstrate the document-capsule wire protocol.
+The preserved web application is a **legacy Browser Protocol Laboratory**.
+
+It exists to preserve and exercise the old-format document-capsule wire
+protocol.  It is not current QuietKey product code.
 
 It is deliberately **not** a model of production QuietKey:
 
