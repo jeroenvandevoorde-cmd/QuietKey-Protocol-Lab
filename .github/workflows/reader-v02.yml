@@ -1,0 +1,44 @@
+name: reader-v02
+
+# Reader v0.2 development coverage (Task 16):
+#  - structural wrapper-independence unit tests
+#  - synthetic registration/geometry tests
+#  - capture-quality module unit tests
+#  - reader-profile loading + SHA-256 recording
+#  - validation-path refusal to tune
+#  - stage/result taxonomy + end-to-end synthetic frame
+# Existing project CI (ci.yml) and the spike-integrity workflow are
+# preserved unchanged; this workflow only ADDS coverage.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  reader-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install numpy pytest cryptography
+      - name: Run Reader v0.2 test suite
+        working-directory: artifacts/cloakvault
+        run: python -m pytest reader/tests -q
+
+  frozen-operating-point:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Development profile keeps the frozen spike operating point
+        run: |
+          python3 - <<'EOF'
+          import json
+          p = json.load(open("artifacts/cloakvault/reader/profiles/spike-reader-v02-development.json"))
+          assert p["confidence_floor"] == 0.64, p["confidence_floor"]
+          assert p["margin_floor"] == 0.02, p["margin_floor"]
+          assert "NOT GATE-A1" in p["status"] and "NOT PRODUCTION" in p["status"]
+          print("frozen operating point 0.64/0.02 intact; profile marked", p["status"])
+          EOF
