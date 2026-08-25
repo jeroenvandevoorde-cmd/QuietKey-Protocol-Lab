@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from .constants import ALPHABET, ERASURE, ProfileName, layout_for
-from .interfaces import CellClassifier, FooterLocator, LocatedFooter
+from .constants import ALPHABET, ERASURE, layout_for
+from .interfaces import CellClassifier, FooterLocator, LocatedFooter, LocationFailure
 from .model import ReadOutcome, ReaderResult, Transcript
 from .policy import CorpusDescriptor, CorpusPolicyError, CorpusPurpose, FrameInput
 from .profile import ReaderProfile
@@ -40,6 +40,16 @@ class ReaderV02:
             profile.classifier_sha256,
         ):
             raise ArtifactBindingError("classifier does not match the frozen profile")
+        if (
+            classifier.training_corpus_manifest_sha256
+            != profile.training_corpus_manifest_sha256
+            or classifier.training_partition_id != profile.training_partition_id
+            or classifier.training_partition_sha256
+            != profile.training_partition_sha256
+        ):
+            raise ArtifactBindingError(
+                "classifier training partition does not match the frozen profile"
+            )
         self._profile = profile
         self._locator = locator
         self._classifier = classifier
@@ -47,7 +57,6 @@ class ReaderV02:
     def read(
         self,
         frame: FrameInput,
-        profile_name: ProfileName | str,
         corpus: CorpusDescriptor,
     ) -> ReaderResult:
         if type(corpus) is not CorpusDescriptor:
@@ -55,13 +64,12 @@ class ReaderV02:
         corpus.require_reader_use()
         self._require_bound_corpus(corpus)
         input_sha256 = corpus.require_member(frame)
-        layout = layout_for(profile_name)
-        located = self._locator.locate(frame.data, layout)
-        reason = self._location_rejection(located, layout.symbol_count)
+        located = self._locator.locate(frame.data)
+        reason = self._location_rejection(located)
         if reason is not None:
             return ReaderResult(
                 outcome=ReadOutcome.RECAPTURE_REQUIRED,
-                profile=layout.profile,
+                profile=None,
                 profile_sha256=self._profile.raw_sha256,
                 corpus_id=corpus.corpus_id,
                 corpus_source_commit=corpus.source_commit,
@@ -71,7 +79,8 @@ class ReaderV02:
                 reason=reason,
             )
 
-        assert located is not None
+        assert isinstance(located, LocatedFooter)
+        layout = layout_for(located.profile)
         positions = []
         for position, cell in enumerate(located.cells):
             candidate = self._classifier.classify(cell, position)
@@ -104,18 +113,22 @@ class ReaderV02:
             )
         else:
             expected = (
-                self._profile.training_partition_id,
-                self._profile.training_partition_source_commit,
-                self._profile.training_partition_sha256,
+                self._profile.training_corpus_id,
+                self._profile.training_corpus_source_commit,
+                self._profile.training_corpus_manifest_sha256,
             )
         actual = (corpus.corpus_id, corpus.source_commit, corpus.manifest_sha256)
         if actual != expected:
             raise CorpusPolicyError("corpus does not match the frozen profile binding")
 
     @staticmethod
-    def _location_rejection(located: LocatedFooter | None, expected: int) -> str | None:
+    def _location_rejection(
+        located: LocatedFooter | LocationFailure | None,
+    ) -> str | None:
         if located is None:
             return "FOOTER_NOT_LOCATED"
+        if isinstance(located, LocationFailure):
+            return located.reason
         if not located.automatic:
             return "MANUAL_INTERVENTION_FORBIDDEN"
         if located.used_decoy_text:
@@ -124,6 +137,6 @@ class ReaderV02:
             return "RIG_MARK_INPUT_FORBIDDEN"
         if located.candidate_count != 1:
             return "CANDIDATE_SELECTION_FORBIDDEN"
-        if len(located.cells) != expected:
+        if len(located.cells) != layout_for(located.profile).symbol_count:
             return "GRID_POSITION_COUNT_MISMATCH"
         return None

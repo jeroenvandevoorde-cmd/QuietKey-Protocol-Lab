@@ -14,7 +14,11 @@ from qka1_reader_v02.constants import (
     ProfileName,
     layout_for,
 )
-from qka1_reader_v02.interfaces import ClassificationCandidate, LocatedFooter
+from qka1_reader_v02.interfaces import (
+    ClassificationCandidate,
+    LocatedFooter,
+    LocationFailure,
+)
 from qka1_reader_v02.model import ReadOutcome, ReaderResult, Transcript
 from qka1_reader_v02.pipeline import ArtifactBindingError, ReaderV02
 from qka1_reader_v02.policy import (
@@ -29,6 +33,7 @@ LOCATOR_HASH = "11" * 32
 CLASSIFIER_HASH = "22" * 32
 SOURCE_COMMIT = "44" * 20
 CLEAN_SOURCE_COMMIT = "55" * 20
+IMPLEMENTATION_HASH = "33" * 32
 SYNTHETIC_MEMBER_ID = "synthetic-frame-001"
 CLEAN_MEMBER_ID = "clean-render-001"
 SYNTHETIC_BYTES = b"QKA1 synthetic in-memory frame member v1"
@@ -67,6 +72,7 @@ CLEAN_MANIFEST = manifest_bytes(
     [(CLEAN_MEMBER_ID, CLEAN_BYTES)],
 )
 PARTITION_HASH = hashlib.sha256(SYNTHETIC_MANIFEST).hexdigest()
+PARTITION_MEMBER_HASH = hashlib.sha256(SYNTHETIC_BYTES).hexdigest()
 CLEAN_MANIFEST_HASH = hashlib.sha256(CLEAN_MANIFEST).hexdigest()
 
 
@@ -84,10 +90,13 @@ def profile_bytes(**changes):
         "clean_render_corpus_id": "frozen-clean-renders-v1",
         "clean_render_source_commit": CLEAN_SOURCE_COMMIT,
         "clean_render_manifest_sha256": CLEAN_MANIFEST_HASH,
-        "training_partition_id": "synthetic-training-v1",
-        "training_partition_source_commit": SOURCE_COMMIT,
-        "training_partition_sha256": PARTITION_HASH,
-        "reader_code_commit": SOURCE_COMMIT,
+        "training_corpus_id": "synthetic-training-v1",
+        "training_corpus_source_commit": SOURCE_COMMIT,
+        "training_corpus_manifest_sha256": PARTITION_HASH,
+        "training_partition_id": SYNTHETIC_MEMBER_ID,
+        "training_partition_sha256": PARTITION_MEMBER_HASH,
+        "reader_implementation_state": "PENDING_BEFORE_SCORING",
+        "reader_implementation_sha256": IMPLEMENTATION_HASH,
         "alphabet": ALPHABET,
     }
     data.update(changes)
@@ -116,8 +125,16 @@ def frame_input(purpose=CorpusPurpose.PREREGISTERED_SYNTHETIC_TRAINING):
     return FrameInput("forbidden-frame-001", FRESH_ANCHOR_BYTES)
 
 
-def located(cells, automatic=True, used_decoy_text=False, used_rig_marks=False, candidates=1):
+def located(
+    cells,
+    profile=ProfileName.RS72_60,
+    automatic=True,
+    used_decoy_text=False,
+    used_rig_marks=False,
+    candidates=1,
+):
     return LocatedFooter(
+        profile,
         tuple(cells),
         automatic=automatic,
         used_decoy_text=used_decoy_text,
@@ -132,20 +149,23 @@ class Locator:
 
     def __init__(self, factory=None):
         self.factory = factory or (
-            lambda layout: located(("2",) * layout.symbol_count)
+            lambda: located(("2",) * layout_for(ProfileName.RS72_60).symbol_count)
         )
         self.calls = 0
         self.last_bytes = None
 
-    def locate(self, frame_bytes, layout):
+    def locate(self, frame_bytes):
         self.calls += 1
         self.last_bytes = frame_bytes
-        return self.factory(layout)
+        return self.factory()
 
 
 class Classifier:
     artifact_id = "synthetic-classifier-v1"
     artifact_sha256 = CLASSIFIER_HASH
+    training_corpus_manifest_sha256 = PARTITION_HASH
+    training_partition_id = SYNTHETIC_MEMBER_ID
+    training_partition_sha256 = PARTITION_MEMBER_HASH
 
     def classify(self, cell, position):
         if isinstance(cell, ClassificationCandidate):
@@ -162,8 +182,8 @@ def reader(locator=None):
 
 
 def read_cells(cells, profile=ProfileName.RS72_60, **location_policy):
-    locator = Locator(lambda layout: located(cells, **location_policy))
-    return reader(locator).read(frame_input(), profile, corpus())
+    locator = Locator(lambda: located(cells, profile=profile, **location_policy))
+    return reader(locator).read(frame_input(), corpus())
 
 
 class ConstantsTests(unittest.TestCase):
@@ -208,6 +228,18 @@ class ProfileTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "development"):
             ReaderProfile.from_json_bytes(profile_bytes(status="PRODUCTION"))
 
+    def test_profile_rejects_commit_claim_or_nonpending_implementation(self):
+        with self.assertRaisesRegex(ValueError, "schema"):
+            ReaderProfile.from_json_bytes(
+                profile_bytes(
+                    reader_code_commit=SOURCE_COMMIT,
+                )
+            )
+        with self.assertRaisesRegex(ValueError, "pending"):
+            ReaderProfile.from_json_bytes(
+                profile_bytes(reader_implementation_state="FROZEN")
+            )
+
     def test_profile_rejects_unbound_hash(self):
         with self.assertRaisesRegex(ValueError, "locator_sha256"):
             ReaderProfile.from_json_bytes(profile_bytes(locator_sha256="AA" * 32))
@@ -221,6 +253,27 @@ class ProfileTests(unittest.TestCase):
         loaded = ReaderProfile.from_json_bytes(profile_bytes(classifier_id="other"))
         with self.assertRaisesRegex(ArtifactBindingError, "classifier"):
             ReaderV02(loaded, Locator(), Classifier())
+
+    def test_reader_rejects_training_provenance_mismatch(self):
+        class WrongTrainingCorpus(Classifier):
+            training_corpus_manifest_sha256 = "77" * 32
+
+        with self.assertRaisesRegex(ArtifactBindingError, "training partition"):
+            ReaderV02(
+                ReaderProfile.from_json_bytes(profile_bytes()),
+                Locator(),
+                WrongTrainingCorpus(),
+            )
+
+    def test_profile_rejects_duplicate_keys_and_boolean_thresholds(self):
+        duplicate = profile_bytes().replace(
+            b'"reader_version":"0.2",',
+            b'"reader_version":"0.2","reader_version":"0.2",',
+        )
+        with self.assertRaisesRegex(ValueError, "duplicate"):
+            ReaderProfile.from_json_bytes(duplicate)
+        with self.assertRaisesRegex(ValueError, "confidence_floor"):
+            ReaderProfile.from_json_bytes(profile_bytes(confidence_floor=True))
 
 
 class CorpusPolicyTests(unittest.TestCase):
@@ -285,51 +338,48 @@ class CorpusPolicyTests(unittest.TestCase):
                 [("fresh-anchor-A02", FRESH_ANCHOR_BYTES)],
             )
         )
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         with self.assertRaisesRegex(CorpusPolicyError, "frozen profile"):
             instance.read(
                 FrameInput("fresh-anchor-A02", FRESH_ANCHOR_BYTES),
-                ProfileName.RS72_60,
                 relabeled,
             )
         self.assertEqual(locator.calls, 0)
 
     def test_mismatched_frame_bytes_stop_before_locator(self):
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         changed = bytes([SYNTHETIC_BYTES[0] ^ 1]) + SYNTHETIC_BYTES[1:]
         with self.assertRaisesRegex(CorpusPolicyError, "SHA-256"):
             instance.read(
                 FrameInput(SYNTHETIC_MEMBER_ID, changed),
-                ProfileName.RS72_60,
                 corpus(),
             )
         self.assertEqual(locator.calls, 0)
 
     def test_mismatched_member_identity_stops_before_locator(self):
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         with self.assertRaisesRegex(CorpusPolicyError, "member_id"):
             instance.read(
                 FrameInput("fresh-anchor-A02", SYNTHETIC_BYTES),
-                ProfileName.RS72_60,
                 corpus(),
             )
         self.assertEqual(locator.calls, 0)
 
     def test_arbitrary_frame_object_stops_before_locator(self):
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         with self.assertRaisesRegex(CorpusPolicyError, "exact FrameInput"):
-            instance.read(object(), ProfileName.RS72_60, corpus())
+            instance.read(object(), corpus())
         self.assertEqual(locator.calls, 0)
 
     def test_arbitrary_corpus_object_stops_before_locator(self):
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         with self.assertRaisesRegex(CorpusPolicyError, "exact CorpusDescriptor"):
-            instance.read(frame_input(), ProfileName.RS72_60, object())
+            instance.read(frame_input(), object())
         self.assertEqual(locator.calls, 0)
 
 
@@ -344,7 +394,7 @@ class PipelineTests(unittest.TestCase):
 
     def test_exact_member_binding_is_recorded_and_passed_to_locator(self):
         locator = Locator()
-        result = reader(locator).read(frame_input(), ProfileName.RS72_60, corpus())
+        result = reader(locator).read(frame_input(), corpus())
         report = result.to_dict()
         self.assertEqual(locator.last_bytes, SYNTHETIC_BYTES)
         self.assertEqual(report["input_member_id"], SYNTHETIC_MEMBER_ID)
@@ -353,7 +403,6 @@ class PipelineTests(unittest.TestCase):
     def test_clean_render_binding_is_recorded_in_result(self):
         result = reader().read(
             frame_input(CorpusPurpose.FROZEN_CLEAN_RENDER),
-            ProfileName.RS72_60,
             corpus(CorpusPurpose.FROZEN_CLEAN_RENDER),
         )
         report = result.to_dict()
@@ -388,10 +437,20 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(result.transcript.text, ERASURE * layout.symbol_count)
 
     def test_missing_footer_requests_recapture(self):
-        locator = Locator(lambda layout: None)
-        result = reader(locator).read(frame_input(), ProfileName.RS72_60, corpus())
+        locator = Locator(lambda: None)
+        result = reader(locator).read(frame_input(), corpus())
         self.assertEqual(result.outcome, ReadOutcome.RECAPTURE_REQUIRED)
         self.assertEqual(result.reason, "FOOTER_NOT_LOCATED")
+        self.assertIsNone(result.profile)
+
+    def test_ambiguous_profile_requests_recapture_without_caller_override(self):
+        locator = Locator(lambda: LocationFailure("PROFILE_AMBIGUOUS"))
+        result = reader(locator).read(frame_input(), corpus())
+        self.assertEqual(result.outcome, ReadOutcome.RECAPTURE_REQUIRED)
+        self.assertEqual(result.reason, "PROFILE_AMBIGUOUS")
+        self.assertIsNone(result.profile)
+        with self.assertRaises(TypeError):
+            reader(locator).read(frame_input(), ProfileName.RS72_60, corpus())
 
     def test_wrong_grid_count_requests_recapture(self):
         result = read_cells(("2",))
@@ -421,7 +480,7 @@ class PipelineTests(unittest.TestCase):
 
     def test_reader_result_never_claims_authentication(self):
         layout = layout_for(ProfileName.RS72_60)
-        result = reader().read(frame_input(), ProfileName.RS72_60, corpus())
+        result = reader().read(frame_input(), corpus())
         self.assertFalse(result.authenticated)
         self.assertFalse(result.to_dict()["authenticated"])
         with self.assertRaisesRegex(ValueError, "authentication"):
@@ -441,22 +500,21 @@ class PipelineTests(unittest.TestCase):
     def test_repeated_read_is_byte_deterministic(self):
         instance = reader()
         first = json.dumps(
-            instance.read(frame_input(), ProfileName.RS72_60, corpus()).to_dict(),
+            instance.read(frame_input(), corpus()).to_dict(),
             sort_keys=True,
         )
         second = json.dumps(
-            instance.read(frame_input(), ProfileName.RS72_60, corpus()).to_dict(),
+            instance.read(frame_input(), corpus()).to_dict(),
             sort_keys=True,
         )
         self.assertEqual(first.encode(), second.encode())
 
     def test_disallowed_corpus_stops_before_locator(self):
-        locator = Locator(lambda layout: (_ for _ in ()).throw(AssertionError()))
+        locator = Locator(lambda: (_ for _ in ()).throw(AssertionError()))
         instance = reader(locator)
         with self.assertRaises(CorpusPolicyError):
             instance.read(
                 frame_input(CorpusPurpose.FRESH_M19R_ANCHOR),
-                ProfileName.RS72_60,
                 corpus(CorpusPurpose.FRESH_M19R_ANCHOR),
             )
         self.assertEqual(locator.calls, 0)
@@ -471,7 +529,10 @@ class IsolationTests(unittest.TestCase):
             "enum",
             "hashlib",
             "json",
+            "math",
+            "struct",
             "typing",
+            "zlib",
         }
         for path in sorted(package.glob("*.py")):
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))

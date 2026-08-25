@@ -54,7 +54,11 @@ class FrameInput:
     data: bytes
 
     def __post_init__(self) -> None:
-        if not self.member_id or self.member_id.strip() != self.member_id:
+        if (
+            not isinstance(self.member_id, str)
+            or not self.member_id
+            or self.member_id.strip() != self.member_id
+        ):
             raise ValueError("member_id must be a non-empty exact identifier")
         if type(self.data) is not bytes or not self.data:
             raise ValueError("frame data must be non-empty immutable bytes")

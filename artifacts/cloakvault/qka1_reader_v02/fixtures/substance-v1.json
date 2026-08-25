@@ -1,0 +1,144 @@
+{
+  "format": "qka1-reader-substance-preregistration-v1",
+  "status": "DEVELOPMENT / NOT FOR SCORING / NOT A PRODUCT DEFAULT",
+  "source_commit": "74c60d41c983dcee6fdc22fd910ec2048628413c",
+  "implementation": {
+    "state": "PENDING_BEFORE_SCORING",
+    "manifest_sha256": "3c4ba646c87dbed5e6b1773242969752987edc70c013214492ea4b01a0b2735f",
+    "inputs": [
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/__init__.py",
+        "sha256": "850ef5838edbfb8447c9711c0d28e19a3adb93ca7d4182511e20d6b27ac5fcb1"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/constants.py",
+        "sha256": "684aee0610a2c28193aad40a6f83be5085ccaba30f6209b8c7f5c267b2f27851"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/image.py",
+        "sha256": "ec7c6d73529d5a2cf801b0c8cc72fa13d2dddc30efcc4ace25f425053471f6f7"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/interfaces.py",
+        "sha256": "f7e434bee4ca32b65774a4d0465271f673cab02439a97ee253cea4736652157a"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/model.py",
+        "sha256": "5ec4d4dc2df20554c6f54d3ee79fa14b380359121e3e498a151ae90fae184ec4"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/pipeline.py",
+        "sha256": "b745f8cbf98ea1e2852036a0ca5d3352c52490cec2a9db0655617e40eb16f42c"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/policy.py",
+        "sha256": "9a6396013892bb118936d98f774f83fbe6b8576d497180023d5f3e0d537d23a3"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/profile.py",
+        "sha256": "e7877a9cbe7635af0e3b8b3cdfa599f98f5190bb5ff5967cbdab69034ede9137"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/templates.py",
+        "sha256": "8a054549943e714feb9815ff91ce4f0c71641b5d7501a818cc9ac1b5ad826f08"
+      },
+      {
+        "path": "artifacts/cloakvault/qka1_reader_v02/vision.py",
+        "sha256": "12986556704b265da2261116a0f42e830e34e1270019c22d9c514485ecfca2de"
+      }
+    ]
+  },
+  "expected_hashes": {
+    "locator_config_sha256": "2d0ac810af0028858c6da3a05723d3bd29f3a6ee24d0f25c1f4dd34f5244ab4f",
+    "synthetic_partition_sha256": "1e9c376ba421d3552daf6bebeb7e817bef526773b6736d7bf401d92d83eefc02",
+    "projective_canvas_sha256": "9e3e8e8198d23b8f5ba3b74b9da262fe76de174dc5e8178cc3cf55c43587fa62",
+    "synthetic_corpus_manifest_sha256": "0f1c71b06c80d2dc0cb404bb0fb920eca96b77eb300e4134c7554ed589cd086d",
+    "classifier_model_sha256": "201f6ab50704705415e9bdf2673016fc5700119b70d0376be0003babee1e0a2f",
+    "clean_render_manifest_sha256": "39e8bed52a0cf5c965001567f5aac415a2c1a753fa4857ab10dfd997a00d7a83",
+    "reader_profile_sha256": "e592ae53048444bfc2a53b21b2795ed972068335fbddf24a8b930ae99455149c"
+  },
+  "locator": {
+    "format": "qka1-reader-geometry-v2",
+    "artifact_id": "m19-clean-projective-geometry-v2",
+    "page_aspect_ratio": 0.7070707070707071,
+    "page_aspect_tolerance": 0.06,
+    "page_threshold": 220,
+    "page_fill_fraction": 0.3,
+    "min_page_fraction": 0.6,
+    "footer_left_fraction": 0.0761904761904762,
+    "cell_pitch_fraction": 0.007560751488095238,
+    "line_top_fractions": [0.9230330672748005, 0.9344355758266819],
+    "line_height_fraction": 0.010832383124287344,
+    "patch_width": 12,
+    "patch_height": 20,
+    "profile_ink_threshold": 0.04,
+    "profile_ink_margin": 0.02
+  },
+  "classifier": {
+    "artifact_id": "m19-clean-template-model-v1",
+    "confidence_floor": 0.95,
+    "margin_floor": 0.001
+  },
+  "synthetic_training": {
+    "corpus_id": "qka1-synthetic-glyph-training-v1",
+    "member_id": "synthetic-glyph-partition-v1",
+    "transforms": ["contrast-7of8", "shift-left-1", "shift-right-1"],
+    "sources": [
+      {
+        "profile": "Rs72_60",
+        "image": "artifacts/cloakvault/m19/phase1/preflight/renders/q09-T3-Rs72_60-recipe.png",
+        "image_sha256": "06834a21e95c30a027d33cd2a930d50135ac0a28b187a409ea347d9f1b2abdcf",
+        "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q09-T3-Rs72_60.txt",
+        "labels_sha256": "604fc27a4cb7714370b57811c148e921ca0908e752f216715aa00d0b9b35d818"
+      },
+      {
+        "profile": "Rs80_60",
+        "image": "artifacts/cloakvault/m19/phase1/preflight/renders/q11-T3-Rs80_60-recipe.png",
+        "image_sha256": "4a7f59507938591cb726700a6eec0b4304a4172655bdebb5c428d217ff64a836",
+        "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q11-T3-Rs80_60.txt",
+        "labels_sha256": "9e59903c25aa5f3d40cb8b1cdb084ba41df9fd39ea39f09d26e2c0e17b211441"
+      }
+    ],
+    "rectification_fixture": {
+      "profile": "Rs72_60",
+      "source_image": "artifacts/cloakvault/m19/phase1/preflight/renders/q09-T3-Rs72_60-travel.png",
+      "source_image_sha256": "38cb7968855e8589a56322fcaeead7b1cd24e93ae4fa056c29902a3b306c96ff",
+      "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q09-T3-Rs72_60.txt",
+      "labels_sha256": "604fc27a4cb7714370b57811c148e921ca0908e752f216715aa00d0b9b35d818",
+      "canvas_width": 2100,
+      "canvas_height": 2925,
+      "corners": [[195, 210], [1980, 120], [1890, 2715], [120, 2820]],
+      "background": 64,
+      "member_id": "synthetic-q09-projective-canvas-v2"
+    }
+  },
+  "clean_render_holdout": {
+    "corpus_id": "m19-frozen-clean-render-holdout-v1",
+    "members": [
+      {
+        "profile": "Rs72_60",
+        "member_id": "q00-T0-Rs72_60-travel",
+        "image": "artifacts/cloakvault/m19/phase1/preflight/renders/q00-T0-Rs72_60-travel.png",
+        "image_sha256": "bc961226470f2000a688abac95d8114cf284b513b845f548e6c02b7e4dea1949",
+        "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q00-T0-Rs72_60.txt",
+        "labels_sha256": "e6ba56bfa0292affe5f0747495e0a2aa67f39eeb98b76484f005597226a6da99"
+      },
+      {
+        "profile": "Rs76_60",
+        "member_id": "q01-T0-Rs76_60-travel",
+        "image": "artifacts/cloakvault/m19/phase1/preflight/renders/q01-T0-Rs76_60-travel.png",
+        "image_sha256": "3e0a84f0ddbefda21ee24ab8ad049a96c718d3cfd61a887e286603bad47c34b8",
+        "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q01-T0-Rs76_60.txt",
+        "labels_sha256": "38d85f4aa94aff7d653f211244a6a32d410716414eabedc4b1e05c8ebb9c015b"
+      },
+      {
+        "profile": "Rs80_60",
+        "member_id": "q02-T0-Rs80_60-travel",
+        "image": "artifacts/cloakvault/m19/phase1/preflight/renders/q02-T0-Rs80_60-travel.png",
+        "image_sha256": "a374a140cda5f33df1e245ce7f79879bb3e3f931b4669d79ee1f087ee3d968c8",
+        "labels": "artifacts/cloakvault/m19/phase1/inputs/payloads/q02-T0-Rs80_60.txt",
+        "labels_sha256": "ae87f22fddbf5e364552963f7d4073a7882c8abb1e68a2fd4952a17a4c3f43a5"
+      }
+    ]
+  }
+}

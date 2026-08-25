@@ -39,7 +39,7 @@ class Transcript:
 @dataclass(frozen=True)
 class ReaderResult:
     outcome: ReadOutcome
-    profile: ProfileName
+    profile: ProfileName | None
     profile_sha256: str
     corpus_id: str
     corpus_source_commit: str
@@ -58,14 +58,18 @@ class ReaderResult:
             raise ValueError("Reader v0.2 cannot accept manual intervention")
         if self.outcome is ReadOutcome.TRANSCRIPT_READY and self.transcript is None:
             raise ValueError("ready result requires an exact transcript")
+        if self.outcome is ReadOutcome.TRANSCRIPT_READY and self.profile is None:
+            raise ValueError("ready result requires an inferred profile")
         if self.outcome is ReadOutcome.RECAPTURE_REQUIRED and self.transcript is not None:
             raise ValueError("recapture result cannot contain a transcript")
+        if self.transcript is not None and self.transcript.profile is not self.profile:
+            raise ValueError("result and transcript profiles must match")
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "reader": "QKA1 Reader v0.2",
             "outcome": self.outcome.value,
-            "profile": self.profile.value,
+            "profile": self.profile.value if self.profile is not None else None,
             "profile_sha256": self.profile_sha256,
             "corpus_id": self.corpus_id,
             "corpus_source_commit": self.corpus_source_commit,

@@ -5,10 +5,14 @@ decoding and authentication belong to a separately authored adapter.
 """
 
 from .constants import ALPHABET, ERASURE, PROFILE_LAYOUTS, ProfileName
+from .image import GrayImage, decode_png
+from .interfaces import LocationFailure
 from .model import ReadOutcome, ReaderResult, Transcript
 from .pipeline import ReaderV02
 from .policy import CorpusDescriptor, CorpusPurpose, FrameInput
 from .profile import ReaderProfile
+from .templates import TemplateClassifier
+from .vision import DeterministicLocator
 
 __all__ = [
     "ALPHABET",
@@ -17,10 +21,15 @@ __all__ = [
     "CorpusDescriptor",
     "CorpusPurpose",
     "FrameInput",
+    "GrayImage",
+    "LocationFailure",
     "ProfileName",
     "ReadOutcome",
     "ReaderProfile",
     "ReaderResult",
     "ReaderV02",
+    "TemplateClassifier",
     "Transcript",
+    "DeterministicLocator",
+    "decode_png",
 ]
