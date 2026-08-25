@@ -1,0 +1,155 @@
+{
+  "activation": {
+    "active_registration_present": false,
+    "active_registration_required_path": "artifacts/cloakvault/m19r/registrations/MODEL-FREEZE-ACTIVE.json",
+    "compiled_authority_binding": "REQUIRED_AND_CURRENTLY_UNSET",
+    "comparison_generation_enabled": false,
+    "future_document_shape": {
+      "authority_keys": ["owner_decision_id", "parent_decision_id", "decision_log_commit"],
+      "bindings_keys": ["draft_sha256", "implementation_sha256", "clean_render_manifest_sha256", "payload_registry_sha256"],
+      "scope_exact": {"comparison_image_generation": true, "fresh_anchor_decode": false, "scoring": false},
+      "top_level_keys": ["schema", "status", "authority", "bindings", "scope"]
+    },
+    "required_later_authority": "Owner-ratified follow-up row under QK-DEC-103",
+    "required_schema": "QK-M19R-MODEL-FREEZE-ACTIVATION-V1"
+  },
+  "authority": "QK-DEC-103",
+  "format_version": 1,
+  "model": {
+    "bounds": {
+      "blur_radius_pixels": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 3, "min": 0, "unit": "pixels"},
+      "gain_q16": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 81920, "min": 49152, "unit": "Q16"},
+      "glare_opacity_q16": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 57344, "min": 16384, "unit": "Q16"},
+      "luminance_offset_u8": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 32, "min": -32, "unit": "u8_delta"},
+      "mask_count": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 30, "min": 1, "unit": "features"},
+      "mask_opacity_q16": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 57344, "min": 8192, "unit": "Q16"},
+      "mask_value_u8": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 240, "min": 16, "unit": "u8"},
+      "shear_q16": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 1311, "min": -1311, "unit": "Q16"},
+      "translate_x_pixels": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 31, "min": -31, "unit": "pixels_at_150dpi"},
+      "translate_y_pixels": {"candidate": "OWNER_RATIFICATION_REQUIRED", "max": 31, "min": -31, "unit": "pixels_at_150dpi"}
+    },
+    "class": "qk-m19r-integer-morphology",
+    "class_operators": {
+      "baseline": {"algorithm": "lighting-only-v1", "detail": "no damage feature; dim is 3/4 candidate gain plus -24 u8; glare uses the common diagonal specular band", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "coffee": {"algorithm": "contact-ring-stain-v1", "detail": "1/3/6 deterministic cup-foot rings centered at C for levels 1/2/3", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "crumple": {"algorithm": "integer-warp-and-crease-v1", "detail": "triangular-wave integer warp plus 4/12 crease lines for levels 1/2", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "edge": {"algorithm": "bottom-notch-v1", "detail": "20 mm notch centered at x=67 mm with 17/22/27 mm depth", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "fade": {"algorithm": "footer-abrasion-lighten-v1", "detail": "footer-wide deterministic lightening plus 4/8/12 abrasion strokes", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "fold": {"algorithm": "vertical-crease-v1", "detail": "two-tone vertical crease fixed at x=67 mm with severity-scaled width and opacity", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "locate": {"algorithm": "page-geometry-v1", "detail": "level 0 unchanged; level 1 pinhole projection of a page tilted 20 degrees about its horizontal center line with top edge nearer, virtual camera distance two page heights, Q16 page scale 41943, then exact 15-degree clockwise roll; nearest-neighbor inverse map on white; all four corners in frame before common geometry", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "scratch": {"algorithm": "indexed-cut-lines-v1", "detail": "1/3/6 footer cuts; level 3 is three parallel plus three perpendicular", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "scuff": {"algorithm": "bounded-abrasion-strokes-v1", "detail": "5/15/30 deterministic left-to-right footer strokes, each exact raster span round-half-up(40*image_width/210) and sampled only where the complete 40 mm stroke remains inside F", "ratification": "OWNER_RATIFICATION_REQUIRED"},
+      "water": {"algorithm": "elliptical-pool-stain-v1", "detail": "one deterministic pool at C with severity radius 7/11/16 mm", "ratification": "OWNER_RATIFICATION_REQUIRED"}
+    },
+    "implementation_commit": "PENDING_AT_RATIFICATION",
+    "implementation_path": "artifacts/cloakvault/m19r/synthetic_model.py",
+    "implementation_sha256": "PENDING_AT_RATIFICATION",
+    "numeric_contract": "grayscale-u8; integer-only; Q16 fixed point; SHA-256 counter RNG; clipped-area box mean by O(pixels) separable rolling sums with one half-up output division",
+    "operator_order": ["locate-geometry-if-locate", "translate-and-shear", "gain-and-luminance", "box-blur", "class-specific-operator-except-locate-geometry", "glare"],
+    "version": "candidate-v1-not-active"
+  },
+  "partitions": {
+    "comparison": {
+      "cells": ["c00", "c01", "c02", "c03", "c04", "c05", "c06", "c07", "c08", "c09", "c10", "c11", "c12", "c13", "c14", "c15", "c16", "c17", "c18", "c19", "c20", "c21", "c22", "c23", "c24", "c25", "c26", "c27", "c28"],
+      "expected_images": 1566,
+      "lineages": ["T0", "T1", "T2", "T3", "T4", "T5"],
+      "profiles": ["Rs72_60", "Rs76_60", "Rs80_60"],
+      "realizations": [0, 1, 2],
+      "rule": "18 payloads x 29 cells x 3 realizations; same lineage-cell-realization parameters across all three profiles",
+      "status": "BLOCKED_UNTIL_ACTIVE_MODEL_FREEZE"
+    },
+    "physical_anchors": {
+      "calibration_capture": 1,
+      "fresh_anchor_decode_allowed": false,
+      "locked_holdout_captures": [2, 3],
+      "status": "UNAVAILABLE_UNTIL_RIG_ROW_AND_READINESS"
+    },
+    "reader_synthetic_training_candidate": {
+      "lineages": ["T0", "T3"],
+      "profiles": ["Rs72_60", "Rs76_60", "Rs80_60"],
+      "realizations": [100, 101, 102, 103],
+      "ratification": "OWNER_RATIFICATION_REQUIRED",
+      "seed_domain": "QuietKey/M19-R/training/v1",
+      "status": "DRAFT_NOT_USABLE_FOR_TRAINING"
+    }
+  },
+  "seeds": {
+    "derivation": "SHA256(domain || 0x00 || public_master_seed[32] || lineage_ascii || cell_u8 || realization_u8)",
+    "derivation_domain": "QuietKey/M19-R/synth/v1",
+    "public_master_seed_hex": "bcb683cf38b68a459d3dcf241d7c9c24f785ce2facab2ecfc7f9d3e6692540cf",
+    "realizations": [0, 1, 2],
+    "secrecy": "none; fixed public deterministic test material"
+  },
+  "status": "DRAFT_NOT_ACTIVE",
+  "validation": {
+    "calibration_source": "capture 1 only after rig authorization; captures 2 and 3 excluded",
+    "criteria_profiles": {
+      "candidate-shared-v1": {
+        "blur_and_edge_spectrum": {"edge_energy_ratio_max_q16": 81920, "edge_energy_ratio_min_q16": 49152, "high_edge_fraction_abs_delta_q16_max": 6554, "ratification": "OWNER_RATIFICATION_REQUIRED"},
+        "connectedness": {"component_count_abs_delta_max": 2, "largest_component_fraction_abs_delta_q16_max": 6554, "ratification": "OWNER_RATIFICATION_REQUIRED"},
+        "contrast_and_luminance": {"contrast_iqr_abs_delta_u8_max": 16, "luminance_median_abs_delta_u8_max": 12, "tail_percentile_abs_delta_u8_max": 20, "ratification": "OWNER_RATIFICATION_REQUIRED"},
+        "damage_mask_placement_and_footer_overlap": {"centroid_distance_page_diagonal_q16_max": 1966, "footer_overlap_abs_delta_q16_max": 3277, "ratification": "OWNER_RATIFICATION_REQUIRED"},
+        "geometry": {"corner_max_page_diagonal_q16_max": 1638, "corner_rms_page_diagonal_q16_max": 983, "ratification": "OWNER_RATIFICATION_REQUIRED"},
+        "glare": {"footer_specular_overlap_abs_delta_q16_max": 3277, "specular_centroid_page_diagonal_q16_max": 3277, "ratification": "OWNER_RATIFICATION_REQUIRED"}
+      }
+    },
+    "failure_action": "STOP_NO_ADAPTIVE_RETUNING_OR_REGENERATION",
+    "aggregation": {
+      "anchor_center": "single-capture-1-metric-vector-per-cell",
+      "cross_cell_pooling": "forbidden",
+      "missing_value_rule": "centroid-minus-one;both-absent-pass;one-absent-named-mismatch",
+      "rounding": "integer-only-half-up-where-division-is-marked;otherwise-floor",
+      "synthetic_center": "fieldwise-middle-order-statistic-of-exactly-three-realizations"
+    },
+    "metric_contract": {
+      "absent_centroid": -1,
+      "centroid": "per-axis-sum-pixel-coordinate-times-Q16-over-count-times-axis-pixels-minus-one-half-up;minus-one-minus-one-if-empty",
+      "connectivity": 4,
+      "connectedness": "four-neighbor-components-over-full-frame-difference-mask;largest-fraction-largest-size-over-total-mask-count-half-up",
+      "contrast_luminance": "within-F-p05-p25-median-p75-p95-by-quantile-rule;contrast-IQR=p75-minus-p25",
+      "difference_mask": "one-iff-absolute-observed-minus-clean-is-at-least-24-over-full-frame",
+      "difference_threshold_u8": 24,
+      "edge_spectrum": "within-F-horizontal-and-vertical-forward-absolute-gradients;energy=sum-times-Q16-over-count-times-255-half-up;high-fraction=count-at-least-32-over-count-half-up",
+      "edge_threshold_u8": 32,
+      "footer_bounds": "x=[16,117.6165]mm;y=[274.12,281.00]mm;A4=210x297mm;lower-inclusive-upper-exclusive",
+      "footer_overlap": "difference-mask-count-inside-F-over-total-full-frame-difference-mask-count-half-up;zero-if-mask-empty",
+      "geometry": "each-corner-Euclidean-distance-normalized-by-Q16-page-diagonal-half-up;RMS=isqrt-floor-mean-squared;max=maximum",
+      "geometry_corner_order": "top-left,top-right,bottom-right,bottom-left;coordinates-Q16-page-width-height",
+      "glare_mask": "within-F-one-iff-observed-at-least-250-and-observed-minus-clean-at-least-24",
+      "glare_threshold_u8": 250,
+      "quantile_rule": "sorted-index-floor-(n-1)-times-p"
+    },
+    "per_cell": [
+      {"cell":"c00","identity":"baseline-0-dim-S01","damage_class":"baseline","severity":0,"lighting":"dim","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c01","identity":"baseline-0-glare-S02","damage_class":"baseline","severity":0,"lighting":"glare","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c02","identity":"baseline-0-std-S01","damage_class":"baseline","severity":0,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c03","identity":"baseline-0-std-S02","damage_class":"baseline","severity":0,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c04","identity":"coffee-1-S03","damage_class":"coffee","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c05","identity":"coffee-2-S04","damage_class":"coffee","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c06","identity":"coffee-3-S05","damage_class":"coffee","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c07","identity":"crumple-1-S21","damage_class":"crumple","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c08","identity":"crumple-2-S22","damage_class":"crumple","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c09","identity":"edge-1-S23","damage_class":"edge","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c10","identity":"edge-2-S24","damage_class":"edge","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c11","identity":"edge-3-S25","damage_class":"edge","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c12","identity":"fade-1-S12","damage_class":"fade","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c13","identity":"fade-2-S13","damage_class":"fade","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c14","identity":"fade-3-S14","damage_class":"fade","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c15","identity":"fold-1-S18","damage_class":"fold","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c16","identity":"fold-2-S19","damage_class":"fold","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c17","identity":"fold-3-S20","damage_class":"fold","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c18","identity":"locate-0-S26","damage_class":"locate","severity":0,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c19","identity":"locate-1-S27","damage_class":"locate","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c20","identity":"scratch-1-S15","damage_class":"scratch","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c21","identity":"scratch-2-S16","damage_class":"scratch","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c22","identity":"scratch-3-S17","damage_class":"scratch","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c23","identity":"scuff-1-S09","damage_class":"scuff","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c24","identity":"scuff-2-S10","damage_class":"scuff","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c25","identity":"scuff-3-S11","damage_class":"scuff","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c26","identity":"water-1-S06","damage_class":"water","severity":1,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c27","identity":"water-2-S07","damage_class":"water","severity":2,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"},
+      {"cell":"c28","identity":"water-3-S08","damage_class":"water","severity":3,"lighting":"std","criteria_profile":"candidate-shared-v1","ratification":"OWNER_RATIFICATION_REQUIRED"}
+    ],
+    "rule": "all six metric families evaluated per cell against capture-1-derived centers and these ratified tolerances; all 29 cells must pass before generation"
+  }
+}
