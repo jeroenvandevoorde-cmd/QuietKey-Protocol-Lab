@@ -50,6 +50,10 @@ Thumbs.db
 attached_assets/
 eng.traineddata
 
+# Python bytecode
+__pycache__/
+*.py[cod]
+
 # Reader v0.2 local dev venv (recreate: python3 -m venv artifacts/cloakvault/reader/.venv && pip install numpy pytest)
 artifacts/cloakvault/reader/.venv/
 
